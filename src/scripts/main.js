@@ -21,13 +21,13 @@ var current = JSON.parse(`
 }`);
 
 current.theme = localStorage.getItem("theme");
-if (current.theme === undefined) {
+if (current.theme == undefined || current.theme == null) {
     localStorage.setItem("theme", "black");
     current.theme = "black";
 }
     
 current.font = localStorage.getItem("font");
-if (current.font === undefined) {
+if (current.font == undefined || current.font == null) {
     localStorage.setItem("font", "normal");
     current.font = "normal";
 } 
