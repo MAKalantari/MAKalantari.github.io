@@ -20,9 +20,11 @@ Proprietary and confidential.
         <section>
             <cite><hr/><h1 id="title"></h1><hr/></cite>
             <ul id="content"></ul>
-            <cite><h1>▲ ▼ / ►</h1><h2>┌ Muhammad Ali Kalantari ┐<br/><a>└ telegram @ma_kalantari ┘</a></h2></cite>
+            <cite onclick="notifInfo()"><h1>▲ ▼ / ►</h1><h2>┌ Muhammad Ali Kalantari ┐<br/><a>└ telegram @ma_kalantari ┘</a></h2></cite>
         </section>
     </section>
     <div class="overlay"></div>
+    <div id="notif" class="notif" onclick="this.style.display = 'none'; event.stopPropagation();">
+    </div>
 </body>
 </html>

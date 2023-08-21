@@ -30,3 +30,8 @@
 * {
     cursor: var(--cursor-normal);
  }
+
+ ::selection {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+ }

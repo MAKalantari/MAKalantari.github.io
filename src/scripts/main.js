@@ -5,6 +5,7 @@
 
 const content = document.getElementById("content");
 const title = document.getElementById("title");
+const notifscreen = document.getElementById("notif");
 
 var currentMenu;
 var main_content;
@@ -68,7 +69,7 @@ function generateContents() {
 
     <li>
     <label>phone:</label>
-    <button onclick="navigator.clipboard.writeText('+989939927949'); notif('copied');">+98 993 992 7949</button>
+    <button onclick="navigator.clipboard.writeText('+989939927949'); notif('COPIED: +989939927949 <br/>INTO YOUR CLIPBOARD.', 'PHONE NUMBER');">+98 993 992 7949</button>
     </li>
     <br/>
     <li><button onclick="setContent(main_content, 'MAIN')">BACK</button></li>
@@ -164,7 +165,39 @@ function ifReturn(statement, returnTrue, returnFalse) {
         return returnTrue;
     return returnFalse;
 }
+function closeNitification() {
+    notifscreen.style.display = "none";
+    Notification.innerHTML = "";
+}
+function notif(input, title="ALERT", buttons = ["OK"], functions = ['closeNitification()']) {
+    notifscreen.style.display = "flex";
+    var _buttons;
+    for (var i = 0; i < Math.min(buttons.length, functions.length); i++) {
+        buttons = `<button onclick="` + functions[i] + `">` + buttons[i] + `</button>`
+    }
 
-function notif(input) {
-    alert(input);
+    const content =`
+    <section onclick="event.stopPropagation();">
+    <h1>${title}</h1>
+    <span>${input}</span>
+    ${buttons}
+    </section>
+    `;
+    notifscreen.innerHTML = content;
+}
+
+function notifInfo() {
+    const _content = `
+    Muhammad Ali Kalantari
+    <br/>
+    C++, GAME AND APPLICATION DEVELOPER, WEB DESIGNER.
+    <hr/>
+    - Links:
+    <br/>
+    <a href='https://github.com/MAKalantari' target='_blank'>[1] GITHUB PERSONAL</a>
+    <a href='https://github.com/MAKalantari' target='_blank'>[2] GITHUB ANTIQUEOCEAN</a>
+    <a href='https://t.me/MA_Kalantari' target='_blank'>[3] TELEGRAM</a>
+    <a href='https://reddit.com/u/antiqueocean' target='_blank'>[4] REDDIT</a>
+    `;
+    notif(_content, "INFO");
 }
