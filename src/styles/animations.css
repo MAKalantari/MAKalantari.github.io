@@ -21,13 +21,13 @@
 
 @keyframes glitch{
     2%,32%{
-      transform: translate(2px,-2px) skew(0deg);
+      transform: translate(calc(var(--one) * 2px),calc(var(--one) * -2px)) skew(0deg);
     }
     4%,30%{
-      transform: translate(-2px,0) skew(0deg);
+      transform: translate(calc(var(--one) * -2px),0) skew(0deg);
     }
     34%{
-      transform: translate(0,0) skew(8deg); 
+      transform: translate(0,0) skew(calc(var(--one) * 8deg)); 
     }
     50%{
         transform: translate(0,0) skew(0deg); 
@@ -35,13 +35,13 @@
 }
 @keyframes glitch-minor{
     1%,16%{
-      transform: translate(1px,-1px) skew(0deg);
+      transform: translate(calc(var(--one) * 1px),calc(var(--one) * -1px)) skew(0deg);
     }
     2%,15%{
-      transform: translate(-1px,0px) skew(0deg);
+      transform: translate(calc(var(--one) * -1px),0px) skew(0deg);
     }
     15.5%{
-      transform: translate(0,0) skew(2deg); 
+      transform: translate(0,0) skew(calc(var(--one) * 2deg)); 
     }
     
 

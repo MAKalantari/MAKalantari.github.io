@@ -15,16 +15,6 @@
 :root {
     /* [presets] */
     user-select: none;
-
-    /* [#  variables] */
-    /* [*] Chromatic Aberration Effect */
-    --ca-outer-minor: drop-shadow(3px 3px 0 rgba(255, 0, 0, 0.4)) drop-shadow(-2px -2px 0 rgba(0, 255, 0, 0.4)) ;
-    --ca-inner-minor: inset 1px 1px 0 rgba(0, 0, 255, 0.5);
-    --ca-outer-major: drop-shadow(4px 4px 0 rgba(255, 0, 0, 0.4)) drop-shadow(-3px -3px 0 rgba(0, 255, 0, 0.4));
-    --ca-inner-major: 2px 2px 0 rgba(0, 255, 255, 1);
-
-
-    
 }
 
 * {

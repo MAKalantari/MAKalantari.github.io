@@ -18,7 +18,8 @@ var options_content;
 var current = JSON.parse(`
 {
     "theme":"",
-    "font":""
+    "font":"",
+    "effects":""
 }`);
 
 current.theme = localStorage.getItem("theme");
@@ -31,7 +32,14 @@ current.font = localStorage.getItem("font");
 if (current.font == undefined || current.font == null) {
     localStorage.setItem("font", "normal");
     current.font = "normal";
+}
+
+current.effects = localStorage.getItem("effects");
+if (current.effects == undefined || current.effects == null) {
+    localStorage.setItem("effects", "on");
+    current.effects = "on";
 } 
+
 
 
 
@@ -106,7 +114,7 @@ function generateContents() {
     `;
 
     options_content = `
-    <label>themes:</label>
+    <label>THEMES:</label>
     <li>
     <button onclick="setDocumentAttribute('theme', 'black')">BLACK</button>
     </li>
@@ -117,7 +125,7 @@ function generateContents() {
     <button onclick="setDocumentAttribute('theme', 'blue')">BLUE</button>
     </li>
     <br/>
-    <label>font size:</label>
+    <label>FONT SIZE:</label>
     <li>
     <button onclick="setDocumentAttribute('font', 'normal')">NORMAL</button>
     </li>
@@ -125,7 +133,15 @@ function generateContents() {
     <button onclick="setDocumentAttribute('font', 'big')">BIG</button>
     </li>
 
-    <br/>
+    <label>EFFECTS:</label>
+    <li>
+    <button onclick="setDocumentAttribute('effects', 'on')">ENABLE</button>
+    </li>
+    <li>
+    <button onclick="setDocumentAttribute('effects', 'off')">DISABLE</button>
+    </li>
+
+    <hr/>
     <li><button onclick="setContent(main_content, 'MAIN')">BACK</button></li>
     `;
 }
@@ -135,6 +151,7 @@ function init(){
     setContent(main_content, "MAIN");
     setDocumentAttribute("theme", current.theme);
     setDocumentAttribute("font", current.font);
+    setDocumentAttribute("effects", current.effects);
 } init();
 
 function setDocumentAttribute(attr, input) {
