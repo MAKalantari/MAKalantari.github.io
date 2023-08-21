@@ -1,0 +1,17 @@
+@import "fonts.css";
+@import "scaling.css";
+@import "primary.css";
+@import "secondary.css";
+
+:root {
+    /* [presets] */
+    user-select: none;
+
+    /* [#  variables] */
+    /* [*] Chromatic Aberration Effect */
+    --ca-outer-minor: drop-shadow(2px 2px 0 red) drop-shadow(-2px -2px 0 green) ;
+    --ca-inner-minor: inset 1px 1px 0 blue;
+    --ca-outer-major: drop-shadow(3px 3px 0 red) drop-shadow(-3px -3px 0 green);
+    --ca-inner-major: inset 2px 2px 0 blue;
+    
+}

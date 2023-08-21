@@ -1,0 +1,9 @@
+@font-face {
+    font-family: vcr;
+    src: url("../assets/fonts/VCR_OSD_MONO.ttf");
+}
+
+@font-face {
+    font-family: VCR;
+    src: url("../assets/fonts/VCR_OSD_MONO.ttf");
+}
