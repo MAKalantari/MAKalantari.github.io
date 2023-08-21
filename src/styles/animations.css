@@ -1,0 +1,76 @@
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    46% {
+        opacity: 1;
+    }
+    46.1% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    50.1% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes glitch{
+    2%,32%{
+      transform: translate(2px,-2px) skew(0deg);
+    }
+    4%,30%{
+      transform: translate(-2px,0) skew(0deg);
+    }
+    34%{
+      transform: translate(0,0) skew(8deg); 
+    }
+    50%{
+        transform: translate(0,0) skew(0deg); 
+      }
+}
+@keyframes glitch-minor{
+    1%,16%{
+      transform: translate(1px,-1px) skew(0deg);
+    }
+    2%,15%{
+      transform: translate(-1px,0px) skew(0deg);
+    }
+    15.5%{
+      transform: translate(0,0) skew(2deg); 
+    }
+    
+
+}
+
+@keyframes disappear{
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    50.1%{
+        opacity: 0.5;
+    }
+    99.9%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 0;
+    }
+    
+}
+
+@keyframes overlay-anim {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: 8px;
+    }
+}

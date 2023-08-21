@@ -1,0 +1,43 @@
+.theme-black {
+    --bg-color: #000;
+    --text-color: #e6e6e6;
+    /* [*] cursors */
+    --cursor-normal: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" style="font-size:28px;"><text y="25%">❚</text></svg>') 16 0, auto;
+    --cursor-pointer: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" border="1px" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, pointer;
+}
+
+.theme-blue {
+    --bg-color: #0000ff;
+    --text-color: #fff;
+
+    /* [*] cursors */
+    --cursor-normal: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23fff" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, auto;
+    --cursor-pointer: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23fff" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, pointer;
+}
+
+.theme-grey {
+    --bg-color: #111;
+    --text-color: #e6e6e6;
+
+    /* [*] cursors */
+    --cursor-normal: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, auto;
+    --cursor-pointer: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, pointer;
+}
+
+.font-normal {
+    --font-tiny: 12px;
+    --font-small: 14px;
+    --font-medium: 16px;
+    --font-big: 20px;
+    --font-bigger: 22px;
+    --font-huge: 24px;
+}
+
+.font-big {
+    --font-tiny: 16px;
+    --font-small: 18px;
+    --font-medium: 20px;
+    --font-big: 22px;
+    --font-bigger: 24px;
+    --font-huge: 26px;
+}
