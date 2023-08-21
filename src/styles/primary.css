@@ -1,3 +1,8 @@
+/* Copyright (C) 2023 muhammad ali kalantari <mk3000ss@gmail.com> - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential.
+ */
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color) !important;
@@ -48,7 +53,7 @@ body > section > h1 {
 body > section > section {
     width: 100%;
     align-self: center;
-    max-width: 400px;
+    max-width: 440px;
     gap: 4px;
     flex: 1 1;
     display: flex;
@@ -107,7 +112,8 @@ body > section > section > ul > li::before {
     align-self: center;
 }
 
-body > section > section > ul > li:hover::before {
+body > section > section > ul > li:hover::before,
+body > section > section > ul > li:active::before {
     visibility: visible;
 }
 
@@ -144,7 +150,8 @@ body > section > section > ul > li > button {
     letter-spacing: 2px;
 }
 
-body > section > section > ul > li:hover > button {
+body > section > section > ul > li:hover > button,
+body > section > section > ul > li:active > button {
     background-color: var(--text-color);
     color: var(--bg-color);
 
