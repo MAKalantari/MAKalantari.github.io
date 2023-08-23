@@ -125,6 +125,7 @@ body {
 
 .topbar{
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
     width: 100%;
     height: calc(var(--font-bigger) * 3);
@@ -135,6 +136,7 @@ body {
     box-sizing: border-box;
     justify-content: center;
     z-index: 8;
+    overflow: hidden;
 }
 
 .topbar > section{
@@ -218,6 +220,18 @@ body {
     color: var(--topbar-text-color-faded);
     font-size: var(--font-big);
     cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+hr.dash {
+    margin: none;
+    padding: none;
+    border: none;
+    border-right: 1px solid var(--topbar-text-color);
+    width: 1px;
+    height: 15%;
+    transform: rotateZ(45deg);
 }
 
 .topbar > section > .mid > button:hover {
@@ -288,7 +302,7 @@ body {
     padding: calc(var(--font-tiny) / 2 + 2px);
     background-color: var(--header-background-color);
     animation: header-background-image-anim 4s infinite linear,
-    header-background-position-anim 40s infinite linear;
+    var(--header-move-anim-check, header-background-position-anim) 32s infinite linear;
     background-size: calc(var(--font-big) * 2) calc(var(--font-big) * 2) ;
     background-position-y: 10px;
     box-sizing: border-box;
@@ -296,7 +310,7 @@ body {
     justify-content: center;
     height: 400px;
     box-shadow: inset 0 8px 32px -4px var(--header-background-color); 
-    transition-duration: 0.25s;
+
     position: relative;
 }
 
@@ -318,25 +332,26 @@ body {
     width: 100%;
     max-width: var(--content-width-limit);
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
     justify-content: center;
     z-index: 1;
 }
 
 .header > section > .header-spacer {
-    height: 15%;
+    height: 25%;
     transition-duration: 0.5s;
 }
 
 .header > section > cite{
-    top: 50%;
     align-self: center;
     font-style: normal;
     color: var(--header-text-color);
     text-shadow: 0 0 4px 2px black; 
     user-select: none;
+    position: absolute;
+    left: var(--transformX-amount, 50%);
+    top: var(--transformY-amount, 100px);
+    transform: translateX(var(--transformX-check, -50%));
+    width: max-content;
 }
 
 
@@ -405,7 +420,6 @@ body {
 
 
 .header > section > footer{
-    align-self: center;
     margin: 0;
     padding: 0;
     color: var(--header-text-color);
@@ -416,6 +430,11 @@ body {
     opacity: 0.66;
     user-select: none;
     transition-duration: 0.75s;
+    position: absolute;
+    bottom: var(--font-tiny);
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
 }
 
 .header > section > footer:hover{
@@ -427,6 +446,8 @@ body {
 .scrollbar {
     width: 100%;
     position: sticky;
+    position: -webkit-sticky;
+    align-self: flex-end;
     top: calc(var(--font-bigger) * 3);
     height: calc(var(--font-tiny) / 2);
     background-color: var(--scrollbar-background-color);
@@ -488,6 +509,7 @@ body {
 
 .upper > .about{
     display: flex;
+    min-width: 320px;;
     flex: 1 1;
     flex-direction: column;
     gap: calc(var(--font-tiny) / 2);

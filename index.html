@@ -12,9 +12,9 @@
 <body>
     <section class="feed">
         <section>
-            <a href="old" target="_blank">old website</a>
-            <hr/>
-            <a>feed</a>
+            <a href="old" target="_blank">old <n class="auto-hide">website</n></a>
+            <hr class="auto-hide"/>
+            <a class="auto-hide">feed</a>
             <div class="spacer"></div>
             <div class="item">
                 <button id="font_button">Medium</button>
@@ -42,13 +42,16 @@
 
     <section class="topbar">
         <section>
-            <div class="logo"></div>
-            <div class="spacer"></div>
+            <div class="logo auto-hide"></div>
+            <div class="spacer auto-hide"></div>
             <div class="mid">
-                <button>About me</button>
+                <button class="auto-hide">About me</button>
+                <hr class="dash auto-hide">
                 <button>Contact me</button>
+                <hr class="dash">
                 <button>Projects</button>
-                <button>Blog</button>
+                <hr class="dash auto-hide">
+                <button class="auto-hide">Blog</button>
             </div>
             <div class="spacer"></div>
             <button>Hire</button>
@@ -59,7 +62,7 @@
         <div class="cover"></div>
         <section>
             <div id="headerSpacer" class="header-spacer"></div>
-            <cite>
+            <cite id="headerCite">
                 <span>@</span>
                 <span onclick="window.open('https://github.com/MAKalantari', '_blank');">MAKalantari</span>
                 <br/>
@@ -81,8 +84,8 @@
         <div id="scrollbar"></div>
     </div>
 
-    <section class="upper">
-        <ul class="from-blog">
+    <section class="upper auto-wrap ">
+        <ul class="from-blog auto-fill-width">
             <div class="section-title">From the Blog</div>
             <a href="google.com">test1</a>
             <a>test2</a>
@@ -106,12 +109,7 @@
         <li></li>
         <li></li>
     </ul>
-        
-    <section>
-        asd
-        <br/><br/><br/>123<br/><br/><br/><br/><br/>123123<br/><br/><br/><br/>123123<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>12312354124<br/><br/><br/><br/><br/>asdsaaf<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>asd
-        <br/><br/><br/>123<br/><br/><br/><br/><br/>123123<br/><br/><br/><br/>123123<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>12312354124<br/><br/><br/><br/><br/>asdsaaf<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        asdf
-    </section>
+    
+
 </body>
 </html>

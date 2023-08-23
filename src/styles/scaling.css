@@ -1,0 +1,17 @@
+@media (max-width: 719px) {
+    .auto-hide {
+        display: none !important;
+    }
+
+    .auto-wrap {
+        flex-wrap: wrap !important;
+    }
+
+    .auto-fill-width {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 720px) {
+
+}
