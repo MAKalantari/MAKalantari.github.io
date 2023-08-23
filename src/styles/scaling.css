@@ -1,4 +1,19 @@
 @media (max-width: 719px) {
+    .topbar{
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .topbar > section > .mid::after {
+        content: "";
+        width: 0;
+    }
+
+    .topbar > section > .mid::before {
+        content: "";
+        width: 0;
+    }
+
     .auto-hide {
         display: none !important;
     }

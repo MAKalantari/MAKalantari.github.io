@@ -5,7 +5,7 @@
     
     --post-background-color: #fff;
     --post-text-color: #101010;
-    --post-fade-color-faded: #6D6D6D;
+    --post-text-color-faded: #6D6D6D;
 
     --feed-background-color: #3A3A3A;
     --feed-text-color: #fff;
@@ -24,6 +24,11 @@
 
     --scrollbar-background-color: #101010;
     --scrollbar-bar-color: #bbb;
+
+    --header-bg1: url(../assets/images/header-bg1.svg);
+    --header-bg2: url(../assets/images/header-bg2.svg);
+    --header-bg3: url(../assets/images/header-bg3.svg);
+    --header-bg4: url(../assets/images/header-bg4.svg);
 }
 
 .theme-dark {
@@ -33,7 +38,7 @@
     
     --post-background-color: #000000;
     --post-text-color: #efefef;
-    --post-fade-color-faded: #929292;
+    --post-text-color-faded: #929292;
 
     --feed-background-color: #3A3A3A;
     --feed-text-color: #fff;
@@ -50,7 +55,13 @@
 
     --scrollbar-background-color: #101010;
     --scrollbar-bar-color: #d3d3d3;
+
+    --header-bg1: url(../assets/images/header-bg1.svg);
+    --header-bg2: url(../assets/images/header-bg2.svg);
+    --header-bg3: url(../assets/images/header-bg3.svg);
+    --header-bg4: url(../assets/images/header-bg4.svg);
 }
+
 
 .theme-light {
     --main-background-color: #f8f8f8;
@@ -59,7 +70,7 @@
     
     --post-background-color: #fff;
     --post-text-color: #101010;
-    --post-fade-color-faded: #6D6D6D;
+    --post-text-color-faded: #6D6D6D;
 
     --feed-background-color: #ddd;
     --feed-text-color: #000;
@@ -78,7 +89,13 @@
 
     --scrollbar-background-color: #efefef;
     --scrollbar-bar-color: #444;
+
+    --header-bg1: url(../assets/images/header-bg1_light.svg);
+    --header-bg2: url(../assets/images/header-bg2_light.svg);
+    --header-bg3: url(../assets/images/header-bg3_light.svg);
+    --header-bg4: url(../assets/images/header-bg4_light.svg);
 }
+
 
 .font-small {
     --font-tiny: 8px;
