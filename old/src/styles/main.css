@@ -1,0 +1,27 @@
+/* Copyright (C) 2023 muhammad ali kalantari <mk3000ss@gmail.com> - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential.
+ */
+ 
+@import "fonts.css";
+@import "scaling.css";
+@import "themes.css";
+@import "animations.css";
+
+@import "primary.css";
+@import "secondary.css";
+
+
+:root {
+    /* [presets] */
+    user-select: none;
+}
+
+* {
+    cursor: var(--cursor-normal);
+ }
+
+ ::selection {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+ }

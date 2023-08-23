@@ -1,68 +1,121 @@
-/* Copyright (C) 2023 muhammad ali kalantari <mk3000ss@gmail.com> - All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential.
- */
- 
-.theme-black {
-    --bg-color: #000;
-    --text-color: #e6e6e6;
-    /* [*] cursors */
-    --cursor-normal: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" style="font-size:28px;"><text y="25%">❚</text></svg>') 16 0, auto;
-    --cursor-pointer: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" border="1px" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, pointer;
+.theme-mix {
+    --main-background-color: #f6f6f6;
+    --main-text-color: #6B6B6B;
+    --main-fade-color: #DDD;
+    
+    --post-background-color: #fff;
+    --post-text-color: #101010;
+    --post-fade-color-faded: #6D6D6D;
+
+    --feed-background-color: #3A3A3A;
+    --feed-text-color: #fff;
+    --feed-text-color-faded: #B9B9B9;
+
+    --topbar-background-color: #101010;
+    --topbar-text-color: #eee;
+    --topbar-text-color-faded: #ccc;
+
+
+    --header-background-color: #242424;
+    --header-background-color-2: #808080;
+    --header-text-color: #fff;
+    --header-shade-start-color: rgba(0, 0, 0, 0.66);
+    --header-shade-end-color: rgba(0, 0, 0, 0);
+
+    --scrollbar-background-color: #101010;
+    --scrollbar-bar-color: #bbb;
 }
 
-.theme-blue {
-    --bg-color: #0000ff;
-    --text-color: #fff;
+.theme-dark {
+    --main-background-color: #242424;
+    --main-text-color: #bbb;
+    --main-fade-color: #484848;
+    
+    --post-background-color: #000000;
+    --post-text-color: #efefef;
+    --post-fade-color-faded: #929292;
 
-    /* [*] cursors */
-    --cursor-normal: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23fff" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, auto;
-    --cursor-pointer: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23fff" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, pointer;
+    --feed-background-color: #3A3A3A;
+    --feed-text-color: #fff;
+    --feed-text-color-faded: #B9B9B9;
+
+    --topbar-background-color: #101010;
+    --topbar-text-color: #eee;
+
+    --header-background-color: #242424;
+    --header-background-color-2: #eee;
+    --header-text-color: #fff;
+    --header-shade-start-color: rgba(0, 0, 0, 1);
+    --header-shade-end-color: rgba(0, 0, 0, 0);
+
+    --scrollbar-background-color: #101010;
+    --scrollbar-bar-color: #d3d3d3;
 }
 
-.theme-grey {
-    --bg-color: #111;
-    --text-color: #e6e6e6;
+.theme-light {
+    --main-background-color: #f8f8f8;
+    --main-text-color: #6B6B6B;
+    --main-fade-color: #DDD;
+    
+    --post-background-color: #fff;
+    --post-text-color: #101010;
+    --post-fade-color-faded: #6D6D6D;
 
-    /* [*] cursors */
-    --cursor-normal: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, auto;
-    --cursor-pointer: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, pointer;
+    --feed-background-color: #ddd;
+    --feed-text-color: #000;
+    --feed-text-color-faded: #464646;
+
+    --topbar-background-color: #efefef;
+    --topbar-text-color: #111;
+    --topbar-text-color-faded: #333;
+
+
+    --header-background-color: #dbdbdb;
+    --header-background-color-2: #7f7f7f;
+    --header-text-color: #000;
+    --header-shade-start-color: rgba(255, 255, 255, 0.66);
+    --header-shade-end-color: rgba(255, 255, 255, 0);
+
+    --scrollbar-background-color: #efefef;
+    --scrollbar-bar-color: #444;
 }
 
-.font-normal {
-    --font-tiny: 12px;
+.font-small {
+    --font-tiny: 8px;
+    --font-smaller: 10px;
+    --font-small: 12px;
+    --font-medium: 14px;
+    --font-big: 16px;
+    --font-bigger: 18px;
+    --font-huge: 22px;
+}
+
+.font-medium {
+    --font-tiny: 10px;
+    --font-smaller: 12px;
     --font-small: 14px;
     --font-medium: 16px;
-    --font-big: 20px;
-    --font-bigger: 22px;
+    --font-big: 18px;
+    --font-bigger: 20px;
     --font-huge: 24px;
 }
 
 .font-big {
-    --font-tiny: 16px;
+    --font-tiny: 12px;
+    --font-smaller: 14px;
+    --font-small: 16px;
+    --font-medium: 18px;
+    --font-big: 20px;
+    --font-bigger: 22px;
+    --font-huge: 26px;
+}
+
+.font-huge {
+    --font-tiny: 14px;
+    --font-smaller: 16px;
     --font-small: 18px;
     --font-medium: 20px;
     --font-big: 22px;
     --font-bigger: 24px;
-    --font-huge: 26px;
-}
-
-.effects-on {
-    --overlay-opacity: 0.05;
-
-        /* [*] Chromatic Aberration Effect */
-        --ca-outer-minor: drop-shadow(3px 3px 0 rgba(255, 0, 0, 0.4)) drop-shadow(-2px -2px 0 rgba(0, 255, 0, 0.4)) ;
-        --ca-inner-minor: inset 1px 1px 0 rgba(0, 0, 255, 0.5);
-        --ca-outer-major: drop-shadow(4px 4px 0 rgba(255, 0, 0, 0.4)) drop-shadow(-3px -3px 0 rgba(0, 255, 0, 0.4));
-        --ca-inner-major: 2px 2px 0 rgba(0, 255, 255, 1);
-        --one: 1;
-}
-
-.effects-off {
-    --overlay-opacity: 0;
-    --ca-outer-minor: unset;
-    --ca-inner-minor: unset;
-    --ca-outer-major: unset;
-    --ca-inner-major: unset;
-    --one: 0;
+    --font-huge: 28px;
 }

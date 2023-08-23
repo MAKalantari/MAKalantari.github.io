@@ -1,0 +1,68 @@
+/* Copyright (C) 2023 muhammad ali kalantari <mk3000ss@gmail.com> - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential.
+ */
+ 
+.old-theme-black {
+    --bg-color: #000;
+    --text-color: #e6e6e6;
+    /* [*] cursors */
+    --cursor-normal: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" style="font-size:28px;"><text y="25%">❚</text></svg>') 16 0, auto;
+    --cursor-pointer: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" border="1px" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, pointer;
+}
+
+.old-theme-blue {
+    --bg-color: #0000ff;
+    --text-color: #fff;
+
+    /* [*] cursors */
+    --cursor-normal: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23fff" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, auto;
+    --cursor-pointer: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23fff" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, pointer;
+}
+
+.old-theme-grey {
+    --bg-color: #111;
+    --text-color: #e6e6e6;
+
+    /* [*] cursors */
+    --cursor-normal: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, auto;
+    --cursor-pointer: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="40" height="48" viewport="0 0 100 100" fill="%23E6E6E6" style="font-size:28px;"><text y="50%">❚</text></svg>') 16 0, pointer;
+}
+
+.old-font-normal {
+    --font-tiny: 12px;
+    --font-small: 14px;
+    --font-medium: 16px;
+    --font-big: 20px;
+    --font-bigger: 22px;
+    --font-huge: 24px;
+}
+
+.old-font-big {
+    --font-tiny: 16px;
+    --font-small: 18px;
+    --font-medium: 20px;
+    --font-big: 22px;
+    --font-bigger: 24px;
+    --font-huge: 26px;
+}
+
+.old-effects-on {
+    --overlay-opacity: 0.05;
+
+        /* [*] Chromatic Aberration Effect */
+        --ca-outer-minor: drop-shadow(3px 3px 0 rgba(255, 0, 0, 0.4)) drop-shadow(-2px -2px 0 rgba(0, 255, 0, 0.4)) ;
+        --ca-inner-minor: inset 1px 1px 0 rgba(0, 0, 255, 0.5);
+        --ca-outer-major: drop-shadow(4px 4px 0 rgba(255, 0, 0, 0.4)) drop-shadow(-3px -3px 0 rgba(0, 255, 0, 0.4));
+        --ca-inner-major: 2px 2px 0 rgba(0, 255, 255, 1);
+        --one: 1;
+}
+
+.old-effects-off {
+    --overlay-opacity: 0;
+    --ca-outer-minor: unset;
+    --ca-inner-minor: unset;
+    --ca-outer-major: unset;
+    --ca-inner-major: unset;
+    --one: 0;
+}
