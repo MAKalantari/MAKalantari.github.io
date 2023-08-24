@@ -5,74 +5,65 @@ const headerCite = document.getElementById("headerCite");
 const win = document.getElementById("window");
 const winContent = document.getElementById("windowContent");
 
+var locale = null;
+
 const window_settings = `
-<h1>settings</h1>
-<h2>themes</h2>
+<h1 fetchlang="settings.0">settings</h1>
+<h2 fetchlang="settings.1"></h2>
 <ul id="theme-settings">
     <li data="mix" class="as-button" onclick="setDocumentAttribute('theme', 'mix'); openSettings();">
-        <label>Mix: [</label>
+        <label fetchlang="settings.2"></label>
         <div class="color" style="--color: #3A3A3A"/></div>
         <div class="color" style="--color: #f6f6f6"/></div>
         <div class="color" style="--color: #101010"/></div>
         <div class="color" style="--color: #fff"/></div>
-        <label> ]</label>
         <div class="spacer"></div>
         <div class="radio-button" style="--label: '';"></div>
     </li>
 
     <li data="light" class="as-button" onclick="setDocumentAttribute('theme', 'light'); openSettings();">
-        <label>Light: [</label>
+        <label fetchlang="settings.3"></label>
         <div class="color" style="--color: #ddd"/></div>
         <div class="color" style="--color: #f8f8f8"/></div>
         <div class="color" style="--color: #101010"/></div>
         <div class="color" style="--color: #fff"/></div>
-        <label> ]</label>
         <div class="spacer"></div>
         <div class="radio-button" style="--label: '';"></div>
     </li>
 
     <li data="dark" class="as-button" onclick="setDocumentAttribute('theme', 'dark'); openSettings();">
-        <label>Dark: [</label>
+        <label fetchlang="settings.4"></label>
         <div class="color" style="--color: #3A3A3A"/></div>
         <div class="color" style="--color: #242424"/></div>
         <div class="color" style="--color: #efefef"/></div>
         <div class="color" style="--color: #000"/></div>
-        <label> ]</label>
         <div class="spacer"></div>
         <div class="radio-button" style="--label: '';"></div>
     </li>
 </ul>
 
-<h2>font size</h2>
+<h2 fetchlang="settings.5"></h2>
 <ul id="font-settings">
     <li data="small" class="as-button" onclick="setDocumentAttribute('font', 'small'); openSettings();">
-        <label>small [</label>
-        <label style="font-size: var(--font-small);">aA zZ 01 09</label>
-        <label>]</label>
+        <label fetchlang="settings.6">small</label>
         <div class="spacer"></div>
         <div class="radio-button" style="--label: '';"></div>
     </li>
 
     <li data="medium" class="as-button" onclick="setDocumentAttribute('font', 'medium'); openSettings();">
-        <label>medium [</label>
-        <label style="font-size: var(--font-medium);">aA zZ 01 09</label>
-        <label>]</label>
+        <label fetchlang="settings.7">medium</label>
         <div class="spacer"></div>
         <div class="radio-button" style="--label: '';"></div>
     </li>
 
     <li data="big" class="as-button" onclick="setDocumentAttribute('font', 'big'); openSettings();">
-        <label>big [</label>
-        <label style="font-size: var(--font-big);">aA zZ 01 09</label>
-        <label>]</label>
+        <label fetchlang="settings.8">big</label>
         <div class="spacer"></div>
         <div class="radio-button" style="--label: '';"></div>
     </li>
 
     <li data="huge" class="as-button" onclick="setDocumentAttribute('font', 'huge'); openSettings();">
-        <label>huge [</label>
-        <label style="font-size: var(--font-huge);">aA zZ 01 09</label>
-        <label>]</label>
+        <label fetchlang="settings.9">huge</label>
         <div class="spacer"></div>
         <div class="radio-button" style="--label: '';"></div>
     </li>
@@ -118,27 +109,96 @@ var current = JSON.parse(`
 
 current.theme = localStorage.getItem("theme");
 if (current.theme == undefined || current.theme == null) {
-    localStorage.setItem("theme", "mix");
-    current.theme = "mix";
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        localStorage.setItem("theme", "light");
+        current.theme = "light";
+    } else {
+        localStorage.setItem("theme", "mix");
+        current.theme = "mix";
+    }
 }
     
 current.font = localStorage.getItem("font");
 if (current.font == undefined || current.font == null) {
-    localStorage.setItem("font", "medium");
-    current.font = "medium";
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        localStorage.setItem("font", "small");
+        current.font = "small";
+    } else {
+        localStorage.setItem("font", "medium");
+        current.font = "medium";
+    }
+
 }
 
 current.language = localStorage.getItem("language");
-if (current.language == undefined || current.effects == null) {
-    localStorage.setItem("language", "english");
-    current.language = "english";
+if (current.language == undefined || current.language == null) {
+    var _language = "english"
+
+    if (window.navigator.language == "fa")
+        _language = "persian";
+
+    localStorage.setItem("language", _language);
+    current.language = _language;
 } 
+
+function setLanguage(input) {
+    setDocumentAttribute("language", input);
+}
+
+function getLanguage(update = true){
+    const localePath = "src/locales/" + current.language + ".json";
+    fetch(localePath)
+    .then((response) => response.json())
+    .then((data) => {
+      locale = data[0];
+      if (update)
+        updateLanguage();
+    });
+
+}
+
+function updateLanguage(element = document){
+    const elements = element.querySelectorAll('[fetchlang]');
+
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i]) {
+            const _data = elements[i].getAttribute("fetchlang");
+            if (_data != null) {
+                const _array = elements[i].getAttribute("fetchlang").split('.');
+                if (_array[0] == "!only") {
+                    if (_array[1] != current.language)  
+                    elements[i].remove();
+                }
+                else
+                    elements[i].innerHTML = locale[_array[0]][+ _array[1]];
+            }
+        }
+    }
+}
+
+function switchLanguage() {
+    console.log(current.language);
+    if(current.language == "english")
+        setLanguage("persian");
+    else
+        setLanguage("english");
+    location.reload();
+}
+function setInnerByLang(element) {
+    const data = element.getAttribute("fetchlang").split('.');
+    element.innerHTML = locale[data[0]][+ data[1]];
+}
 
 function init(){
     setDocumentAttribute("theme", current.theme);
     setDocumentAttribute("font", current.font);
-    setDocumentAttribute("language", current.effects);
-
+    setLanguage(current.language);
+    getLanguage(true);
+    if (current.language == "english") {
+        document.documentElement.style.setProperty("--text-direction", "ltr");
+    } else if (current.language  == "persian") {
+        document.documentElement.style.setProperty("--text-direction", "rtl");
+    }
 } init();
 
 
@@ -167,12 +227,12 @@ function closeWindow() {
 function openWindow(input) {
     winContent.innerHTML = input;
     win.style.display = "block";
+    updateLanguage(winContent);
 }
 
 function updateLooks() {
     document.getElementById("theme_button").innerHTML = current.theme;
     document.getElementById("font_button").innerHTML = current.font;
-    document.getElementById("language_button").innerHTML = current.language;
 }
 
 function setDocumentAttribute(attr, input, _function = null) {

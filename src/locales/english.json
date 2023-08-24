@@ -1,0 +1,13 @@
+[{
+    "name":["Muhammad Ali Kalantari", "Muhammad Ali","KALANTAR"],
+    "buttons":["old <n class='auto-hide'>website</n>", "feed", "About me", "Contact me", "Projects", "Blog", "Hire", "فارسی"],
+    "titles":["About Me", "From The Blog", "Projects", "Contact me"],
+    "settings":["Settings", "Themes", "Mix", "Light", "Dark", "Font Size", "Small", "Medium", "Big", "Huge"],
+    "other":["© All Rights Reserved", "free", "paid", "open-sorce", "closed-source", "source-available", "Desktop", "Mobile", "Web app"],
+    "about":["<span>Hi, I'm Muhammad Ali Kalantari, web designer, programmer and game developer.<br/><h1>Web Design</h1>the current web page that you are on is an example of my work. i have worked on mostly personal websites. like <a href='https://antiqueocean.github.io/avp-public/' target='_blank'>this</a> or <a href='https://antiqueocean.github.io/' target='_blank'>this</a>.<h1>Programming</h1>i also know c++ and have worked with opengl, qt, sdl, etc.<br/>my current and under development Video Player, called <b>AVP</b> is available for <a href='https://antiqueocean.github.io/avp-public/' target='_blank'>download</a> (alpha stage). it's not c++ but electron.js and mainly made for linux desktop.<h1>Game Dev</h1>i have worked on my own graphics engine before (using opengl) and know some stuff about the world of game engines.<br/>i know unrealengine pretty well and in the past 3 years i have worked on numerous personal projects. yet have much to learn.<br/>maybe in the next year or two i release my currently under development mobile game.</span>"],
+    "project_1":["AVP", "<b>Antique Video Player</b>, a free and cross-platform video player for desktop. Made with Js and Electron. this open-source project is available for download.", "View page & Download"],
+    "project_2":["!only.persian"],
+    "project_3":["Illuminated Isometric Scene", "an atmospheric and isometric scene made with ue4", "Preview", "Download"]
+},
+{}
+]

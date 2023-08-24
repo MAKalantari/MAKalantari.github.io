@@ -146,6 +146,13 @@ function generateContents() {
     `;
 }
 
+function scrollto(input){
+    const element = document.getElementById(input);
+    const y = element.getBoundingClientRect().top + window.pageYOffset - 90;
+    window.scrollTo({top: y, behavior: 'smooth'});
+
+}
+
 function init(){
     generateContents();
     setContent(main_content, "MAIN");

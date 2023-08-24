@@ -9,6 +9,8 @@
     --post-background-color: #fff;
     --post-text-color: #101010;
     --post-text-color-faded: #6D6D6D;
+    --post-fade-color: #f4f4f4;
+    --post-mid-color: #dedede;
 
     --feed-background-color: #3A3A3A;
     --feed-text-color: #fff;
@@ -46,8 +48,10 @@
     --shadow-blend-color: rgba(255, 255, 255, 0.25);
 
     --post-background-color: #000;
-    --post-text-color: #efefef;
-    --post-text-color-faded: #929292;
+    --post-text-color: #c4c4c4;
+    --post-text-color-faded: #818181;
+    --post-fade-color: #0a0a0a;
+    --post-mid-color: #222;
 
     --feed-background-color: #3A3A3A;
     --feed-text-color: #fff;
@@ -55,6 +59,7 @@
 
     --topbar-background-color: #101010;
     --topbar-text-color: #eee;
+    --topbar-text-color-faded: #ccc;
 
     --header-background-color: #242424;
     --header-background-color-2: #eee;
@@ -86,6 +91,8 @@
     --post-background-color: #fff;
     --post-text-color: #101010;
     --post-text-color-faded: #6D6D6D;
+    --post-fade-color: #f0f0f0;
+    --post-mid-color: #e0e0e0;
 
     --feed-background-color: #ddd;
     --feed-text-color: #000;
@@ -153,4 +160,16 @@
     --font-big: 22px;
     --font-bigger: 24px;
     --font-huge: 28px;
+}
+
+.language-english {
+    --font: inter, Yekan;
+    --font-thin: inter-thin;
+    --font-light: inter-light;
+}
+
+.language-persian {
+    --font: Yekan, inter;
+    --font-thin: Yekan, inter;
+    --font-light: Yekan, inter;
 }

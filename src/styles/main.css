@@ -8,6 +8,7 @@
 }
 
 * {
-    font-family: inter;
+    font-family: var(--font);
     font-size: var(--font-medium);
+    direction: var(--text-direction);
 }

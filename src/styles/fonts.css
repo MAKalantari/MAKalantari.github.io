@@ -28,3 +28,12 @@
     src: url("../assets/fonts/Inter-Bold.ttf");
   }
   
+  @font-face {
+    font-family: Yekan;
+    src: url("../assets/fonts/Yekan.ttf");
+  }
+  
+  @font-face {
+    font-family: yekan;
+    src: url("../assets/fonts/Yekan.ttf");
+  }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-light font-medium">
+<html lang="en" class="theme-light font-medium language-english">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Ali kalantari</title>
+    <title fetchlang="name.0">Muhammad Ali kalantari</title>
     <link rel="icon" type="image/x-icon" href="src/assets/images/icon.png">
     <link rel="stylesheet" href="src/styles/main.css">
     <script src="src/scripts/main.js" defer></script>
@@ -12,22 +12,22 @@
 <body>
     <section class="feed">
         <section>
-            <a href="old" target="_blank">old <n class="auto-hide">website</n></a>
+            <a fetchlang="buttons.0" href="old" target="_blank"></a>
             <hr class="auto-hide"/>
-            <a class="auto-hide">feed</a>
+            <a fetchlang="buttons.1" class="auto-hide"></a>
             <div class="spacer"></div>
             <div class="item" onclick="openSettings()">
-                <button id="font_button">Medium</button>
+                <button id="font_button"></button>
                 <div class="image" style="--src: url('../assets/images/font.svg')"></div>
             </div>
             <hr/>
             <div class="item" onclick="openSettings()">
-                <button id="theme_button">Light</button>
+                <button id="theme_button"></button>
                 <div class="image" style="--src: url('../assets/images/theme.svg')"></div>
             </div>
             <hr/>
             <div class="item">
-                <button id="language_button">En</button>
+                <button fetchlang="buttons.7" id="language_button" onclick="switchLanguage()"></button>
                 <div class="image" style="--src: url('../assets/images/language.svg')"></div>
             </div>
         </section>
@@ -38,16 +38,16 @@
             <div class="logo auto-hide"></div>
             <div class="spacer auto-hide"></div>
             <div class="mid">
-                <button class="auto-hide">About me</button>
+                <button fetchlang="buttons.2" class="auto-hide" onclick="scrollto('about');">About me</button>
                 <hr class="dash auto-hide">
-                <button>Contact me</button>
+                <button fetchlang="buttons.3" onclick="scrollto('contact');">Contact me</button>
                 <hr class="dash">
-                <button>Projects</button>
+                <button fetchlang="buttons.4" onclick="scrollto('projects');">Projects</button>
                 <hr class="dash auto-hide">
-                <button class="auto-hide">Blog</button>
+                <button fetchlang="buttons.5" class="auto-hide">Blog</button>
             </div>
             <div class="spacer"></div>
-            <button>Hire</button>
+            <button fetchlang="buttons.6">Hire</button>
         </section>
     </section>
 
@@ -63,12 +63,12 @@
                 <span>.github.io</span>
                 <br/>
                 <div class="buttons">
-                    <button>Blog</button>
+                    <button fetchlang="buttons.5"></button>
                 </div>
             </cite>
             <div class="spacer"></div>
             <footer>
-                <small>@ 2023</small> <b>Muhammad Ali Kalantari</b><br/><center>© All Rights Reserved</center>
+                <small>@ 2023</small> <b fetchlang="name.0"></b><br/><center fetchlang="other.0"></center>
             </footer>
         </section>
     </section>
@@ -79,73 +79,82 @@
 
     <section class="upper auto-wrap ">
         <ul class="from-blog auto-fill-width">
-            <div class="section-title">From the Blog</div>
+            <div class="section-title" fetchlang="titles.1"></div>
             <a href="">
                 <section>
                     <img src="src/assets/images/ao.jpg"/>
-                    <label>11/11/11</label>
+                    <label>///</label>
                 </section>
                 <cite>
-                    <h1>really really really really really really long post title</h1>
-                    <span>details about the post should be here. stuff are going to be written. details about the post should be here. stuff are going to be written.</span>
-                </cite>
-            </a>
-
-            <a href="">
-                <section>
-                    <img src="src/assets/images/ao.jpg"/>
-                    <label>11/11/11</label>
-                    
-                </section>
-                <cite>
-                    <h1>really really really really really really long post title</h1>
-                    <span>details about the post should be here.</span>
-                </cite>
-            </a>
-
-            <a href="">
-                <section>
-                    <img src="src/assets/images/ao.jpg"/>
-                    <label>11/11/11</label>
-                    
-                </section>
-                <cite>
-                    <h1>really really really really really really long post title</h1>
-                    <span>details about the post should be here.</span>
+                    <h1>به زودی / coming soon</h1>
+                    <span>...</span>
                 </cite>
             </a>
 
         </ul>
-        <ul class="about">
-            <div class="section-title">About me</div>
-            <section>
-                <span>
-                    Hi, I'm Muhammad Ali Kalantari, web designer, programmer and game developer.
-                    <br/>
-                    <h1>Web Design</h1>
-                    the current web page that you are on is an example of my work. i have worked on mostly personal websites. like <a href="https://antiqueocean.github.io/avp-public/" target="_blank">this</a> or <a href="https://antiqueocean.github.io/" target="_blank">this</a>.
-                    <h1>Programming</h1>
-                    i also know c++ and have worked with opengl, qt, sdl, etc.
-                    <br/>
-                    my current and under development Video Player, called <b>AVP</b> is available for <a href="https://antiqueocean.github.io/avp-public/" target="_blank">download</a> (alpha stage). it's not c++ but electron.js
-                    <h1>Game Dev</h1>
-                    i have worked on my own graphics engine before (using opengl) and know some stuff about the world of game engines.
-                    <br/>
-                    i know unrealengine pretty well and in the past 3 years i have worked on numerous personal projects. yet have much to learn.
-                    <br/>
-                    maybe in the next year or two i release my currently under development mobile game.
-                </span>
+        <ul id="about" class="about">
+            <div class="section-title" fetchlang="titles.0">About me</div>
+            <section fetchlang="about.0">
+
             </section>
         </ul>
     </section>
 
-    <ul class="projects">
-        <div class="section-title">Projects</div>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+    <ul id="projects" class="projects">
+        <div class="section-title" fetchlang="titles.2">Projects</div>
+
+        <li>
+            <cite>
+                <img src="src/assets/images/avp.png"/>
+                <cite>
+                    <h1 fetchlang="project_1.0"></h1>
+                    <label fetchlang="other.1"></label>
+                    <label fetchlang="other.3"></label>
+                    <label fetchlang="other.6"></label>
+                </cite>
+            </cite>
+            <span fetchlang="project_1.1"></span>
+            <footer>
+                <a fetchlang="project_1.2" href="https://antiqueocean.github.io/avp-public/" target="_blank"></a>
+            </footer>
+        </li>
+
+        <li fetchlang="!only.persian">
+            <cite>
+                <img src="src/assets/images/tabdilyaar.png" style="--bg-color: #202020"/>
+                <cite>
+                    <h1 fetchlang="project_2.0"></h1>
+                    <label fetchlang="other.1"></label>
+                    <label fetchlang="other.3"></label>
+                    <label fetchlang="other.6"></label>
+                    <label fetchlang="other.7"></label>
+                    <label fetchlang="other.8"></label>
+                </cite>
+            </cite>
+            <span fetchlang="project_2.1"></span>
+            <footer>
+                <a fetchlang="project_2.2" href="https://antiqueocean.github.io/TabdilYaar/" target="_blank"></a>
+            </footer>
+        </li>
+
+
+        <li>
+            <cite>
+                <img src="src/assets/images/illuminated.png"/>
+                <cite>
+                    <h1 fetchlang="project_3.0"></h1>
+                    <label fetchlang="other.1"></label>
+                    <label fetchlang="other.4"></label>
+                    <label fetchlang="other.6"></label>
+                </cite>
+            </cite>
+            <span fetchlang="project_3.1"></span>
+            <footer>
+                <a fetchlang="project_3.2" href="https://www.youtube.com/watch?v=_EBDsX1S62w" target="_blank"></a>
+                <a fetchlang="project_3.3" href="https://antiqueocean.itch.io/illuminated-isometric-scene" target="_blank"></a>
+            </footer>
+        </li>
+
     </ul>
     
     <div id="window" class="window">

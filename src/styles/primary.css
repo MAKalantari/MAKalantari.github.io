@@ -197,7 +197,7 @@ body {
 }
 .topbar > section > .mid {
     flex: 1 1;
-    font-family: Inter-Light;
+    font-family: var(--font-light);
     font-size: var(--font-big);
     display: flex;
     gap: var(--font-tiny);
@@ -425,7 +425,7 @@ hr.dash {
     padding: var(--font-big);
     box-sizing: border-box;
     font-size: var(--font-big);
-    font-family: inter-light;
+    font-family: var(--font-light);
     opacity: 0.66;
     user-select: none;
     transition-duration: 0.75s;
@@ -451,6 +451,7 @@ hr.dash {
     height: calc(var(--font-tiny) / 2);
     background-color: var(--scrollbar-background-color);
     border-bottom: 1px solid var(--scrollbar-background-color);
+    z-index: 8;
 
 }
 
@@ -459,7 +460,6 @@ hr.dash {
     height: 100%;
     background-color: var(--scrollbar-bar-color);
     margin: 0;
-    border-right: 4px solid white;
     box-sizing: border-box;
 }
 
@@ -468,7 +468,7 @@ hr.dash {
     color: var(--main-text-color);
     border-bottom: 1px solid var(--main-fade-color);
     font-size: var(--font-big);
-    font-family: inter-light;
+    font-family: var(--font-light);
     padding: 0 0 calc(var(--font-tiny) / 2) 0;
     margin: 0 0 calc(var(--font-tiny) / 2) 0;
     box-sizing: border-box;
@@ -495,10 +495,10 @@ hr.dash {
     flex-wrap: nowrap;
     padding: 0;
     margin: 0;
-    justify-content: space-between;
 }
 
 .upper > .from-blog > a {
+    flex: 1 1;
     background-color: var(--post-background-color);
     border: 1px solid var(--main-fade-color);
     border-radius: 4px;
@@ -543,6 +543,7 @@ hr.dash {
 
 .upper > .from-blog > a:hover > section > img {
     padding: 0;
+    border-radius: 0px;
 }
 
 .upper > .from-blog > a > section > label {
@@ -604,9 +605,8 @@ hr.dash {
     border-radius: 4px;
     padding: var(--font-tiny);
     box-sizing: border-box;
+    text-align: justify;
 }
-
-
 
 .upper > .about > section a{
     color: var(--post-text-color);
@@ -639,14 +639,119 @@ hr.dash {
 
 .projects > li{
     flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     min-width: 320px;
     min-height: 200px;
     background-color: var(--post-background-color);
     border: 1px solid var(--main-fade-color);
     padding: var(--font-tiny);
     border-radius: 4px;
+    gap: var(--font-small);
+    transition-duration: .15s;
 }
 
+.projects > li:hover{
+    border-color: var(--post-text-color-faded);
+}
+
+.projects > li > cite {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: calc(var(--font-tiny) / 2);
+    background-color: var(--post-fade-color);
+    padding: calc(var(--font-tiny) / 2);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.projects > li > cite > img {
+    width: calc(var(--font-huge) * 3);
+    height: calc(var(--font-huge) * 3);
+    border-radius: 4px;
+    padding: calc(var(--font-tiny) / 4);
+    box-sizing: border-box;
+    border: 1px solid var(--post-text-color-faded);
+    transition-duration: 0.15s;
+    background-color: var(--bg-color, transparent);
+}
+
+.projects > li:hover > cite > img {
+    padding: 0;
+}
+
+.projects > li > cite > cite {
+    flex: 1 1;
+    display: flex;
+    gap: calc(var(--font-tiny) / 2);
+    flex-wrap: wrap;
+    align-items: center; 
+    font-style: normal;
+}
+
+.projects > li > cite > cite > h1 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--post-text-color);
+    font-size: var(--font-big);
+    font-weight: 200;
+}
+
+.projects > li > cite > cite > label {
+    background-color: var(--accent, var(--post-text-color-faded));
+    color: var(--accent-text, var(--post-background-color));
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: calc(var(--font-tiny) / 2) var(--font-tiny);
+    font-size: var(--font-small);
+}
+
+
+.projects > li > span {
+    width: 100%;
+    height: auto;
+    flex: 1 1;
+    padding: 0;
+    margin: 0;
+    color: var(--post-text-color-faded);
+    padding: calc(var(--font-tiny) / 2);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.projects > li > footer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--font-tiny) / 2);
+}
+
+
+.projects > li > footer > a {
+    flex: 1 1;
+    background-color: transparent;
+    padding: calc(var(--font-small) / 2) var(--font-tiny);
+    box-sizing: border-box;
+    color: var(--post-text-color-faded);
+    border: 1px solid var(--post-mid-color);;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition-duration: .1s;
+    text-decoration: none;
+}
+
+
+.projects > li > footer > a:hover {
+    color: var(--post-text-color);
+    border-color: var(--post-text-color-faded);
+    background-color: var(--post-fade-color);
+}
 
 .window {
     display: none;
@@ -657,8 +762,9 @@ hr.dash {
     height: 100%;
     box-sizing: border-box;
     padding: var(--font-tiny);
-    z-index: 11;
+    z-index: 9;
     backdrop-filter: blur(4px);
+    direction: ltr;
 }
 
 .window > img {
@@ -682,9 +788,9 @@ hr.dash {
     padding: var(--font-tiny);
     box-sizing: border-box;
     width: 100%;
-    height: auto;
-    max-width: var(--max-width, 640px);
+    height: 100%;
     max-height: var(--max-height, none);
+    max-width: var(--max-width, 640px);
     display: flex;
     flex-direction: column;
     gap: calc(var(--font-tiny) / 2);
@@ -696,7 +802,6 @@ hr.dash {
 
 .window > section > h1::before {
     content: "[ ";
-    margin-right: auto;
 }
 
 .window > section > h1 {
@@ -706,13 +811,14 @@ hr.dash {
     padding: 0 0 calc(var(--font-tiny) / 2) 0;
     border-bottom: 1px dashed var(--main-fade-color);
     color: var(--post-text-color-faded);
-    font-family: inter-thin;
+    font-family: var(--font-thin);
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .window > section > h1::after {
     content: "]";
-    margin-left: auto;
 }
 
 .window > section > h2 {
@@ -723,7 +829,7 @@ hr.dash {
     text-indent: var(--font-tiny);
     font-size: var(--font-medium);
     color: var(--post-text-color-faded);
-    font-family: inter-thin;
+    font-family: var(--font-thin);
 }
 
 .window > section > h2::before {
@@ -759,7 +865,6 @@ hr.dash {
     align-items: center;
 }
 
-
 .window > section > ul > li > label {
     color: var(--post-text-color);
 }
@@ -777,7 +882,6 @@ hr.dash {
     --radio-button-bg: var(--alt-color-active);
 }
 
-
 .color {
     width: var(--font-tiny);
     height: var(--font-tiny);
@@ -785,7 +889,6 @@ hr.dash {
     border: 1px solid var(--post-text-color);
     background-color: var(--color, transparent);
 }
-
 
 .radio-button::before {
     content: var(--label, "");
