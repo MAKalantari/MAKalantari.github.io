@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-mix font-medium">
+<html lang="en" class="theme-light font-medium">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,19 +16,12 @@
             <hr class="auto-hide"/>
             <a class="auto-hide">feed</a>
             <div class="spacer"></div>
-            <div class="item">
+            <div class="item" onclick="openSettings()">
                 <button id="font_button">Medium</button>
                 <div class="image" style="--src: url('../assets/images/font.svg')"></div>
-                <ul class="list">
-                    <label>font size</label>
-                    <li>small</li>
-                    <li>medium</li>
-                    <li>big</li>
-                    <li>huge</li>
-                </ul>
             </div>
             <hr/>
-            <div class="item">
+            <div class="item" onclick="openSettings()">
                 <button id="theme_button">Light</button>
                 <div class="image" style="--src: url('../assets/images/theme.svg')"></div>
             </div>
@@ -91,12 +84,34 @@
                 <section>
                     <img src="src/assets/images/ao.jpg"/>
                     <label>11/11/11</label>
-                    <label>4567<img src="src/assets/images/language.svg" style="height: var(--font-small); margin-left: 4px;" alt=""></label>
+                </section>
+                <cite>
+                    <h1>really really really really really really long post title</h1>
+                    <span>details about the post should be here. stuff are going to be written. details about the post should be here. stuff are going to be written.</span>
+                </cite>
+            </a>
+
+            <a href="">
+                <section>
+                    <img src="src/assets/images/ao.jpg"/>
+                    <label>11/11/11</label>
                     
                 </section>
                 <cite>
                     <h1>really really really really really really long post title</h1>
-                    <span>details about the post should be put here. stuff are going to be written. details about the post should be put here. stuff are going to be written.</span>
+                    <span>details about the post should be here.</span>
+                </cite>
+            </a>
+
+            <a href="">
+                <section>
+                    <img src="src/assets/images/ao.jpg"/>
+                    <label>11/11/11</label>
+                    
+                </section>
+                <cite>
+                    <h1>really really really really really really long post title</h1>
+                    <span>details about the post should be here.</span>
                 </cite>
             </a>
 
@@ -104,7 +119,22 @@
         <ul class="about">
             <div class="section-title">About me</div>
             <section>
-
+                <span>
+                    Hi, I'm Muhammad Ali Kalantari, web designer, programmer and game developer.
+                    <br/>
+                    <h1>Web Design</h1>
+                    the current web page that you are on is an example of my work. i have worked on mostly personal websites. like <a href="https://antiqueocean.github.io/avp-public/" target="_blank">this</a> or <a href="https://antiqueocean.github.io/" target="_blank">this</a>.
+                    <h1>Programming</h1>
+                    i also know c++ and have worked with opengl, qt, sdl, etc.
+                    <br/>
+                    my current and under development Video Player, called <b>AVP</b> is available for <a href="https://antiqueocean.github.io/avp-public/" target="_blank">download</a> (alpha stage). it's not c++ but electron.js
+                    <h1>Game Dev</h1>
+                    i have worked on my own graphics engine before (using opengl) and know some stuff about the world of game engines.
+                    <br/>
+                    i know unrealengine pretty well and in the past 3 years i have worked on numerous personal projects. yet have much to learn.
+                    <br/>
+                    maybe in the next year or two i release my currently under development mobile game.
+                </span>
             </section>
         </ul>
     </section>
@@ -118,6 +148,11 @@
         <li></li>
     </ul>
     
+    <div id="window" class="window">
+        <img/ onclick="closeWindow()">
+        <section id="windowContent">
+        </section>
+    </div>
 
 </body>
 </html>

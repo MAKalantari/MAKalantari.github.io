@@ -3,6 +3,9 @@
     --main-text-color: #6B6B6B;
     --main-fade-color: #DDD;
     
+    --shadow-differ-color: rgba(0, 0, 0, 0.33);
+    --shadow-blend-color: rgba(255, 255, 255, 0.5);
+
     --post-background-color: #fff;
     --post-text-color: #101010;
     --post-text-color-faded: #6D6D6D;
@@ -25,6 +28,9 @@
     --scrollbar-background-color: #101010;
     --scrollbar-bar-color: #bbb;
 
+    --alt-color-active: #a8a8a8;
+    --alt-color-deactive: #d62a2a;
+
     --header-bg1: url(../assets/images/header-bg1.svg);
     --header-bg2: url(../assets/images/header-bg2.svg);
     --header-bg3: url(../assets/images/header-bg3.svg);
@@ -36,7 +42,10 @@
     --main-text-color: #bbb;
     --main-fade-color: #484848;
     
-    --post-background-color: #000000;
+    --shadow-differ-color: rgba(0, 0, 0, 1);
+    --shadow-blend-color: rgba(255, 255, 255, 0.25);
+
+    --post-background-color: #000;
     --post-text-color: #efefef;
     --post-text-color-faded: #929292;
 
@@ -56,6 +65,9 @@
     --scrollbar-background-color: #101010;
     --scrollbar-bar-color: #d3d3d3;
 
+    --alt-color-active: #cfcfcf;
+    --alt-color-deactive: #aa4646;
+
     --header-bg1: url(../assets/images/header-bg1.svg);
     --header-bg2: url(../assets/images/header-bg2.svg);
     --header-bg3: url(../assets/images/header-bg3.svg);
@@ -68,6 +80,9 @@
     --main-text-color: #6B6B6B;
     --main-fade-color: #DDD;
     
+    --shadow-differ-color: rgba(0, 0, 0, 0.1);
+    --shadow-blend-color: rgba(255, 255, 255, 0.75);
+
     --post-background-color: #fff;
     --post-text-color: #101010;
     --post-text-color-faded: #6D6D6D;
@@ -90,6 +105,9 @@
     --scrollbar-background-color: #efefef;
     --scrollbar-bar-color: #444;
 
+    --alt-color-active: #a8a8a8;
+    --alt-color-deactive: #eb5757;
+    
     --header-bg1: url(../assets/images/header-bg1_light.svg);
     --header-bg2: url(../assets/images/header-bg2_light.svg);
     --header-bg3: url(../assets/images/header-bg3_light.svg);
