@@ -17,12 +17,12 @@
             <a fetchlang="buttons.1" class="auto-hide"></a>
             <div class="spacer"></div>
             <div class="item" onclick="openSettings()">
-                <button id="font_button"></button>
+                <button fetchlang="buttons.9" id="font_button"></button>
                 <div class="image" style="--src: url('../assets/images/font.svg')"></div>
             </div>
             <hr/>
             <div class="item" onclick="openSettings()">
-                <button id="theme_button"></button>
+                <button fetchlang="buttons.8" id="theme_button"></button>
                 <div class="image" style="--src: url('../assets/images/theme.svg')"></div>
             </div>
             <hr/>
@@ -67,9 +67,9 @@
                 </div>
             </cite>
             <div class="spacer"></div>
-            <footer>
-                <small>@ 2023</small> <b fetchlang="name.0"></b><br/><center fetchlang="other.0"></center>
-            </footer>
+            <label>
+                <small>@ <span fetchlang="date.0"></span></small> <b fetchlang="name.0"></b><br/><center fetchlang="other.0"></center>
+            </label>
         </section>
     </section>
 
@@ -114,9 +114,9 @@
                 </cite>
             </cite>
             <span fetchlang="project_1.1"></span>
-            <footer>
+            <div>
                 <a fetchlang="project_1.2" href="https://antiqueocean.github.io/avp-public/" target="_blank"></a>
-            </footer>
+            </div>
         </li>
 
         <li fetchlang="!only.persian">
@@ -132,9 +132,9 @@
                 </cite>
             </cite>
             <span fetchlang="project_2.1"></span>
-            <footer>
+            <div>
                 <a fetchlang="project_2.2" href="https://antiqueocean.github.io/TabdilYaar/" target="_blank"></a>
-            </footer>
+            </div>
         </li>
 
 
@@ -149,14 +149,55 @@
                 </cite>
             </cite>
             <span fetchlang="project_3.1"></span>
-            <footer>
+            <div>
                 <a fetchlang="project_3.2" href="https://www.youtube.com/watch?v=_EBDsX1S62w" target="_blank"></a>
                 <a fetchlang="project_3.3" href="https://antiqueocean.itch.io/illuminated-isometric-scene" target="_blank"></a>
-            </footer>
+            </div>
         </li>
 
     </ul>
     
+    <section id="contact" class="contact">
+        <div class="section-title" fetchlang="titles.3"></div>
+        <section>
+
+            <a href="https://t.me/MA_Kalantari" target="_blank" style="--accent: #2ca0da">
+                <img src="src/assets/images/social/telegram.jpg"/>
+                <cite>
+                    <h1 fetchlang="social.0"></h1>
+                    <h2>@MA_Kalantari</h2>
+                </cite>
+            </a>
+
+            <a href="mailto:antiqueocean.dev@gmail.com" target="_blank" style="--accent: #9f0000">
+                <img src="src/assets/images/social/email.png"/>
+                <cite>
+                    <h1 fetchlang="social.1"></h1>
+                    <h2>antiqueocean.dev@gmail.com</h2>
+                </cite>
+            </a>
+
+            <a href="https://github.com/makalantari" target="_blank" style="--accent: var(--post-text-color);">
+                <img src="src/assets/images/social/github.jpg"/>
+                <cite>
+                    <h1 fetchlang="social.2"></h1>
+                    <h2>1.makalantari</h2>
+                    <h2>2.antiqueocean</h2>
+                </cite>
+            </a>
+
+
+            <a href="https://instagram.com/antiqueocean.dev" target="_blank" style="--accent: #ee46aa">
+                <img src="src/assets/images/social/instagram.jpeg"/>
+                <cite>
+                    <h1 fetchlang="social.3"></h1>
+                    <h2>@antiqueocean.dev</h2>
+                </cite>
+            </a>
+
+        </section>
+    </section>
+
     <div id="window" class="window">
         <img/ onclick="closeWindow()">
         <section id="windowContent">
@@ -164,4 +205,8 @@
     </div>
 
 </body>
+
+<footer>
+    @ <span fetchlang="date.0"></span> <span fetchlang="name.0"></span> / <span fetchlang="other.0"></span>
+</footer>
 </html>

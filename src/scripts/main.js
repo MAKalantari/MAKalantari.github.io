@@ -248,7 +248,7 @@ function setDocumentAttribute(attr, input, _function = null) {
             current[attr] = input;
             localStorage.setItem(attr, input);
     }
-    updateLooks();
+    // updateLooks();
 
     if (_function != null)
         _function();

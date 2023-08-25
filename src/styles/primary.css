@@ -8,6 +8,10 @@ body {
     flex-wrap: nowrap;
 }
 
+small {
+    font-size: var(--font-small);
+}
+
 .spacer {
     flex: 1 1;
     justify-self: stretch;
@@ -418,7 +422,7 @@ hr.dash {
 }
 
 
-.header > section > footer{
+.header > section > label{
     margin: 0;
     padding: 0;
     color: var(--header-text-color);
@@ -436,7 +440,7 @@ hr.dash {
     width: max-content;
 }
 
-.header > section > footer:hover{
+.header > section > label:hover{
     letter-spacing: 2px;
     opacity: 1;
 }
@@ -723,7 +727,7 @@ hr.dash {
     border-radius: 4px;
 }
 
-.projects > li > footer {
+.projects > li > div {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -731,7 +735,7 @@ hr.dash {
 }
 
 
-.projects > li > footer > a {
+.projects > li > div > a {
     flex: 1 1;
     background-color: transparent;
     padding: calc(var(--font-small) / 2) var(--font-tiny);
@@ -747,11 +751,140 @@ hr.dash {
 }
 
 
-.projects > li > footer > a:hover {
+.projects > li > div > a:hover {
     color: var(--post-text-color);
     border-color: var(--post-text-color-faded);
     background-color: var(--post-fade-color);
 }
+
+.contact {
+    width: 100%;
+    max-width: var(--content-width-limit);
+    padding: var(--font-tiny);
+    box-sizing: border-box;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--font-tiny);
+    margin: none;
+    list-style: none;
+    align-items: stretch;
+}
+
+.contact > section {
+    width: 100%;
+
+    height: auto;
+    padding: calc(var(--font-tiny) / 2);
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid var(--main-fade-color);
+    border-radius: 4px;
+    display: flex;
+    gap: var(--font-tiny);
+    flex-wrap: wrap;
+}
+
+.contact > section > a {
+    flex: 1 1;
+    height: auto;
+    padding: calc(var(--font-tiny) / 2);
+    box-sizing: border-box;
+    background-color: var(--post-background-color);
+    border: 1px solid var(--main-fade-color);
+    border-radius: 4px;
+    display: flex;
+    gap: calc(var(--font-tiny) / 2);
+    flex-direction: row;
+    text-decoration: none;
+    transition-duration: 0.15s;
+}
+
+.contact > section > a:hover {
+    border-color: var(--accent, var(--post-text-color-faded));
+}
+
+.contact > section > a > img{
+    width: calc(var(--font-huge) * 3);
+    height: calc(var(--font-huge) * 3);
+    position: relative;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contact > section > a > cite {
+    flex: 1 1;
+    box-sizing: border-box;
+    display: flex;
+    gap: calc(var(--font-tiny) / 2);
+    flex-wrap: nowrap;
+    flex-direction: column;
+    font-style: normal;
+    justify-content: space-around;
+}
+
+.contact > section > a > cite > h1{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    color: var(--post-text-color-faded);
+    font-size: var(--font-medium);
+    transition-duration: 0.2s;
+
+}
+
+
+.contact > section > a:hover > cite > h1{
+    color: var(--accent, var(--post-text-color));
+    text-indent: calc(var(--font-tiny) / 2);
+}
+
+.contact > section > a > cite > h2{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    color: var(--post-text-color);
+    font-size: var(--font-medium);
+    user-select: all;
+    pointer-events: all;
+}
+
+footer {
+    width: 100%;
+    padding: var(--font-huge);
+    box-sizing: border-box;
+    background-color: var(--topbar-background-color);
+    color: var(--topbar-text-color-faded);
+    margin-top: var(--font-huge);
+    min-height: calc(var(--font-huge) * 3);
+    border-top: 1px solid var(--main-fade-color);
+    text-align: center;
+    user-select: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .window {
     display: none;
