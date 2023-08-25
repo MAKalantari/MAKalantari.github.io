@@ -12,3 +12,8 @@
     font-size: var(--font-medium);
     direction: var(--text-direction);
 }
+
+::selection {
+    background-color: var(--post-text-color);
+    color: var(--post-background-color);
+}

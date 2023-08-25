@@ -166,6 +166,7 @@ small {
     gap: 0;
     box-sizing: border-box;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .topbar > section > .logo::before {
@@ -217,7 +218,7 @@ small {
     content: " ]";
 }
 
-.topbar > section > .mid > button {
+.topbar > section > .mid > a {
     border: none;
     white-space: nowrap;
     background: none;
@@ -226,6 +227,7 @@ small {
     cursor: pointer;
     padding: 0;
     margin: 0;
+    text-decoration: none;
 }
 
 hr.dash {
@@ -236,9 +238,17 @@ hr.dash {
     width: 1px;
     height: 15%;
     transform: rotateZ(45deg);
+    transition-duration: 0.25s;
 }
 
-.topbar > section > .mid > button:hover {
+*:hover > hr.dash {
+    transform: rotateZ(90deg);
+    height: 30%;
+    border-right: 1px dashed var(--topbar-text-color)
+}
+
+
+.topbar > section > .mid > a:hover {
     color: var(--topbar-text-color);
 }
 
@@ -388,7 +398,7 @@ hr.dash {
     margin-top: var(--font-huge);
 }
 
-.header > section > cite > .buttons > button::before {
+.header > section > cite > .buttons > a::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -400,12 +410,12 @@ hr.dash {
     transition-duration: 0.2s;
 }
 
-.header > section > cite > .buttons > button:hover::before {
+.header > section > cite > .buttons > a:hover::before {
     height: 100%;
 }
 
 
-.header > section > cite > .buttons > button {
+.header > section > cite > .buttons > a {
     border: 1px solid var(--header-text-color);
     border-radius: 4px;
     background: none;
@@ -414,9 +424,10 @@ hr.dash {
     color: var(--header-text-color);
     cursor: pointer;
     position: relative;
+    text-decoration: none;
 }
 
-.header > section > cite > .buttons > button:hover {
+.header > section > cite > .buttons > a:hover {
     color: var(--header-background-color);
 
 }
@@ -810,6 +821,7 @@ hr.dash {
     position: relative;
     border-radius: 4px;
     box-sizing: border-box;
+    border: 1px solid var(--accent, transparent);
 }
 
 .contact > section > a > cite {
@@ -926,18 +938,27 @@ footer {
     max-width: var(--max-width, 640px);
     display: flex;
     flex-direction: column;
-    gap: calc(var(--font-tiny) / 2);
+    gap: var(--font-tiny);
     position: relative;
     box-shadow: 0 0 16px var(--shadow-differ-color);
+    transition-duration: 0.25s;
+}
+
+.window > section > section {
+    flex: 1 1;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--font-tiny) / 2);
     overflow-y: auto;
     transition-duration: 0.25s;
 }
 
-.window > section > h1::before {
+.window > section > section > h1::before {
     content: "[ ";
 }
 
-.window > section > h1 {
+.window > section > section > h1 {
     width: 100%;
     height: auto;
     margin: 0 0 calc(var(--font-tiny) / 2) 0;
@@ -950,11 +971,11 @@ footer {
     justify-content: space-between;
 }
 
-.window > section > h1::after {
+.window > section > section > h1::after {
     content: "]";
 }
 
-.window > section > h2 {
+.window > section > section > h2 {
     width: 100%;
     margin: 0;
     box-sizing: border-box;
@@ -965,15 +986,15 @@ footer {
     font-family: var(--font-thin);
 }
 
-.window > section > h2::before {
+.window > section > section > h2::before {
     content: "- ";
 }
 
-.window > section > h2::after {
+.window > section > section > h2::after {
     content: ":";
 }
 
-.window > section > ul {
+.window > section > section > ul {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -985,7 +1006,7 @@ footer {
     list-style: none;
 }
 
-.window > section > ul > li {
+.window > section > section > ul > li {
     width: 100%;
     box-sizing: border-box;
     padding: var(--font-tiny);
@@ -998,21 +1019,44 @@ footer {
     align-items: center;
 }
 
-.window > section > ul > li > label {
+.window > section > section > ul > li > label {
     color: var(--post-text-color);
 }
 
-.window > section > ul > .as-button{
+.window > section > section > ul > .as-button{
     cursor: pointer;
 }
 
-.window > section > ul > .as-button:hover{
+.window > section > section > ul > .as-button:hover{
     border-color: var(--post-text-color-faded);
 }
 
-.window > section > ul > .current{
+.window > section > section > ul > .current{
     border-color: var(--post-text-color-faded);
     --radio-button-bg: var(--alt-color-active);
+}
+
+.window > section > div{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--font-tiny) / 2);
+    box-sizing: border-box;
+}
+
+.window > section > div > button {
+    flex: 1 1;
+    background-color: var(--post-background-color);
+    color: var(--post-text-color-faded);
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: var(--font-tiny) var(--font-small);
+    border: 1px solid var(--post-text-color-faded);
+    border-radius: 4px;
+}
+
+.window > section > div > button:hover {
+    color: var(--post-text-color);
 }
 
 .color {

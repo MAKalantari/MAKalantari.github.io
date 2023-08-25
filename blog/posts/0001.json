@@ -1,0 +1,9 @@
+{
+    "title":["عنوان", "title"],
+    "thumbnail":["../storage/images/0001_fa_thumb.png", "../storage/images/0001_en_thumb.png"],
+    "author":["محمدعلی کلانتری", "Muhammad Ali Kalantari"],
+    "Date":["1402/06/03", "08/05/2023"],
+    "tags":[["تست", "فارسی"],["test", "english"]],
+    "languages":["persian", "english"],
+    "conent":["متن فارسی", "English text"]
+}
