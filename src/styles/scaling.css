@@ -24,6 +24,10 @@
     .auto-fill-width {
         width: 100% !important;
     }
+
+    .blog-content > .posts > a{
+        flex-direction: row;
+    }
 }
 
 @media (min-width: 720px) {

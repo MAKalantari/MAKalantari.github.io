@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    min-height: 100vh;
 }
 
 small {
@@ -871,11 +872,11 @@ footer {
     box-sizing: border-box;
     background-color: var(--topbar-background-color);
     color: var(--topbar-text-color-faded);
-    margin-top: var(--font-huge);
     min-height: calc(var(--font-huge) * 3);
     border-top: 1px solid var(--main-fade-color);
     text-align: center;
     user-select: none;
+    margin-top: auto;
 }
 
 

@@ -35,9 +35,8 @@
 
 .top-picks {
     display: flex;
-    flex-direction: column;
     gap: var(--font-tiny);
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-self: center;
     width: 100%;
     max-width: var(--content-width-limit);
@@ -48,7 +47,8 @@
 }
 
 .top-picks > a {
-    width: 100%;
+    flex: 1 1;
+    min-width: 400px;
     background-color: var(--post-background-color);
     border: 1px solid var(--main-fade-color);
     border-radius: 4px;
@@ -57,17 +57,220 @@
     text-decoration: none;
     color: var(--post-text-color);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     gap: calc(var(--font-tiny) / 2);
     transition-duration: 0.1s;
-
 }
-.top-picks > a * {
+
+.top-picks > a > *{
     pointer-events: none;
 }
 
 .top-picks > a:hover {
     border-color: var(--main-text-color);
 }
-    
+
+
+.top-picks > a > section {
+    width: 100%;
+    display: flex;
+    gap: var(--font-tiny);
+    box-sizing: border-box;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.top-picks > a > section > img {
+    width: calc(var(--font-bigger) * 4);
+    height: calc(var(--font-bigger) * 4);
+    border-radius: 4px;
+}
+
+.top-picks > a > section > cite {
+    width: 100%;
+    display: flex;
+    gap: calc(var(--font-tiny) / 2);
+    box-sizing: border-box;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    font-style: normal;
+    align-items: flex-start;
+    max-height: calc(var(--font-bigger) * 4);
+    position: relative;
+}
+
+.top-picks > a > section > cite > h1 {
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-big);
+    font-weight: 200;
+    color: var(--post-text-color);
+}
+
+.top-picks > a > section > cite > span {
+    margin: 0;
+    padding: 0 calc(var(--font-tiny) / 2) 0 0;
+    box-sizing: border-box;
+    font-size: var(--font-medium);
+    font-weight: 300;
+    overflow: hidden;
+    color: var(--post-text-color-faded);
+    overflow: auto;
+    pointer-events: all !important;
+    text-align: justify;
+}
+
+.top-picks > a > section > cite::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - (var(--font-tiny) / 2));
+    height: 50%;
+    z-index: 1;
+    background: linear-gradient(transparent, var(--post-background-color));
+}
+
+.top-picks > a > section > cite > span::-webkit-scrollbar {
+    width: calc(var(--font-tiny) / 2);
+}
+
+.top-picks > a > section > cite > span::-webkit-scrollbar-thumb {
+    background-color: var(--post-mid-color);
+    border-radius: 4px;
+}
+
+.top-picks > a > section > cite > span::-webkit-scrollbar-thumb {
+    background-color: var(--post-mid-color);
+    display: none;
+}
+
+.top-picks > a > section > cite > span::-webkit-scrollbar-thumb:hover {
+    background-color: var(--post-text-color-faded);
+}
+
+
+.top-picks > a:hover > section > cite > span::-webkit-scrollbar-thumb {
+    display: block;
+}
+
+.top-picks > a > div {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    gap: calc(var(--font-tiny) / 2);
+}
+
+.top-picks > a > div > label:nth-child(1) {
+    width: calc(var(--font-bigger) * 4);
+    background-color: transparent;
+    border: 1px solid var(--post-text-color-faded);
+    padding: calc(var(--font-tiny)/2) var(--font-tiny);
+    border-radius: 2px;
+    color: var(--post-text-color-faded);
+    box-sizing: border-box;
+    font-size: var(--font-small);
+    text-align: center;
+}
+
+.top-picks > a > div > label {
+    padding: calc(var(--font-tiny) / 2) var(--font-tiny);
+    background-color: var(--post-mid-color);
+    color: var(--post-text-color);
+    font-size: var(--font-small);
+    border-radius: 2px;
+}
+
+.blog-content {
+    width: 100%;
+    max-width: var(--content-width-limit);
+    display: flex;
+    gap: var(--font-tiny);
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    align-self: center;
+    padding: var(--font-tiny);
+}
+
+.blog-content > .left{
+    width: 240px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: var(--font-tiny);
+}
+
+.blog-content > .left > .tags {
+    background-color: var(--post-background-color);
+    border: 1px solid var(--main-fade-color);
+    padding: var(--font-tiny);
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--font-tiny) / 2);
+    border-radius: 4px;
+}
+
+.blog-content > .left > .tags > a {
+    flex: 1 1;
+    padding: calc(var(--font-tiny) / 2) calc(var(--font-tiny) / 2) calc(var(--font-tiny) / 2) var(--font-tiny);
+    background-color: var(--post-mid-color);
+    color: var(--post-text-color);
+    border-radius: 2px;
+    font-size: medium;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--font-tiny);
+    text-decoration: none;
+}
+
+.blog-content > .left > .tags > a > * {
+    pointer-events: none;
+}
+
+.blog-content > .left > .tags >  a::after {
+    content: var(--count, "1");
+    padding: calc(var(--font-tiny) / 4) calc(var(--font-tiny) / 2);
+    font-size: var(--font-smaller);
+    background-color: var(--post-fade-color);
+    color: var(--post-text-color-faded);
+    border-radius: 2px;
+}
+
+.blog-content > .left > .tags >  a:hover {
+    background-color: var(--post-text-color-faded);
+    color: var(--post-background-color);
+}
+
+.blog-content > .left > .tags >  a:hover::after {
+    color: var(--post-text-color);
+    background-color: var(--post-background-color);
+}
+
+.blog-content > .posts {
+    flex: 1 1;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--font-tiny);
+    --posts-count-in-row: 3;
+}
+
+.blog-content > .posts > a{
+    width: calc(
+        (100% - 
+                ((var(--posts-count-in-row) - 1) * var(--font-tiny))
+                ) / var(--posts-count-in-row));
+    background-color: var(--post-background-color);
+    padding: calc(var(--font-tiny) / 2);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-decoration: none;
+    box-sizing: border-box;
+}
