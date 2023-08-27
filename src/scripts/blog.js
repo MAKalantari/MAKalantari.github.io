@@ -1,13 +1,17 @@
 
 const scrollbar = document.getElementById("scrollbar");
 const postContainer = document.getElementById("posts");
-const topPicks = document.getElementById('topPicks');
+const topPicks = document.getElementById("topPicks");
+const pages1 = document.getElementById("pages1");
+const pages2 = document.getElementById("pages2");
 
 var meta = [];
 var posts = [];
 var topPosts = [];
 var postLoadProgress;
 var page = 1;
+var currentPostCount = 0;
+var currentPostsArray;
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -21,7 +25,9 @@ var postsPerPage = localStorage.getItem('posts_per_page');
 if (localStorage.getItem('posts_per_page') == null) {
     postsPerPage = 12;
     localStorage.setItem('posts_per_page', 12);
-}
+} else
+    postsPerPage = parseInt(postsPerPage);
+
 
 window.addEventListener("scroll", (e) => {
     const distance = document.documentElement.scrollTop;    
@@ -84,7 +90,23 @@ function loadTopPosts(){
     }
 }
 
-
+function updatePages(input){
+    currentPostCount = input.length;
+    var _content = `<label fetchlang="titles.7"></label>`;
+    for (var i = 1; i < Math.ceil(currentPostCount / postsPerPage) + 1 && i < 7; i++) {
+        if (i != page)
+            _content += `<a href="?page=${i}">${i}</a>`;
+        else
+            _content += `<a class="current">${i}</a>`;
+    }
+    if (Math.ceil(currentPostCount / postsPerPage) > 7) {
+        _content += `...<a  href="?page=${Math.ceil(currentPostCount / postsPerPage)}" ${ifTrueReturn(page == Math.ceil(currentPostCount / postsPerPage), 'class="current"')}>${Math.ceil(currentPostCount / postsPerPage)}</a>`
+    } else if (Math.ceil(currentPostCount / postsPerPage) == 7) {
+        _content += `<a  href="?page=${Math.ceil(currentPostCount / postsPerPage)}" ${ifTrueReturn(page == 7, 'class="current"')}>${Math.ceil(currentPostCount / postsPerPage)}</a>`;
+    }
+    pages1.innerHTML = _content;
+    pages2.innerHTML = _content;
+}
 
 function loadPosts(page, count = -1, search = []){
     posts = [];
@@ -122,7 +144,9 @@ function loadPosts(page, count = -1, search = []){
 }
 
 function showPosts(input) {
+    currentPostsArray = input;
     var _content = "";
+
     for (var i = 0; i < input.length; i++) {
         const index = i;
         var _current_language_index = 0;
@@ -141,7 +165,7 @@ function showPosts(input) {
         }
 
         _content += `
-            <a class="auto-fill-width" href="/blog/post?${meta[index].name}" target="_blank">
+            <a class="auto-fill-width" href="/blog/post?n=${meta[index].name}" target="_blank">
             <section>
                     <img src="${input[index].thumbnail[_current_language_index]}"/>
                     ${_content_languages}
@@ -160,6 +184,9 @@ function showPosts(input) {
     }
     postContainer.innerHTML = _content;
 
+    updatePages(meta);
+    updateLanguage(pages1);
+    updateLanguage(pages2);
     updateLanguage(postContainer);
 }
 
@@ -184,7 +211,7 @@ function showTopPosts(input) {
         }
 
         _content += `
-            <a href="/blog/post?${meta[index].name}" target="_blank">
+            <a href="/blog/post?n=${meta[index].name}" target="_blank">
 
             <section>
                 <img src="${input[index].thumbnail[_current_language_index]}"/>

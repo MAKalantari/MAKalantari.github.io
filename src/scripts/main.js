@@ -201,6 +201,11 @@ function init(){
     }
 } init();
 
+function ifTrueReturn(statement, _true, _false = "") {
+    if (statement)
+        return _true;
+    return _false;
+}
 
 function runIf(statement = false, _function = null) {
     if(statement && _function != null)

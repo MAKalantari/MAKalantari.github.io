@@ -1,7 +1,7 @@
 [{
     "name":["Muhammad Ali Kalantari", "Muhammad Ali","KALANTAR", "Muhammad Ali Kalantari | Blog"],
     "buttons":["old <n class='auto-hide'>website</n>", "feed", "About me", "Contact me", "Projects", "Blog", "Hire", "فارسی", "Color Mode", "Font Size", "Blog's home page", "Exit the blog"],
-    "titles":["🧑 About Me", "💬 From The Blog", "🚧 Projects", "📞 Contact me", "🍒 Cherry picks", "Tags", "Recent Posts"],
+    "titles":["🧑 About Me", "💬 From The Blog", "🚧 Projects", "📞 Contact me", "🍒 Cherry picks", "Tags", "Recent Posts", "Pages"],
     "settings":["Settings", "Themes", "Mix", "Light", "Dark", "Font Size", "Small", "Medium", "Big", "Huge", "close"],
     "social":["Telegram", "Email", "Github", "Instagram"],
     "other":["© All Rights Reserved", "free", "paid", "open-sorce", "closed-source", "source-available", "Desktop", "Mobile", "Web app", "I'll put guides, tutorials, tech news etc. here. if you want to copy any of the content, don't forget to mention my or this blog's name."],

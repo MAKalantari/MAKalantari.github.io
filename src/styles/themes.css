@@ -1,6 +1,7 @@
 .theme-mix {
     --main-background-color: #f6f6f6;
     --main-text-color: #6B6B6B;
+    --main-text-color-intense: #202020;
     --main-fade-color: #DDD;
     
     --shadow-differ-color: rgba(0, 0, 0, 0.33);
@@ -42,6 +43,7 @@
 .theme-dark {
     --main-background-color: #242424;
     --main-text-color: #bbb;
+    --main-text-color-intense: #eee;
     --main-fade-color: #484848;
     
     --shadow-differ-color: rgba(0, 0, 0, 1);
@@ -83,6 +85,7 @@
 .theme-light {
     --main-background-color: #f8f8f8;
     --main-text-color: #6B6B6B;
+    --main-text-color-intense: #323232;
     --main-fade-color: #DDD;
     
     --shadow-differ-color: rgba(0, 0, 0, 0.1);

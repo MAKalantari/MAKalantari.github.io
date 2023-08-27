@@ -205,6 +205,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
+    gap: var(--font-tiny);
 }
 
 .blog-content-title > div {
@@ -215,7 +217,58 @@
     margin: 0;
 }
 
-.blog-content-title > section {
+.blog-content-title > section:nth-of-type(1) {
+    padding: 0;
+    gap: var(--font-tiny);
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    color: var(--main-text-color);
+    font-size: var(--font-smaller);
+    justify-content: center;
+    background-color: var(--post-background-color);
+    padding: calc(var(--font-tiny) / 2) var(--font-huge);
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid var(--main-fade-color);
+}
+
+.blog-content-title > section:nth-of-type(1) > label {
+    font-size: var(--font-small);
+    color: var(--main-text-color);
+}
+
+.blog-content-title > section:nth-of-type(1) > label::after {
+    content: ":";
+}
+
+.blog-content-title > section:nth-of-type(1) > a {
+    background-color: transparent;
+    border: none;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-big);
+    color: var(--main-text-color);
+}
+
+.blog-content-title > section:nth-of-type(1) > a.current::before {
+    content: "[ ";
+    font-size: var(--font-small);
+}
+
+.blog-content-title > section:nth-of-type(1) > a.current {
+    color: var(--main-text-color-intense);
+}
+
+.blog-content-title > section:nth-of-type(1) > a.current::after {
+    content: " ]";
+    font-size: var(--font-small);
+}
+
+.blog-content-title > section:nth-of-type(2) {
     padding: 0;
     gap: var(--font-tiny);
     display: flex;
@@ -223,7 +276,7 @@
     flex-direction: row;
 }
 
-.blog-content-title > section::before {
+.blog-content-title > section:nth-of-type(2)::before {
     content: '📦️';
     color: var(--main-text-color);
     font-size: var(--font-small);
@@ -231,7 +284,7 @@
 }
 
 
-.blog-content-title > section > button{
+.blog-content-title > section:nth-of-type(2) > button{
     color: var(--main-text-color);
     background-color: transparent;
     font-size: var(--font-small);
@@ -241,7 +294,7 @@
     cursor: pointer;
 }
 
-.blog-content-title > section > button:hover{
+.blog-content-title > section:nth-of-type(2) > button:hover{
     text-decoration: underline solid;
 }
 
@@ -322,6 +375,71 @@
     gap: var(--font-tiny);
     flex-direction: column;
 }
+
+.blog-content > .posts > div.pages {
+    flex: 1 1;
+    padding: calc(var(--font-tiny) / 2) var(--font-huge);
+    gap: var(--font-tiny);
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    color: var(--main-text-color);
+    font-size: var(--font-smaller);
+    justify-content: center;
+    border: 1px solid var(--main-fade-color);
+    background-color: var(--post-background-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.blog-content > .posts > div.pages > label {
+    font-size: var(--font-small);
+    color: var(--post-text-color-faded);
+}
+
+.blog-content > .posts > div.pages > label::after {
+    content: ":";
+}
+
+.blog-content > .posts > div.pages > a {
+    background-color: transparent;
+    border: none;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-big);
+    color: var(--post-text-color-faded);
+}
+
+.blog-content > .posts > div.pages > a.current::before {
+    content: "[ ";
+    font-size: var(--font-small);
+}
+
+.blog-content > .posts > div.pages > a.current {
+    color: var(--post-text-color);
+}
+
+.blog-content > .posts > div.pages > a.current::after {
+    content: " ]";
+    font-size: var(--font-small);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .blog-content > .posts > section{
     flex: 1 1;
