@@ -32,6 +32,14 @@
     .blog-content > .posts > section > a > section:nth-of-type(1) {
         width: 120px;
     }
+
+    .blog-content > .posts > section > a > section:nth-of-type(1) {
+        width: 120px;
+    }
+
+    .blog-content > .posts > section > a > section:nth-of-type(1) > label {
+        display: none !important;
+    }
     
 }
 

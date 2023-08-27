@@ -2,12 +2,14 @@
 const scrollbar = document.getElementById("scrollbar");
 const postContainer = document.getElementById("posts");
 const topPicks = document.getElementById("topPicks");
+const tagsContainer = document.getElementById("tags");
 const pages1 = document.getElementById("pages1");
 const pages2 = document.getElementById("pages2");
 
 var meta = [];
 var posts = [];
 var topPosts = [];
+var tags = [];
 var postLoadProgress;
 var page = 1;
 var currentPostCount = 0;
@@ -35,7 +37,7 @@ window.addEventListener("scroll", (e) => {
     scrollbar.style.width =  percent + '%';
 })
 
-function getMeta(load_posts = false, load_top_posts = false) {
+function getMeta(load_posts = false, load_top_posts = false, load_tags = false) {
     const _path = "/blog/posts/meta.json";
     fetch(_path)
     .then((response) => response.json())
@@ -50,10 +52,37 @@ function getMeta(load_posts = false, load_top_posts = false) {
             loadPosts(page, postsPerPage);
         if(load_top_posts)
             loadTopPosts();
+        if(load_tags)
+            loadTags();
 
     });
-} getMeta(true, true);
+} getMeta(true, true, true);
 
+function addToCountingMap(map, key) {
+    var _added = false;
+    for (var i = 0; i < map.length; i++) {
+        if (map[i][0] == key) {
+            map[i][1] += 1;
+            _added = true;
+            break;
+        }
+    }
+    if (!_added)
+        map.push([key, 1]);
+}
+
+function loadTags() {
+    tags = [];
+
+    for (var i = 0; i < meta.length; i++){
+        const _current_language_index = findInArray(meta[i].language, current.language);
+        for (var t = 0; t < meta[i].tags[_current_language_index].length; t++) {
+            addToCountingMap(tags, meta[i].tags[_current_language_index][t]);
+        }
+    }
+
+    showTags(tags);
+}
 
 function setPostsPerPage(input) {
     postsPerPage = input;
@@ -143,6 +172,7 @@ function loadPosts(page, count = -1, search = []){
     }
 }
 
+
 function showPosts(input) {
     currentPostsArray = input;
     var _content = "";
@@ -165,7 +195,7 @@ function showPosts(input) {
         }
 
         _content += `
-            <a class="auto-fill-width" href="/blog/post?n=${meta[index].name}" target="_blank">
+            <a class="auto-fill-width" href="/blog/post/?n=${meta[index].name}">
             <section>
                     <img src="${input[index].thumbnail[_current_language_index]}"/>
                     ${_content_languages}
@@ -211,7 +241,7 @@ function showTopPosts(input) {
         }
 
         _content += `
-            <a href="/blog/post?n=${meta[index].name}" target="_blank">
+            <a href="/blog/post/?n=${meta[index].name}">
 
             <section>
                 <img src="${input[index].thumbnail[_current_language_index]}"/>
@@ -230,4 +260,12 @@ function showTopPosts(input) {
     topPicks.innerHTML = _content;
 
     updateLanguage(topPicks);
+}
+
+function showTags(input) {
+    var _content = "";
+    for (var i = 0; i < tags.length; i++) {
+        _content += `<a href="" style="--count: '${tags[i][1]}';">${tags[i][0]}</a>`;
+    }
+    tagsContainer.innerHTML = _content;
 }

@@ -122,7 +122,6 @@
     margin: 0;
     padding: 0 calc(var(--font-tiny) / 2) 0 0;
     box-sizing: border-box;
-    font-size: var(--font-medium);
     font-weight: 300;
     overflow: hidden;
     color: var(--post-text-color-faded);
@@ -225,17 +224,16 @@
     flex-direction: row;
     align-items: center;
     color: var(--main-text-color);
-    font-size: var(--font-smaller);
+    font-size: var(--font-smaller) !important;
     justify-content: center;
-    background-color: var(--post-background-color);
-    padding: calc(var(--font-tiny) / 2) var(--font-huge);
+    padding: 0 var(--font-huge);
     box-sizing: border-box;
     border-radius: 4px;
-    border: 1px solid var(--main-fade-color);
+    align-self: stretch;
 }
 
 .blog-content-title > section:nth-of-type(1) > label {
-    font-size: var(--font-small);
+    font-size: var(--font-smaller);
     color: var(--main-text-color);
 }
 
@@ -250,7 +248,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-size: var(--font-big);
+    font-size: var(--font-small);
     color: var(--main-text-color);
 }
 
@@ -341,6 +339,7 @@
     gap: var(--font-tiny);
     text-decoration: none;
     box-sizing: border-box;
+    white-space: nowrap;
 }
 
 .blog-content > .left > .tags > a > * {
@@ -409,7 +408,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-size: var(--font-big);
     color: var(--post-text-color-faded);
 }
 
@@ -534,6 +532,7 @@
     flex-direction: column;
     gap: calc(var(--font-tiny) / 2);
     font-style: normal;
+
     max-height: calc(var(--font-medium) * 6);
     overflow: hidden;
     position: relative;
@@ -560,9 +559,9 @@
 
 .blog-content > .posts > section > a > section:nth-of-type(2) > cite > span {
     width: 100%;
-    font-size: var(--font-medium);
     color: var(--post-text-color-faded);
     font-weight: 300;
+    min-height: calc(var(--font-medium) * 3);
     margin: 0;
     padding: 0;
     text-align: justify;

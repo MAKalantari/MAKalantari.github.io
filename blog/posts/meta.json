@@ -2,112 +2,161 @@
     {
         "name":"0001",
         "language":["persian", "english"],
+        "tags":[
+            ["سی پلاس پلاس", "اوپن جی ال"],
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "سی پلاس پلاس",
-            "test", "post", "c++"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0002",
         "language":["english"],
+        "tags":[
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "test", "post", "opengl"
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0003",
         "language":["persian", "english"],
+        "tags":[
+            ["سی پلاس پلاس", "اوپن جی ال"],
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0004",
         "language":["persian", "english"],
+        "tags":[
+            ["سی پلاس پلاس", "اوپن جی ال"],
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0005",
         "language":["persian", "english"],
+        "tags":[
+            ["سی پلاس پلاس", "اوپن جی ال"],
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0006",
         "language":["english"],
+        "tags":[
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0007",
         "language":["persian", "english"],
+        "tags":[
+            ["سی پلاس پلاس", "اوپن جی ال"],
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0008",
         "language":["persian", "english"],
+        "tags":[
+            ["سی پلاس پلاس", "اوپن جی ال"],
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0009",
         "language":["persian", "english"],
+        "tags":[
+            ["سی پلاس پلاس", "اوپن جی ال"],
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0010",
         "language":["english"],
+        "tags":[
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0011",
         "language":["persian", "english"],
+        "tags":[
+            ["سی پلاس پلاس", "اوپن جی ال"],
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0012",
         "language":["persian", "english"],
+        "tags":[
+            ["سی + +", "اوپن جی ال"],
+            ["c plus plus", "OpenGL", "c"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0013",
         "language":["persian", "english"],
+        "tags":[
+            ["سی پلاس پلاس", "اوپن جی ال"],
+            ["c++", "c", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["تست", "پست", "سی پلاس پلاس"],
+            ["test", "post", "c++"]
         ]
     },
     {
         "name":"0014",
         "language":["english"],
+        "tags":[
+            ["c++", "OpenGL"]
+        ],
         "indexed":[
-            "تست", "پست", "اوپن جی ال",
-            "test", "post", "opengl"
+            ["test", "post", "c++"]
         ]
     }
 ]
