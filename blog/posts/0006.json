@@ -1,0 +1,12 @@
+{
+    "index":"0002",
+    "title":["post 02"], 
+    "description":["Post summary is going to be written here."],
+    "language":["english"],
+    "language_code":["language.1"],
+    "thumbnail":["/blog/storage/thumbnails/0001_en.png"],
+    "author":["Muhammad Ali Kalantari"],
+    "date":["08/05/2023"],
+    "tags":[["test 2", "english"]],
+    "conent":["blog/storage/content/0001_en.txt"]
+}

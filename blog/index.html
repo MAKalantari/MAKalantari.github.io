@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title fetchlang="name.0">Muhammad Ali kalantari / محمدعلی کلانتری</title>
+    <title fetchlang="name.3">Muhammad Ali kalantari / محمدعلی کلانتری</title>
     <link rel="icon" type="image/x-icon" href="src/assets/images/icon.png">
     <link rel="stylesheet" href="../src/styles/main.css">
     <link rel="stylesheet" href="../src/styles/blog.css">
@@ -48,7 +48,9 @@
     <section class="blog-header" id="header">
         <div class="blog-header-cover"></div>
         <section>
-            
+            <span fetchlang="other.9">
+
+            </span>
         </section>
     </section>
 
@@ -56,74 +58,15 @@
         <div id="scrollbar"></div>
     </div>
 
-    <section class="top-picks">
-        <div class="section-title" fetchlang="titles.4"></div>
-        <a href="" target="">
-
-            <section>
-                <img src="/src/assets/images/ao.jpg"/>
-                <cite>
-                    <h1>Post title 1</h1>
-                    <span>details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details </span>
-                </cite>
-            </section>
-            <div>
-                <label>11/11/11</label>
-                <label>label 1</label>
-                <label>label 2</label>
-            </div>
-        </a>
-
-        <a href="" target="">
-
-            <section>
-                <img src="/src/assets/images/ao.jpg"/>
-                <cite>
-                    <h1>Post title 2</h1>
-                    <span>details</span>
-                </cite>
-            </section>
-            <div>
-                <label>11/11/11</label>
-                <label>label 1</label>
-                <label>label 2</label>
-            </div>
-        </a>
-
-        <a href="" target="">
-
-            <section>
-                <img src="/src/assets/images/ao.jpg"/>
-                <cite>
-                    <h1>Post title 3</h1>
-                    <span>details</span>
-                </cite>
-            </section>
-            <div>
-                <label>11/11/11</label>
-                <label>label 1</label>
-                <label>label 2</label>
-            </div>
-        </a>
-
-        <a href="" target="">
-
-            <section>
-                <img src="/src/assets/images/ao.jpg"/>
-                <cite>
-                    <h1>Post title 4</h1>
-                    <span>details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details details </span>
-                </cite>
-            </section>
-            <div>
-                <label>11/11/11</label>
-                <label>label 1</label>
-                <label>label 2</label>
-            </div>
-        </a>
+    <section class="top-picks" id="topPicks">
+        <div class="tag">0001</div>
+        <div class="tag">0002</div>
+        <div class="tag">0003</div>
+        <div class="tag">0004</div>
     </section>
 
     <section class="blog-content">
+
         <section class="left auto-fill-width">
             <div class="section-title" fetchlang="titles.5"></div>
             <section class="tags">
@@ -136,12 +79,18 @@
         </section>
 
         <section class="posts">
-            <div class="section-title" fetchlang="titles.6"></div>
-            <a class="auto-fill-width">testtest test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test </a>
-            <a class="auto-fill-width">test</a>
-            <a class="auto-fill-width">test</a>
-            <a class="auto-fill-width">test test test test test test test test test test test test test test test test test test test test </a>
+            <div class="blog-content-title">
+                <div fetchlang="titles.6"></div>
+                <section>
+                    <button onclick="setPostsPerPage(12)">12</button>
+                    <button onclick="setPostsPerPage(24)">24</button>
+                    <button onclick="setPostsPerPage(32)">36</button>
+                </section>
+            </div>
+            <section id="posts">
+            </section>
         </section>
+
     </section>
 
     <div id="window" class="window">

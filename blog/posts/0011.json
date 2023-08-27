@@ -1,0 +1,12 @@
+{
+    "index":"0003",
+    "title":["پست ۰۳", "post 03"], 
+    "description":["خلاصه مطلب در اینجا نوشته می شود.", "Post summary is going to be written here."],
+    "language":["persian", "english"],
+    "language_code":["language.0", "language.1"],
+    "thumbnail":["/blog/storage/thumbnails/0001_fa.png", "/blog/storage/thumbnails/0001_en.png"],
+    "author":["محمدعلی کلانتری", "Muhammad Ali Kalantari"],
+    "date":["1402/06/03", "08/05/2023"],
+    "tags":[["تست ۲", "فارسی"],["test 2", "english"]],
+    "conent":["blog/storage/content/0001_fa.txt", "blog/storage/content/0001_en.txt"]
+}

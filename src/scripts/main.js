@@ -178,7 +178,6 @@ function updateLanguage(element = document){
 }
 
 function switchLanguage() {
-    console.log(current.language);
     if(current.language == "english")
         setLanguage("persian");
     else

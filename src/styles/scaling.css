@@ -25,9 +25,14 @@
         width: 100% !important;
     }
 
-    .blog-content > .posts > a{
-        flex-direction: row;
+    .blog-content > .posts > section > a {
+        flex-direction: row !important;
     }
+
+    .blog-content > .posts > section > a > section:nth-of-type(1) {
+        width: 120px;
+    }
+    
 }
 
 @media (min-width: 720px) {
