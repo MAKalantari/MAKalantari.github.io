@@ -13,6 +13,9 @@
     --post-fade-color: #f4f4f4;
     --post-mid-color: #dedede;
 
+    --code-color-green: #2a9c50;
+    --code-color-red: red;
+    
     --feed-background-color: #3A3A3A;
     --feed-text-color: #fff;
     --feed-text-color-faded: #B9B9B9;
@@ -55,6 +58,9 @@
     --post-fade-color: #0a0a0a;
     --post-mid-color: #222;
 
+    --code-color-green: #47c972;
+    --code-color-red: red;
+
     --feed-background-color: #3A3A3A;
     --feed-text-color: #fff;
     --feed-text-color-faded: #B9B9B9;
@@ -96,6 +102,9 @@
     --post-text-color-faded: #6D6D6D;
     --post-fade-color: #f0f0f0;
     --post-mid-color: #e0e0e0;
+
+    --code-color-green: #2a9c50;
+    --code-color-red: red;
 
     --feed-background-color: #ddd;
     --feed-text-color: #000;

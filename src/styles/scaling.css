@@ -41,6 +41,25 @@
         display: none !important;
     }
     
+    .post > section > div.top{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: flex-start !important;
+    }
+
+    .post > section > cite > img{
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .post > section > cite {
+        flex-direction: column !important;
+    }
+
+    .post > section > cite > section > section:nth-of-type(2){
+        height: calc(var(--font-huge) * 6) !important;
+        flex: unset !important;
+    }
 }
 
 @media (min-width: 720px) {

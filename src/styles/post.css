@@ -1,0 +1,282 @@
+.post-header {
+    width: 100%;
+    padding: calc(var(--font-tiny) / 2 + 2px);
+    background-color: var(--header-background-color);
+    animation: header-background-image-anim 4s infinite linear,
+    var(--header-move-anim-check, header-background-position-anim) 6s infinite linear;
+    background-size: calc(var(--font-big) * 2) calc(var(--font-big) * 2) ;
+    background-position-y: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    height: 75px;
+    box-shadow: inset 0 8px 32px -4px var(--header-background-color); 
+    position: relative;
+}
+
+.post-header > .post-header-cover{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, var(--header-shade-start-color) 0, var(--header-shade-end-color) 100%);
+    opacity: 50%;
+    z-index: 0;
+}
+
+
+.post-header > h1{
+    width: 100%;
+    text-align: center;
+    align-self: center;
+    color: var(--header-text-color);
+    font-size: var(--font-huge);
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+
+}
+
+.post {
+    width: 100%;
+    max-width: var(--content-width-limit);
+    padding: var(--font-tiny);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    box-sizing: border-box;
+    align-self: center;
+    align-items: center;
+}
+
+.post > section {
+    width: 100%;
+    background-color: var(--post-background-color);
+    border: 1px solid var(--main-fade-color);
+    padding: var(--font-tiny);
+    box-sizing: border-box;
+    border-radius: 4px;
+    gap: var(--font-tiny);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.post > section > cite {
+    width: 100%;
+    font-style: normal;
+    display: flex;
+    flex-direction: row;
+    gap: calc(var(--font-tiny) / 2);
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+
+}
+
+.post > section > cite > img {
+    width: calc(var(--font-huge) * 8);
+    height: calc(var(--font-huge) * 8);
+    border-radius: 4px;
+}
+
+.post > section > cite > section {
+    flex: 1 1;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: calc(var(--font-tiny) / 2);
+}
+
+.post > section > cite > section > section:nth-of-type(1){
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--font-tiny) / 2);
+}
+
+.post > section > cite > section > section:nth-of-type(1) > a{
+    background-color: var(--post-fade-color);
+    border-radius: 2px;
+    color: var(--post-text-color);
+    padding: calc(var(--font-tiny) / 2) var(--font-tiny);
+    font-size: var(--font-small);
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.post > section > cite > section > section:nth-of-type(1) > a.info{
+    background-color: transparent;
+    border-radius: 2px;
+    color: var(--post-text-color);
+    padding: calc(var(--font-tiny) / 2) var(--font-tiny);
+    border: 1px solid var(--post-mid-color);
+    font-size: var(--font-small);
+    box-sizing: border-box;
+}
+
+.post > section > cite > section > section:nth-of-type(2){
+    flex: 1 1;
+    width: 100%;
+    padding: calc(var(--font-tiny) / 2);
+    box-sizing: border-box;
+    background-color: var(--main-background-color);
+    border-radius: 4px;
+}
+
+.post > section > cite > section > section:nth-of-type(n+3){
+    width: 100%;
+    padding: calc(var(--font-tiny) / 2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: calc(var(--font-tiny) / 2);
+    align-items: flex-start;
+}
+
+.post > section > cite > section > section:nth-of-type(n+3) > label{
+    padding: 0;
+    margin: 0;
+    color: var(--post-text-color-faded);
+    font-size: var(--font-small);
+}
+
+.post > section > cite > section > section:nth-of-type(n+3) > hr.is{
+    height: 100%;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    display: flex;
+}
+
+.post > section > cite > section > section:nth-of-type(n+3) > hr.is::after{
+    content: ':';
+    padding: 0;
+    margin: 0;
+    align-self: center;
+    color: var(--post-text-color-faded);
+    font-size: var(--font-small);
+}
+
+.post > section > cite > section > section:nth-of-type(n+3) > hr{
+    height: 100%;
+    width: 2px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    border-right: 1px dashed var(--post-text-color-faded);
+}
+
+.post > section > div.top{
+    width: 100%;
+    background-color: var(--main-background-color);
+    padding: calc(var(--font-tiny) / 2) var(--font-tiny);
+    border: 1px solid var(--main-fade-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    gap: var(--font-tiny);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.post > section > div.top > section::before{
+    content: '[ ';
+}
+
+.post > section > div.top > section{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: calc(var(--font-tiny) / 2);
+    color: var(--main-text-color);
+}
+
+.post > section > div.top > section::after{
+    content: ' ]';
+}
+
+.post > section > div.top > section > label{
+    align-self: center;
+    font-size: var(--font-small);
+}
+
+.post > section > div.top > section > label::after{
+    content: ': ';
+}
+
+.post > section > div.top > section > button{
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-small);
+    color: var(--main-text-color);
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.post > section > div.top > section > button:hover{
+    color:var(--main-text-color-intense);
+}
+
+.post > section > div.top > section > button.current{
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-small);
+    color: var(--main-text-color-intense);
+    text-decoration: underline;
+}
+
+.post > section > div.content{
+    width: 100%;
+    padding: var(--font-tiny) var(--font-huge);
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--font-tiny) / 2);
+}
+
+.post > section > div.content > span{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: var(--post-text-color);
+    font-weight: 200;
+    
+}
+
+.post > section > div.content > pre > div.code {
+    width: 100%;
+    align-items: start;
+    padding: calc(var(--font-tiny) / 2) var(--font-tiny);
+    background-color: var(--post-fade-color);
+    color: var(--post-text-color);
+    border-radius: 4px;
+    border: 1px solid var(--post-text-color-faded);
+}
+
+
+.post > section > div.content > pre > div.code > pre{
+    width: 100%;
+    direction: ltr !important;
+    counter-reset: line;
+    font-family: inter !important;
+}
+
+
+.post > section > div.content > pre > div.code > pre > div.comment{
+    color: var(--code-color-green) !important;
+}
+

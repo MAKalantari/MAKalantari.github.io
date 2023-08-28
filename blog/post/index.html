@@ -1,11 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-light font-medium language-english">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post</title>
+    <title id="pageTitle">Muhammad Ali kalantari / محمدعلی کلانتری</title>
+    <link rel="icon" type="image/x-icon" href="/src/assets/images/icon.png">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/post.css">
+    <script src="/src/scripts/main.js" defer></script>
+    <script src="/src/scripts/post.js" defer></script>
+
 </head>
 <body>
-    
+    <section class="feed">
+        <section>
+            <div class="item" onclick="openSettings()">
+                <button fetchlang="buttons.9" id="font_button"></button>
+                <div class="image" style="--src: url('../assets/images/font.svg')"></div>
+            </div>
+            <hr/>
+            <div class="item" onclick="openSettings()">
+                <button fetchlang="buttons.8" id="theme_button"></button>
+                <div class="image" style="--src: url('../assets/images/theme.svg')"></div>
+            </div>
+            <hr/>
+            <div class="item">
+                <button fetchlang="buttons.7" id="language_button" onclick="switchLanguage()"></button>
+                <div class="image" style="--src: url('../assets/images/language.svg')"></div>
+            </div>
+        </section>
+    </section>
+
+    <section class="topbar">
+        <section>
+            <a class="logo auto-hide" href="/"></a>
+            <div class="spacer auto-hide"></div>
+            <div class="mid">
+                <a fetchlang="buttons.10" href="/blog"></a>
+                <hr class="dash"/>
+                <a fetchlang="buttons.11" href="/"></a>
+            </div>
+            <div class="spacer"></div>
+            <button fetchlang="buttons.6">Hire</button>
+        </section>
+    </section>
+
+    <section class="post-header" id="header">
+        <div class="post-header-cover"></div>
+        <h1 id="postTitle"></h1>
+    </section>
+
+    <div class="scrollbar">
+        <div id="scrollbar"></div>
+    </div>
+
+    <section class="post" id="post">
+    </section>
+
+    <section id="comments">
+    </section>
+
+    <div id="window" class="window">
+        <img/ onclick="closeWindow()">
+        <section id="windowContent">
+        </section>
+    </div>
+
+    <footer>
+        @ <span fetchlang="date.0"></span> <span fetchlang="name.0"></span> / <span fetchlang="other.0"></span>
+    </footer>
+
 </body>
+
+
 </html>

@@ -7,5 +7,5 @@
     "author":["محمدعلی کلانتری", "Muhammad Ali Kalantari"],
     "date":["1402/06/03", "08/05/2023"],
     "tags":[["تست ۱", "فارسی"],["test 1", "english"]],
-    "conent":["blog/Storage/content/0001_fa.txt", "blog/Storage/content/0001_en.txt"]
+    "content":["/blog/storage/content/0001_fa.txt", "/blog/storage/content/0001_en.txt"]
 }
