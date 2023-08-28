@@ -147,7 +147,7 @@ function setLanguage(input) {
 }
 
 function getLanguage(update = true){
-    const localePath = "/src/locales/" + current.language + ".json";
+    const localePath = "../src/locales/" + current.language + ".json";
     fetch(localePath)
     .then((response) => response.json())
     .then((data) => {
