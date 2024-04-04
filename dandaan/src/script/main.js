@@ -1,13 +1,13 @@
 let titles = "";
 let doctors = "";
 
-fetch('../resources/database/titles.json')
+fetch('src/resources/database/titles.json')
     .then((response) => response.json())
     .then((json) => {
         titles = json;
     });
 
-fetch('../resources/database/doctors.json')
+fetch('src/resources/database/doctors.json')
     .then((response) => response.json())
     .then((json) => {
         doctors = json;
