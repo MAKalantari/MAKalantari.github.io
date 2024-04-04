@@ -118,12 +118,18 @@ ETur.oninput = (e) => { setupToothInput(e.target); }
 ETdl.oninput = (e) => { setupToothInput(e.target); }
 ETdr.oninput = (e) => { setupToothInput(e.target); }
 EJaw.oninput = (e) => {
-    if (e.target.value >= -3 && e.target.value <=-1 ) {
+    if (e.target.value >= 33 && e.target.value <=38 ) {
         ETul.value = null;
         ETur.value = null;
         ETdl.value = null;
         ETdr.value = null;
+        toothNum = e.target.value;
+        toothNumTitle.innerHTML = EJaw.options[EJaw.selectedIndex].text;
+    } else if (e.target.value == 0) {
+        toothNumTitle.innerHTML = "شماره دندان";
+        toothNum = null;
     }
+    
 }
 
 ETul.onfocus = (e) => {e.target.select();}
@@ -665,37 +671,37 @@ function toPalmer(input) {
         return result;
     }
     if (input == 33) {
-        result[0] = -1;
-        result[1] = "پایین";
-        result[2] = "فک";
+        result[0] = "های";
+        result[1] = "فک";
+        result[2] = "پایین";
         return result;
     }
     if (input == 34) {
-        result[0] = -2;
-        result[1] = "بالا";
-        result[2] = "فک";
+        result[0] = "های";
+        result[1] = "فک";
+        result[2] = "بالا";
         return result;
     }
     if (input == 35) {
-        result[0] = -3;
-        result[1] = "بالا و پایین";
-        result[2] = "فک";
+        result[0] = "های";
+        result[1] = "فک";
+        result[2] = "بالا و پایین";
         return result;
     }
     if (input == 36) {
-        result[0] = -4;
+        result[0] = "های";
         result[1] = "نیمه راست";
         result[2] = "فک";
         return result;
     }
     if (input == 37) {
-        result[0] = -5;
+        result[0] = "های";
         result[1] = "نیمه میانی";
         result[2] = "فک";
         return result;
     }
     if (input == 38) {
-        result[0] = -6;
+        result[0] = "های";
         result[1] = "نیمه چپ";
         result[2] = "فک";
         return result;
