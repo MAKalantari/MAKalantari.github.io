@@ -1,0 +1,20 @@
+@font-face {
+  font-family: inter;
+  font-style: normal;
+  font-weight: 100;
+  src: url("/src/resources/fonts/Inter-Regular.ttf");
+}
+
+@font-face {
+  font-family: yekan;
+  font-style: normal;
+  font-weight: 100;
+  src: url("/src/resources/fonts/BYekan.ttf");
+}
+
+@font-face {
+  font-family: irsans;
+  font-style: normal;
+  font-weight: 100;
+  src: url("/src/resources/fonts/IrSans.ttf");
+}

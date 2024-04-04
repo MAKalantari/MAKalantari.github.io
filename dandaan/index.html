@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-light font-medium">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/style/main.css">
+    <script src="/src/script/main.js" defer></script> 
+    <title>ارزیاب دندانپزشکی</title>
+</head>
+<body>
+    <div class="head">
+        <a href="https://www.kalantari.info" target="_blank">kalantari.info</a>
+        <h1>نرم‌افزار راهنمای ارزیابی هزینه‌های دندانپزشکی (محمدعلی کلانتری، فروردین 1403)</h1>
+    </div>
+
+    <section>
+        <h1 id="toothNumTitle">شماره دندان</h1>
+        <cite>
+            <form class="teeth" id="teethForm">
+                <input type="text" id="teethInput_UR" tag="بالا چپ" formula='n+m'/>
+                <hr>
+                <input type="text" id="teethInput_UL" tag="بالا راست" formula='m-(n-1)'/>
+                <hr>
+                <input type="text" id="teethInput_DR" tag="پایین چپ" formula='(m*3)-(n-1)'/>
+                <hr>
+                <input type="text" id="teethInput_DL" tag="پایین راست" formula='n+(m*3)'/>
+            </form>
+            <div class="vertical"">
+                <select id="jawList">
+                    <option value="null">. . .</option>
+                    <option value="33">فک بالا</option>
+                    <option value="34">فک پایین</option>
+                    <option value="35">دو فک</option>
+                    <option value="36">نیم فک راست</option>
+                    <option value="37">نیم فک میانی</option>
+                    <option value="38">نیم فک چپ</option>
+                </select>
+                <hr>
+                <input class="" placeholder="سن" id="ageInput"/>
+            </div>
+        </cite>
+    </section>
+    <section>
+        <h1>هزینه</h1>
+        <cite style="flex-direction: column;">
+            <input list="titles" autocomplete="on" ma placeholder="عنوان هزینه" id="titleInput"/>
+            <datalist id="titles"></datalist>
+
+            <input list="doctors" placeholder="تخصص پزشک" id="doctorInput"/>
+            <datalist id="doctors"></datalist>
+            <input type="text" dir="ltr" style="direction: ltr !important;" min="1" id="costInput" placeholder="مبلغ هزینه به ریال" id="costInput"/>
+        </cite>
+    </section>
+
+    <section>
+        <h1>پیغام‌ها</h1>
+        <cite id="msgContainer" style="flex-direction: column;">
+            <ul id="msgBox"></ul>
+        </cite>
+    </section>
+    <div class="bottom">
+        <button style="color: white !important; max-width: 15%; background-color: var(--sec-border-faded); color:#242424;" id="moreButton">⚙</button>
+        <button style="max-width: 30%; background-color: var(--button-accent3); color:#242424;" id="clearButton">پاک</button>
+        <button style="background-color: var(--button-accent1); color:#242424;" id="evaluateButton">ارزیابی</button>
+    </div>
+
+    <div class="evaluation" id="evaluation">
+        <section style="max-width: var(--max-width);">
+            <h1>ارزیابی</h1>
+            <cite style="flex-wrap: wrap;">
+                <ul style="min-width: 100%; height: max-content; flex: 1 1;" id="evalList"></ul>
+                <button style=" max-width: 30%; height: calc(var(--font-medium) * 3); align-self: flex-end;" id="evalClose">بستن</button>
+                <button dir="ltr" style="height: calc(var(--font-medium) * 3); background-color:var(--button-accent2); color:#242424; direction: ltr; align-self: flex-end;" id="evalCopy" value=""></button>
+            </cite>
+        </section>
+    </div>
+
+    <div class="more" id="more">
+        <section style="max-width: var(--max-width);">
+            <h1>تنظیمات</h1>
+            <cite style="flex-wrap: wrap;">
+                <div style="min-width: 100%; height: max-content; flex: 1 1;" id="moreContent">
+                    <h2>قرارداد</h2>
+                    <label>فرانشیز (درصد):</label>
+                    <input type="number" placeholder="درصد" id="franchiseInput" min="0" max="100" maxlength="3" minlength="1" step="1"/>
+                    <label>ضریب تعرفه:</label>
+                    <input type="number" min="0" step=".1" id="factorInput"/>
+
+                    <h2>تنظمات محاسبه</h2>
+                    <label>تعیین خودکار سن:</label>
+                    <input style="width: max-content;" type="checkbox" id="autoAgeInput" value="false"/>
+
+                    <h2>تنظیمات نمایش</h2>
+                    <label>اندازه متن:</label>
+                    <select id="fontList">
+                        <option value="font-small">کوچک</option>
+                        <option value="font-medium">متوسط</option>
+                        <option value="font-large">بزرگ</option>
+                    </select>
+                    <label>نمایش:</label>
+                    <select id="themeList">
+                        <option value="theme-light" id="themeLightOption">روشن</option>
+                        <option value="theme-dark" id="themeDarkOption">تاریک</option>
+                    </select>
+                </div>
+                <button style="height: calc(var(--font-medium) * 3); align-self: flex-end;" id="moreClose">بستن</button>
+            </cite>
+        </section>
+    </div>
+</body>
+</html>

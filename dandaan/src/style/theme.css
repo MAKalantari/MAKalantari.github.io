@@ -1,0 +1,54 @@
+.theme-light {
+    --main-bg: #f5f5f5;
+    --sec-bg: #fff;
+    --sec-border: #595959;
+    --sec-border-faded: #363636;
+    --sec-text: #404040;
+    --sec-diff-text: #fff;
+    --button-bg: #f2f2f2;
+    --button-border: #808080;
+    --button-text: #484848;
+    --button-text-highlight: #121212;
+    --button-shadow: #d9d9d9;
+    --button-accent1: #99ccff;
+    --button-accent2: #a9d18e;
+    --button-accent3: #ffaa71;
+}
+
+.theme-dark {
+    --main-bg: #0d0d0d;
+    --sec-bg: #262626;
+    --sec-border: #404040;
+    --sec-border-faded: #646464;
+    --sec-text: #eee;
+    --sec-diff-text: #D9D9D9;
+    --button-bg: #404040;
+    --button-border: #7F7F7F;
+    --button-text: #f1f1f1;
+    --button-text-highlight: #fefefe;
+    --button-shadow: #606060;
+    --button-accent1: #abcfef;
+    --button-accent2: #addda6;
+    --button-accent3: #ffaa71;
+}
+
+.font-small {
+    --font-small: 8px;
+    --font-medium: 12px;
+    --font-large: 14px;
+    --font-huge: 16px;
+}
+
+.font-medium {
+    --font-small: 10px;
+    --font-medium: 14px;
+    --font-large: 16px;
+    --font-huge: 18px;
+}
+
+.font-large {
+    --font-small: 12px;
+    --font-medium: 16px;
+    --font-large: 18px;
+    --font-huge: 20px;
+}
