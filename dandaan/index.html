@@ -43,12 +43,24 @@
     <section>
         <h1>هزینه</h1>
         <cite style="flex-direction: column;">
-            <input list="titles" autocomplete="on" ma placeholder="عنوان هزینه" id="titleInput"/>
-            <datalist id="titles"></datalist>
+            <div class="inline">
+                <button id="altUpBtn" disabled>▲</button>
+                <input list="titles" autocomplete="on" ma placeholder="عنوان هزینه" id="titleInput"/>
+                <datalist id="titles"></datalist>
+                <button style="--direction: -1;" id="altDownBtn" disabled>▼</button>
+            </div>
 
-            <input list="doctors" placeholder="تخصص پزشک" id="doctorInput"/>
-            <datalist id="doctors"></datalist>
+            <div class="inline">
+                <button id="matchingDocBtn" disabled>متخصص</button>
+                <input list="doctors" placeholder="تخصص پزشک" id="doctorInput" value=""/>
+                <datalist id="doctors"></datalist>
+                <button id="generalDocBtn" disabled>عمومی</button>
+            </div>
+            <div class="inline">
+            <button id="maxPayBtn" title="تعرفه × ضریب" disabled>حداکثر</button>
             <input type="text" dir="ltr" style="direction: ltr !important;" min="1" id="costInput" placeholder="مبلغ هزینه به ریال" id="costInput"/>
+            <button id="payBtn" title="حداقل تعرفه مصوب" disabled>تعرفه</button>
+            </div>
         </cite>
     </section>
 
@@ -119,5 +131,6 @@
             </cite>
         </section>
     </div>
+    <audio id="audio" src="src/resources/sounds/click.mp3"></audio>
 </body>
 </html>

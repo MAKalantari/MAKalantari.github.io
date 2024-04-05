@@ -27,7 +27,6 @@ const tim = setInterval(function(t = tim) {
     }
 }, 50);
 
-
 const EDocument = document.documentElement;
 
 const ETul = document.getElementById("teethInput_UL");
@@ -38,10 +37,16 @@ const EJaw = document.getElementById("jawList");
 const EAge = document.getElementById("ageInput");
 
 const EDef = document.getElementById("titleInput");
+const EAltUp = document.getElementById("altUpBtn");
+const EAltDown = document.getElementById("altDownBtn");
 const EDefList = document.getElementById("titles");
 const EDoc = document.getElementById("doctorInput");
+const EDocMatch = document.getElementById("matchingDocBtn");
+const EDocGeneral = document.getElementById("generalDocBtn");
 const EDocList = document.getElementById("doctors");
 const ECst = document.getElementById("costInput");
+const EMaxPay = document.getElementById("maxPayBtn");
+const EMainPay = document.getElementById("payBtn");
 
 const EMsg = document.getElementById("msgBox");
 
@@ -76,10 +81,11 @@ var factor = 1;
 var isKid = false;
 var autoSetAge = false;
 var toothNum;
-var docNum;
-var titleNum;
+var globalDocElement = null;
+var globalDefElement = null;
 var franchise;
-var finalMessages = [];
+var playSound = true;
+
 
 
 
@@ -116,11 +122,24 @@ if (localStorage["autoSetAge"] == "true") {
 } else {
     autoAgeInput.checked = false;
 }
+
+if (localStorage["playSound"] == "true") {
+    //autoAgeInput.checked = true;
+} else {
+    //autoAgeInput.checked = false;
+}
      
 themeList.value = localStorage['document_style_0'];
 fontList.value = localStorage['document_style_1'];
 
-    
+ document.body.addEventListener("click", (e) => {
+    var audio = document.getElementById("audio");
+    if(playSound && e.target.nodeName == "BUTTON")
+        audio.play();
+ });
+
+
+
 //  * * * * * * * * * * * * * * *
 //  E V E N T   L I S T E N E R S
 //  * * * * * * * * * * * * * * *
@@ -141,6 +160,56 @@ EJaw.oninput = (e) => {
         toothNumTitle.innerHTML = "شماره دندان";
         toothNum = null;
     }
+    
+}
+
+
+
+
+EAltUp.onclick = (e) => {
+    if (globalDefElement != null) {
+        var alt = getElementByKey(titles, globalDefElement["altUp"]);
+        if (alt != null) {
+            EDef.value = alt["def"] + " [" + alt["key"] + "] ";
+            defGeneralChange();
+        }
+    }
+}
+
+EAltDown.onclick = (e) => {
+    if (globalDefElement != null) {
+        var alt = getElementByKey(titles, globalDefElement["altDown"]);
+        if (alt != null) {
+            EDef.value = alt["def"] + " [" + alt["key"] + "] ";
+            defGeneralChange();
+        }
+    }
+}
+
+EDocMatch.onclick = (e) => {
+    if (globalDefElement != null) {
+        if(globalDefElement["doc"][0] != undefined) {
+            var doc = getElementByKey(doctors, globalDefElement["doc"][0]); 
+            if (doc != null) {
+                EDoc.value = doc["per"] + ' ' + doc["eng"] + " [" + doc["key"] + "]";
+                docGeneralChange();
+            }
+        }
+    }
+}
+
+EDocGeneral.onclick = (e) => {
+    if (globalDefElement != null) {
+        var doc = getElementByKey(doctors, 1); 
+        if (doc != null) {
+            EDoc.value = doc["per"] + doc["eng"] + " [" + doc["key"] + ']';
+            docGeneralChange();
+        }
+    }
+    
+}
+
+EMainPay.onclick = (e) => {
     
 }
 
@@ -232,28 +301,13 @@ reqInfoClose.onclick = (e) => {
 }
 
 function defaultEvaluation() {
-    if (EDef.value != undefined) {
-        if(clearifyStringFrom(EDef.value, "Dd") == clearifyStringTo(EDef.value, "0123456789/"))
-            var tmpTitleNum = EDef.value;
-        else {
-            var tmpTitleNum = String(EDef.value).substring(String(EDef.value).indexOf('['), String(EDef.value).indexOf(']'));
-            tmpTitleNum = clearifyStringTo(tmpTitleNum, "0123456789/");
+    // only time globalDefElement sets outside of EDef.change for safety
+    if (EDef.value != undefined)
+        globalDefElement = getDef();
 
-        }
-        titleNum = tmpTitleNum;
-    }
-
-    if (EDoc.value != undefined) {
-        if(clearifyStringFrom(EDoc.value, "[]") == clearifyStringTo(EDoc.value, "0123456789"))
-            var tmpDocNum = String(EDoc.value);
-        else {
-            var tmpDocNum = String(EDoc.value).substring(String(EDoc.value).indexOf('['), String(EDoc.value).indexOf(']'));
-            tmpDocNum = clearifyStringTo(tmpDocNum, "0123456789");
-
-        }
-        docNum = tmpDocNum;
-        console.log(docNum);
-    }
+    // only time globalDefElement sets outside of EDef.change for safety
+    if (EDoc.value != undefined)
+        globalDocElement = getDoc();
 
     if (ETul.value != undefined)
         setupToothInput(ETul);
@@ -269,13 +323,15 @@ function defaultEvaluation() {
         addMsg("فیلد سن بیمار را پر کنید");
     if (toothNum == undefined)
         addMsg("فیلد شماره دندان را پر کنید");
-    if (docNum == undefined)
-        addMsg("فیلد عنوان پزشک را پر کنید");
-    if (titleNum == undefined)
+    if (globalDocElement == null)
+        addMsg("فیلد پزشک را پر کنید");
+    if (globalDefElement == null)
         addMsg("فیلد عنوان هزینه را پر کنید");
+    if (ECst.value == null || ECst.value == 0)
+        addMsg("فیلد مبلغ را پر کنید");
 
-    if (toothNum != undefined && EAge.value != undefined && docNum != undefined && titleNum != undefined)
-        evaluate(toothNum, EAge.value, docNum, titleNum);
+    if (toothNum != undefined && EAge.value != undefined && globalDocElement != null && globalDefElement != null)
+        evaluate(toothNum, EAge.value, globalDocElement["key"], globalDefElement["key"]);
 }
 
 EEvl.onclick = (e) => {
@@ -296,8 +352,8 @@ EClr.onclick = (e) => {
     toothNumTitle.innerHTML = "شماره دندان";
     EMsg.innerHTML = "";
     toothNum = null;
-    titleNum = null;
-    docNum = null;
+    globalDefElement = null;
+    globalDocElement = null;
 }
 
 EMor.onclick = (e) => {
@@ -336,17 +392,40 @@ autoAgeInput.onchange = (e) => {
 function getCostMatch(doc, def) {
     if (doc != "" && def != "") {
         if (doc == '0') {
-            return Number(getElementByKey(titles, def)["prc"][0]) * factor;
+            return Number(getElementByKey(titles, def)["prc"][0]);
         } else {
             var acceptedDoctors = getElementByKey(titles, def)["doc"];
             for (var i = 0; i < acceptedDoctors.length; i++) {
                 if(acceptedDoctors[i] == doc)
-                    return Number(getElementByKey(titles, def)["prc"][1]) * factor;
+                    return Number(getElementByKey(titles, def)["prc"][1]);
             }
-            return Number(getElementByKey(titles, def)["prc"][0]) * factor;
+            return Number(getElementByKey(titles, def)["prc"][0]);
         }
     }
     return 0;
+}
+
+function getDef(){
+    var value;
+    if (clearifyStringFrom(EDef.value, "Dd") == clearifyStringTo(EDef.value, "0123456789/")) 
+        value = String(EDef.value);
+    else {
+        value = String(EDef.value).substring(String(EDef.value).indexOf('[') + 1, String(EDef.value).indexOf(']'));
+        value = clearifyStringTo(value, "0123456789/");
+    }
+    return getElementByKey(titles, value);
+}
+
+function getDoc() {
+    var value;
+    if (String(EDoc.value) == clearifyStringTo(EDoc.value, "0123456789")) { 
+        value = EDoc.value;
+    }
+    else {
+        value = String(EDoc.value).substring(String(EDoc.value).indexOf('['), String(EDoc.value).indexOf(']'));
+        value = clearifyStringTo(value, "0123456789");
+    }
+    return getElementByKey(doctors, value);
 }
 
 function getAgeGroup (input) {
@@ -403,14 +482,17 @@ function evaluate(tooth, age, doc, def) {
         } else {
             ECst.blur();
             evaluateScreen.style.display = "flex";
-
+            
             var price = 0;
-            if (doc != "" && def != "") {
 
-                if (doc != '0') {
+            if (doc != undefined && def != "") {
+                
+                if (doc != 1) {
+                    
                     var acceptedDoctors = getElementByKey(titles, def)["doc"];
                     for (var i = 0; i < acceptedDoctors.length; i++) {
                         if(acceptedDoctors[i] == doc) {
+                            
                             price =  getElementByKey(titles, def)["prc"][1];
                             docElement = getElementByKey(doctors, doc);
                             break;
@@ -424,7 +506,7 @@ function evaluate(tooth, age, doc, def) {
 
                 if (price == 0) {
                     price = getElementByKey(titles, def)["prc"][0];
-                    docElement = getElementByKey(doctors, "0", "key");
+                    docElement = getElementByKey(doctors, '1', "key");
                 }
                 
             }
@@ -484,51 +566,110 @@ evaluateClose.onclick = () => {
     evaluateList.innerHTML = "";
 }
 
+
+function setECstOptions(_factor = 1) {
+    if (globalDefElement != null && globalDocElement == null) {
+        ECst.setAttribute("placeholder", splitNum(Number(globalDefElement["prc"][0]) * _factor, 3));
+        EMainPay.disabled = false;
+        EMaxPay.disabled = false;
+    }
+    else if (globalDefElement == null) {
+        ECst.setAttribute("placeholder", "مبلغ هزینه به ریال");
+        EMainPay.disabled = true;
+        EMaxPay.disabled = true;
+    } else {
+        ECst.setAttribute("placeholder", splitNum(getCostMatch(globalDocElement["key"], globalDefElement["key"]) * _factor, 3))
+        EMainPay.disabled = false;
+        EMaxPay.disabled = false;
+    }
+    
+}
+
+function defGeneralChange(){
+    globalDefElement = getDef();
+    if (globalDefElement != null){
+        EDocGeneral.disabled = false;
+        EDocMatch.disabled = false;
+        if (globalDefElement["altUp"] != "")
+            EAltUp.disabled = false;
+        else 
+            EAltUp.disabled = true;
+        if (globalDefElement["altDown"] != "")
+            EAltDown.disabled = false;
+        else 
+            EAltDown.disabled = true;
+    } else {
+        EDocGeneral.disabled = true;
+        EDocMatch.disabled = true;
+        EAltUp.disabled = true;
+        EAltDown.disabled = true;
+    }
+    setECstOptions();
+}
+
+function docGeneralChange() {
+    globalDocElement = getDoc();
+    setECstOptions();
+}
+
+
+// ### All EDef Inputs ###
+EDef.onchange = defGeneralChange;
+EDef.oninput = defGeneralChange;
+EDefList.onselect = defGeneralChange;
 EDef.onkeydown = (e) => {
-    if(e.key == "Backspace")
+    if(e.key == "Backspace") {
         EDef.value = '';
-    else if(e.key == "Enter")
+        defGeneralChange();
+    }
+    else if(e.key == "Enter") {
+        defGeneralChange();
         EDoc.focus();
+    }
 }
 
+// ### All EDoc Inputs ###
+EDoc.onchange = docGeneralChange;
+EDoc.oninput = docGeneralChange;
+EDocList.onselect = docGeneralChange;
 EDoc.onkeydown = (e) => {
-    if(e.key == "Backspace")
+    e.stopImmediatePropagation();
+    docGeneralChange();
+    if(e.key == "Backspace") {
         EDoc.value = '';
-    else if(e.key == "Enter")
+        docGeneralChange();
+    }
+    else if(e.key == "Enter") {
+        if(globalDocElement == null)
+            EDoc.value = 1;
+        docGeneralChange();
         ECst.focus();
+    }
 }
 
+// ### All ECst Inputs ###
 ECst.onkeydown = (e) => {
     if(e.key == "Backspace")
         ECst.value = '';
     else if(e.key == "Enter") {
         defaultEvaluation();
-        
+    } else if(e.key == "ArrowLeft") {
+        e.stopImmediatePropagation();
+        if (ECst.value == null || ECst.value == '') {
+            setECstOptions();
+            ECst.value = ECst.getAttribute("placeholder");
+        }
+    } else if(e.key == "ArrowRight") {
+        e.stopImmediatePropagation();
+        if (ECst.value == null || ECst.value == '') {
+            setECstOptions(factor);
+            ECst.value = ECst.getAttribute("placeholder");
+        }
     }
 }
 
-
-EDef.onchange = (e) => {
-    var tmp = String(EDef.value).substring(String(EDef.value).indexOf('['), String(EDef.value).indexOf(']'));
-    tmp = clearifyStringTo(tmp, "0123456789/");
-    titleNum = tmp;
-    var maxPayTmp = getCostMatch(docNum, titleNum);
-    if (maxPayTmp != 0)
-        ECst.setAttribute("placeholder", splitNum(String(maxPayTmp), 3));
-}
-
-
-EDoc.onchange = (e) => {
-    var tmp = String(EDoc.value).substring(String(EDoc.value).indexOf('['), String(EDoc.value).indexOf(']'));
-    tmp = clearifyStringTo(tmp, "0123456789");
-    docNum = tmp;
-    var maxPayTmp = getCostMatch(docNum, titleNum);
-    if (maxPayTmp != 0)
-        ECst.setAttribute("placeholder", splitNum(String(maxPayTmp), 3));
-}
-
 function splitNum(input, step = 3) {
-    var temp = clearifyStringTo(input, "0123456789");
+    var temp = clearifyStringTo(String(input), "0123456789");
     var value = "";
     for (var i = 0; i < temp.length; i++) {
         value += temp[i];

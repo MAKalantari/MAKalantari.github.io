@@ -2,47 +2,47 @@
     {
         "per":"پزشک عمومی (دکترای حرفه‌ای دندانپزشکی)",
         "eng":"General Dentist",
-        "key":0
+        "key":1
     },
     {
         "per":"متخصص درمان ریشه",
         "eng":"Endodontics",
-        "key":1
+        "key":2
     },
     {
         "per":"متخصص جراحی فک و صورت",
         "eng":"Oral and Maxillofacial Surgery",
-        "key":2
+        "key":3
     },
     {
         "per":"متخصص درمان بیماری ها و جراحی های لثه",
         "eng":"Orthodontics ",
-        "key":3
+        "key":4
     },
     {
         "per":"متخصص پروتزهای دندانی",
         "eng":"Prosthodontics ",
-        "key":4
+        "key":5
     },
     {
         "per":"متخصص دندانپزشکی اطفال",
         "eng":"Pediatric Dentistry",
-        "key":5
+        "key":6
     },
     {
         "per":"متخصص دندانپزشکی ترمیمی / زیبایی",
         "eng":"Restorative/Cosmetic Dentistry",
-        "key":6
+        "key":7
     },
     {
         "per":"متخصص رادیولوژی دندانپزشکی",
         "eng":"Oral and Maxillofacial Radiology",
-        "key":7
+        "key":8
     },
     {
         "per":"متخصص بیماری های دهان و دندان",
         "eng":"Oral Health and Medicine",
-        "key":8
+        "key":9
     },
     {
         "per":"متخصص آسیب شناسی دهان و فک و صورت",
