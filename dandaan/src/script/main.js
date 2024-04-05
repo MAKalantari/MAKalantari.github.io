@@ -443,8 +443,16 @@ function evaluate(tooth, age, doc, def) {
                 reqItems += `<button value="${reqElement["key"]}" onclick="showReq(${reqElement["key"]})">${reqElement["min"]}</button>`;
             }
 
+            var andItems = "";
+            for (var i  = 0; i < defElement["and"].length; i++) {
+                andItems += `<button value="${defElement["and"][i]}" onclick="showDef('${defElement["and"][i]}')">D${defElement["and"][i]}</button>`;
+            }
+
             addEvalMsg(defElement["etc"], "color: orange;", "توضیحات: ");
-            addEvalMsg(reqItems, "display: flex; align-items: center; gap: 5px;", "مدارک:");
+            if (defElement["req"].length > 0)
+                addEvalMsg(reqItems, "display: flex; align-items: center; gap: 5px;", "مدارک:");
+            if (defElement["and"].length > 0)
+                addEvalMsg(andItems, "display: flex; align-items: center; gap: 5px;", "هم‌نیاز:");
             addEvalMsg(defElement["def"], "", "هزینه: ");
             addEvalMsg('D' + defElement["key"], "", "کد: ");
             addEvalMsg(toPalmer(tooth)[0] + " " + toPalmer(tooth)[1] + " " + toPalmer(tooth)[2], "", "دندان: ");
@@ -775,6 +783,18 @@ function showReq(input) {
     reqInfoContent.innerHTML += `<img src="${infoElement["img"]}"/>`;
 }
 
+function showDef(input) {
+    var infoElement = getElementByKey(titles, input);
+    reqInfoScreen.style.display = "flex";
+    reqInfoTitle.innerHTML = infoElement["def"];
+    var teeth = "";
+    for (var i = 0; i < infoElement["for"].length; i++)
+        teeth += toPalmer(infoElement["for"][i]).join(" ") + " | ";
+
+    reqInfoContent.innerHTML += `<li style="--tag:'سنین:';">${infoElement["age"]}</li>`;
+    reqInfoContent.innerHTML += `<li style="--tag:'دندان‌های:';">${teeth}</li>`;
+    reqInfoContent.innerHTML += `<li style="--tag:'توضیحات:';">${infoElement["etc"]}</li>`;
+}
 
 
 
