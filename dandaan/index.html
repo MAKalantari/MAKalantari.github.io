@@ -59,9 +59,9 @@
         </cite>
     </section>
     <div class="bottom">
-        <button style="color: white !important; max-width: 15%; background-color: var(--sec-border-faded); color:#242424;" id="moreButton">⚙</button>
-        <button style="max-width: 30%; background-color: var(--button-accent3); color:#242424;" id="clearButton">پاک</button>
-        <button style="background-color: var(--button-accent1); color:#242424;" id="evaluateButton">ارزیابی</button>
+        <button class="main-btn" style="color: white !important; max-width: 15%; background-color: var(--sec-border-faded); color:#242424;" id="moreButton">⚙</button>
+        <button class="main-btn" style="max-width: 30%; background-color: var(--button-accent3); color:#242424;" id="clearButton">پاک</button>
+        <button class="main-btn" style="background-color: var(--button-accent1); color:#242424;" id="evaluateButton">ارزیابی</button>
     </div>
 
     <div class="evaluation" id="evaluation">
@@ -69,8 +69,8 @@
             <h1>ارزیابی</h1>
             <cite style="flex-wrap: wrap;">
                 <ul style="min-width: 100%; height: max-content; flex: 1 1;" id="evalList"></ul>
-                <button style=" max-width: 30%; height: calc(var(--font-medium) * 3); align-self: flex-end;" id="evalClose">بستن</button>
-                <button dir="ltr" style="height: calc(var(--font-medium) * 3); background-color:var(--button-accent2); color:#242424; direction: ltr; align-self: flex-end;" id="evalCopy" value=""></button>
+                <button class="main-btn" style=" max-width: 30%; height: calc(var(--font-medium) * 3); align-self: flex-end;" id="evalClose">بستن</button>
+                <button class="main-btn" dir="ltr" style="height: calc(var(--font-medium) * 3); background-color:var(--button-accent2); color:#242424; direction: ltr; align-self: flex-end;" id="evalCopy" value=""></button>
             </cite>
         </section>
     </div>
@@ -103,7 +103,19 @@
                         <option value="theme-dark" id="themeDarkOption">تاریک</option>
                     </select>
                 </div>
-                <button style="height: calc(var(--font-medium) * 3); align-self: flex-end;" id="moreClose">بستن</button>
+                <button class="main-btn" style="height: calc(var(--font-medium) * 3); align-self: flex-end;" id="moreClose">بستن</button>
+            </cite>
+        </section>
+    </div>
+
+    <div class="reqinfo" id="reqinfo">
+        <section style="max-width: var(--max-width);">
+            <h1 id="reqinfoTitle"></h1>
+            <cite  style="flex-wrap: wrap;">
+                <div style="min-width: 100%; height: max-content; flex: 1 1;" id="reqinfoContent">
+
+                </div>
+                <button class="main-btn" style="height: calc(var(--font-medium) * 3); align-self: flex-end;" id="reqinfoClose">بستن</button>
             </cite>
         </section>
     </div>

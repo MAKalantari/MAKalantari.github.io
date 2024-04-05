@@ -1,5 +1,6 @@
 let titles = "";
 let doctors = "";
+let requirements = "";
 
 fetch('src/resources/database/titles.json')
     .then((response) => response.json())
@@ -13,8 +14,14 @@ fetch('src/resources/database/doctors.json')
         doctors = json;
     });
 
+fetch('src/resources/database/requirements.json')
+    .then((requirements) => requirements.json())
+    .then((json) => {
+        requirements = json;
+    });
+
 const tim = setInterval(function(t = tim) {
-    if (titles != "" && doctors != "") {
+    if (titles != "" && doctors != "" && requirements != "") {
         setUpDatabase();
         clearInterval(t);
     }
@@ -54,6 +61,11 @@ const fontList = document.getElementById("fontList");
 const franchiseInput = document.getElementById("franchiseInput");
 const factorInput = document.getElementById("factorInput");
 const autoAgeInput = document.getElementById("autoAgeInput");
+
+const reqInfoScreen = document.getElementById("reqinfo");
+const reqInfoTitle = document.getElementById("reqinfoTitle");
+const reqInfoContent = document.getElementById("reqinfoContent");
+const reqInfoClose = document.getElementById("reqinfoClose");
 
 const toothNumTitle = document.getElementById("toothNumTitle");
 
@@ -211,6 +223,12 @@ EAge.onkeydown = (e) => { if(e.key=="Enter") EDef.focus(); };
 
 ECst.oninput = (e) => {
     e.target.value = splitNum(e.target.value, 3);
+}
+
+
+reqInfoClose.onclick = (e) => {
+    reqInfoScreen.style.display = "none";
+    reqInfoContent.innerHTML = "";
 }
 
 function defaultEvaluation() {
@@ -413,8 +431,14 @@ function evaluate(tooth, age, doc, def) {
             evaluateCopy.value = evaluatedPay;
             evaluateCopy.innerHTML = splitNum(String(evaluatedPay), 3);
 
-        
+            var reqItems = "";
+            for (var i  = 0; i < defElement["req"].length; i++) {
+                const reqElement = getElementByKey(requirements, defElement["req"][i]);
+                reqItems += `<button value="${reqElement["key"]}" onclick="showReq(${reqElement["key"]})">${reqElement["min"]}</button>`;
+            }
+
             addEvalMsg(defElement["etc"], "color: orange;", "توضیحات: ");
+            addEvalMsg(reqItems, "display: flex; align-items: center; gap: 5px;", "مدارک:");
             addEvalMsg(defElement["def"], "", "هزینه: ");
             addEvalMsg('D' + defElement["key"], "", "کد: ");
             addEvalMsg(toPalmer(tooth)[0] + " " + toPalmer(tooth)[1] + " " + toPalmer(tooth)[2], "", "دندان: ");
@@ -733,4 +757,14 @@ function setDocumentStyling(index, input) {
     EDocument.setAttribute("class", all.join(' '));
     const id = "document_style_" + String(index);
     localStorage.setItem(id, input);
+}
+
+function showReq(input) {
+    var infoElement = getElementByKey(requirements, input);
+    reqInfoScreen.style.display = "flex";
+    reqInfoTitle.innerHTML = infoElement["per"];
+    reqInfoContent.innerHTML += `<li style="--tag:'مختصر:';">${infoElement["min"]}</li>`;
+    reqInfoContent.innerHTML += `<li style="--tag:'انگلیسی:';">${infoElement["eng"]}</li>`;
+    reqInfoContent.innerHTML += `<li style="--tag:'توضیحات:';">${infoElement["det"]}</li>`;
+    reqInfoContent.innerHTML += `<img src="${infoElement["img"]}"/>`;
 }
