@@ -74,7 +74,7 @@ const kidToothSigns = "ABCDEabcde";
 
 var factor = 1;
 var isKid = false;
-var autoSetAge = true;
+var autoSetAge = false;
 var toothNum;
 var docNum;
 var titleNum;
@@ -359,8 +359,11 @@ function getAgeGroup (input) {
     if (input >= 11 && input <= 12) {
         return 3;
     } else
-    if (input > 12) {
+    if (input >= 13 && input <= 16) {
         return 4;
+    } else
+    if (input >= 17) {
+        return 5;
     }
     return 0;
 }

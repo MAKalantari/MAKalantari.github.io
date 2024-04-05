@@ -59,6 +59,7 @@ section > cite {
     gap: 10px;
     padding: var(--font-small);
     justify-content: space-around;
+    overflow-y: auto;
 }
 
 .vertical {
