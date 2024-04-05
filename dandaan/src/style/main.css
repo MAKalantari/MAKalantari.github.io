@@ -437,3 +437,8 @@ a {
     width: 100%;
     align-self: center;
 }
+
+.less {
+    font-size: var(--font-small);
+    opacity: 75%;
+}
