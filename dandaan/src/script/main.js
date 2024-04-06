@@ -1024,20 +1024,24 @@ function showDef(input) {
 }
 
 
-
+document.getElementById("loginpage").onkeydown = (e) => {
+    if (e.key == "Enter") {
+        login();
+    }
+}
 
 function login() {
     fetch('https://kalantari.info/dandaan/src/resources/database/dataset.json')
-    .then((requirements) => requirements.json())
+    .then((response) => response.json())
     .then((json) => {
         for (var i = 0; i < json.length; i++) {
-            if (json["0"] == document.getElementById("username").value &&
-                json["1"] == document.getElementById("password").value) {
+            if (json[i]["0"] == document.getElementById("username").value &&
+                json[i]["1"] == document.getElementById("password").value) {
                     document.getElementById("loginpage").remove();
-                } else {
-                    document.getElementById("username").value = "دوباره تلاش کنید";
-                    document.getElementById("username").value = null;
+                    break;
                 }
+                if (i == json.length - 1)
+                    document.getElementById("loginMsg").innerHTML = "نام کاربری یا رمز عبور اشتباه است"; 
         }
     });
 }

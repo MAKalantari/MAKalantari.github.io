@@ -544,7 +544,7 @@ a {
     gap: 10px;
 }
 
-.loginpage > form {
+.loginpage > div {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -553,12 +553,12 @@ a {
     box-sizing: border-box;
 }
 
-.loginpage > form > input {
+.loginpage > div > input {
     min-width: 100%;
     flex: 1 1;
 }
 
-.loginpage > form > button{
+.loginpage > div > button{
     flex: 1 1;
     background-color: var(--button-bg);
     border: 1px solid var(--button-border);
