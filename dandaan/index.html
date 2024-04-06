@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-light font-medium">
+<html lang="en" class="theme-mint font-medium">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,19 @@
     <script src="src/script/main.js" defer></script> 
     <title>ارزیاب دندانپزشکی</title>
 </head>
+<div class="loginpage" id="loginpage">
+    <img src="src/resources/images/logo.png" style="margin-bottom: 64px;">
+    <iframe name="hiddenFrame" style="position:absolute; top:-1px; left:-1px; width:1px; height:1px;"></iframe>
+    <form id="loginform" method="post" target="hiddenFrame" onsubmit="login">
+        <input type="text" autocomplete="username" placeholder="نام کاربری" id="username"/>
+        <input type="password" autocomplete="current-password" placeholder="رمز عبور" id="password"/>
+        <button type="submit">وارد شو</button>
+        <button onclick="">تماس</button>
+    </form>
+    <span>محمدعلی کلانتری، فروردین 1403. www.Kalantari.info</span>
+</div>
 <body>
+    <div class="main-container">
     <div class="head">
         <a href="https://www.kalantari.info" target="_blank">kalantari.info</a>
         <h1>نرم‌افزار راهنمای ارزیابی هزینه‌های دندانپزشکی (محمدعلی کلانتری، فروردین 1403)</h1>
@@ -44,22 +56,22 @@
         <h1>هزینه</h1>
         <cite style="flex-direction: column;">
             <div class="inline">
-                <button id="altUpBtn" disabled>▲</button>
+                <button tip="عنوان مشابه بعدی" id="altUpBtn" disabled>▲</button>
                 <input list="titles" autocomplete="on" ma placeholder="عنوان هزینه" id="titleInput"/>
                 <datalist id="titles"></datalist>
-                <button style="--direction: -1;" id="altDownBtn" disabled>▼</button>
+                <button tip="عنوان مشابه قبلی" style="--direction: -1;" id="altDownBtn" disabled>▼</button>
             </div>
 
             <div class="inline">
-                <button id="matchingDocBtn" disabled>متخصص</button>
+                <button tip="ثبت خودکار متخصص مربوط به هزینه" id="matchingDocBtn" disabled>متخصص</button>
                 <input list="doctors" placeholder="تخصص پزشک" id="doctorInput" value=""/>
                 <datalist id="doctors"></datalist>
                 <button id="generalDocBtn" disabled>عمومی</button>
             </div>
             <div class="inline">
-            <button id="maxPayBtn" title="تعرفه × ضریب" disabled>حداکثر</button>
+            <button id="maxPayBtn" tip="تعرفه × ضریب" disabled>حداکثر</button>
             <input type="text" dir="ltr" style="direction: ltr !important;" min="1" id="costInput" placeholder="مبلغ هزینه به ریال" id="costInput"/>
-            <button id="payBtn" title="حداقل تعرفه مصوب" disabled>تعرفه</button>
+            <button id="payBtn" tip="حداقل تعرفه مصوب" disabled>تعرفه</button>
             </div>
         </cite>
     </section>
@@ -71,7 +83,7 @@
         </cite>
     </section>
     <div class="bottom">
-        <button class="main-btn" style="color: white !important; max-width: 15%; background-color: var(--sec-border-faded); color:#242424;" id="moreButton">⚙</button>
+        <button class="main-btn" style="max-width: 15%; background-color: var(--button-accent3); color:#242424;" id="moreButton">⚙</button>
         <button class="main-btn" style="max-width: 30%; background-color: var(--button-accent3); color:#242424;" id="clearButton">پاک</button>
         <button class="main-btn" style="background-color: var(--button-accent1); color:#242424;" id="evaluateButton">ارزیابی</button>
     </div>
@@ -81,7 +93,7 @@
             <h1>ارزیابی</h1>
             <cite style="flex-wrap: wrap;">
                 <ul style="min-width: 100%; height: max-content; flex: 1 1;" id="evalList"></ul>
-                <button class="main-btn" style=" max-width: 30%; height: calc(var(--font-medium) * 3); align-self: flex-end;" id="evalClose">بستن</button>
+                <button class="main-btn" style="max-width: 30%; height: calc(var(--font-medium) * 3); align-self: flex-end;" id="evalClose">بستن</button>
                 <button class="main-btn" dir="ltr" style="height: calc(var(--font-medium) * 3); background-color:var(--button-accent2); color:#242424; direction: ltr; align-self: flex-end;" id="evalCopy" value=""></button>
             </cite>
         </section>
@@ -111,8 +123,12 @@
                     </select>
                     <label>نمایش:</label>
                     <select id="themeList">
-                        <option value="theme-light" id="themeLightOption">روشن</option>
-                        <option value="theme-dark" id="themeDarkOption">تاریک</option>
+                        <option value="theme-light">روشن</option>
+                        <option value="theme-dark"">تاریک</option>
+                        <option value="theme-mint">آدامس</option>
+                        <option value="theme-contrast">واضح</option>
+                        <option value="theme-contrast-dark">واضح متعادل</option>
+                        <option value="theme-piss">آفتاب</option>
                     </select>
                 </div>
                 <button class="main-btn" style="height: calc(var(--font-medium) * 3); align-self: flex-end;" id="moreClose">بستن</button>
@@ -132,5 +148,7 @@
         </section>
     </div>
     <audio id="audio" src="src/resources/sounds/click.mp3"></audio>
+    <div class="tooltip" id="tooltip"></div>
+    </div>
 </body>
 </html>

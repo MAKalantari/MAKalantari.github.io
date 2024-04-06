@@ -29,6 +29,8 @@ const tim = setInterval(function(t = tim) {
 
 const EDocument = document.documentElement;
 
+const ETooltip = document.getElementById("tooltip");
+
 const ETul = document.getElementById("teethInput_UL");
 const ETur = document.getElementById("teethInput_UR");
 const ETdl = document.getElementById("teethInput_DL");
@@ -138,6 +140,24 @@ fontList.value = localStorage['document_style_1'];
         audio.play();
  });
 
+ document.body.addEventListener("mouseover", (e) => {
+    if(e.target.nodeName == "BUTTON") {
+        if(e.target.getAttribute("tip") != null) {
+            ETooltip.style.display = "block";
+            ETooltip.style.left = e.target.getBoundingClientRect().left + "px";
+            ETooltip.style.top = e.target.getBoundingClientRect().top + (e.target.clientHeight) + "px";
+            ETooltip.innerHTML = `${e.target.getAttribute("tip")}`;
+        }
+    }
+ });
+
+ document.body.addEventListener("mouseout", (e) => {
+    if(e.target.nodeName == "BUTTON") {
+        if(e.target.getAttribute("tip") != null) {
+            ETooltip.style.display = "none";
+        }
+    }
+ });
 
 
 //  * * * * * * * * * * * * * * *
@@ -210,7 +230,15 @@ EDocGeneral.onclick = (e) => {
 }
 
 EMainPay.onclick = (e) => {
-    
+    setECstOptions();
+    if (ECst.getAttribute("placeholder") != "" && ECst.getAttribute("placeholder") != "مبلغ هزینه به ریال" )
+        ECst.value = ECst.getAttribute("placeholder");
+}
+
+EMaxPay.onclick = (e) => {
+    setECstOptions(factor);
+    if (ECst.getAttribute("placeholder") != "" && ECst.getAttribute("placeholder") != "مبلغ هزینه به ریال" )
+        ECst.value = ECst.getAttribute("placeholder");
 }
 
 ETul.onfocus = (e) => {e.target.select();}
@@ -354,6 +382,12 @@ EClr.onclick = (e) => {
     toothNum = null;
     globalDefElement = null;
     globalDocElement = null;
+    EAltUp.disabled = true;
+    EAltDown.disabled = true;
+    EDocGeneral.disabled = true;
+    EDocMatch.disabled = true;
+    EMainPay.disabled = true;
+    EMaxPay.disabled = true;
 }
 
 EMor.onclick = (e) => {
@@ -460,7 +494,7 @@ function evaluate(tooth, age, doc, def) {
             }
         }   
         if (pass != 1)
-        addMsg("شماره دندان وارد شده مشمول هزینه نیست", "color:red");
+        addMsg(`شماره دندان وارد شده (${toPalmer(tooth).join(" ")}) مشمول هزینه (${defElement["def"]}) نیست`, "color:red");
 
         if (ECst.value != "" && ECst.value != null && Number(clearifyStringTo(ECst.value, "0123456789")) > 0)
             pass++;
@@ -527,29 +561,80 @@ function evaluate(tooth, age, doc, def) {
 
             var andItems = "";
             for (var i  = 0; i < defElement["and"].length; i++) {
-                andItems += `<button value="${defElement["and"][i]}" onclick="showDef('${defElement["and"][i]}')">D${defElement["and"][i]}</button>`;
+                andItems += `<button tip="${getElementByKey(titles, defElement["and"][i])["def"]}" value="${defElement["and"][i]}" onclick="showDef('${defElement["and"][i]}')">D${defElement["and"][i]}</button>`;
             }
 
-            addEvalMsg(defElement["etc"], "color: orange;", "توضیحات: ");
+            var notItems = "";
+            for (var i  = 0; i < defElement["not"].length; i++) {
+                notItems += `<button tip="${getElementByKey(titles, defElement["not"][i])["def"]}" value="${defElement["not"][i]}" onclick="showDef('${defElement["not"][i]}')">D${defElement["not"][i]}</button>`;
+            }
+            
+            var etcItems = "";
+            for (var i  = 0; i < defElement["etc"].length; i++) {
+                etcItems += `<br>${i+1}- ${defElement["etc"][i]}`;
+            }
+            if (etcItems != "")
+            addEvalMsg(etcItems, "color: var(--warning-color);", "توضیحات: ");
+
             if (defElement["req"].length > 0)
                 addEvalMsg(reqItems, "display: flex; align-items: center; gap: 5px;", "مدارک:");
             if (defElement["and"].length > 0)
                 addEvalMsg(andItems, "display: flex; align-items: center; gap: 5px;", "هم‌نیاز:");
-            addEvalMsg(defElement["def"], "", "هزینه: ");
+            if (defElement["not"].length > 0)
+                addEvalMsg(notItems, "display: flex; align-items: center; gap: 5px;", "مغایر:");
+            addEvalMsg(defElement["def"], "border-bottom: 1px solid; margin-bottom: 10px;", "هزینه: ");
             addEvalMsg('D' + defElement["key"], "", "کد: ");
             addEvalMsg(toPalmer(tooth)[0] + " " + toPalmer(tooth)[1] + " " + toPalmer(tooth)[2], "", "دندان: ");
             addEvalMsg(docElement["per"], "", "پزشک: ");
             addEvalMsg(age, "", "سن بیمار: ");
 
-            addEvalMsg(paid + " <span class='less'>" + Num2persian(paid) + " ریال</span>", "", "مبلغ اعلامی:");
+            
+            addEvalMsg(paid + " <span class='less'>" + Num2persian(paid) + " ریال</span>", "border-bottom: 1px solid; margin-bottom: 10px;", "مبلغ اعلامی:");
             addEvalMsg(price  + " <span class='less'>" + Num2persian(price) + " ریال</span>", "", "تعرفه اصلی: ");
-            addEvalMsg(priceWithFactor  + " <span class='less'>" + Num2persian(priceWithFactor) + " ریال</span>", "", `تعرفه با ضریب ${factor} : `);
+            if (factor != 1)
+                addEvalMsg(priceWithFactor  + " <span class='less'>" + Num2persian(priceWithFactor) + " ریال</span>", "", `تعرفه با ضریب ${factor} : `);
             addEvalMsg(maxPay  + " <span class='less'>" + Num2persian(maxPay) + " ریال</span>", "", `پرداختی بدون فرانشیز: `);
-            addEvalMsg(payAfterFranchise  + " <span class='less'>" + Num2persian(payAfterFranchise) + " ریال</span>", "text-decoration: underline;", `پرداختی با اعمال فرانشیز ${franchise}% : `);
+            if (franchise > 0)
+                addEvalMsg(payAfterFranchise  + " <span class='less'>" + Num2persian(payAfterFranchise) + " ریال</span>", "text-decoration: underline;", `پرداختی با اعمال فرانشیز ${franchise}% : `);
 
         }
     }
 
+}
+
+
+function isOneOf(input, array) {
+    if (input == null || input == undefined || input == "")
+        return false
+    for (var i = 0; i < array.length; i++)
+        if(input == array[i])
+            return true;
+    return false;
+}
+
+
+// more of side feature
+// adds some important details to evaluation process
+// for when the user doesnt know much about dental insurance
+function instantReminder() {
+    // without def
+    if (isOneOf(toothNum, [1, 16, 17, 32]))
+    addMsg("وجود حتمی دندان عقل از روی گرافی قبل بررسی شود", "color: var(--reminder-color)");
+
+    // with def
+    if (globalDefElement != null){
+        if (isOneOf(globalDefElement["key"], ["3310/3"]) && isOneOf(toothNum, [3, 14, 19, 30]))
+            addMsg("دندان 6 معمولا دارای سه کانال است. جهت تایید کانال اضافه (چهار کاناله بودن)، گرافی به دقت بررسی شود.", "color: var(--reminder-color)");
+    }
+
+    // with doc
+    if (globalDocElement != null){
+    }
+
+    //with both
+    if (globalDefElement != null && globalDocElement != null) {
+
+    }
 }
 
 evaluateCopy.onclick = () => {
@@ -605,6 +690,7 @@ function defGeneralChange(){
         EAltDown.disabled = true;
     }
     setECstOptions();
+    instantReminder();
 }
 
 function docGeneralChange() {
@@ -769,9 +855,6 @@ function setupToothInput(input) {
 
         EJaw.value = null;
 
-        if(input.value == 8)
-            addMsg(`جهت اطمینان از وجود داشتن دندان عقل (${input.getAttribute("tag")})، OPG قبل بررسی شود`);
-
         if(autoSetAge) {
             if (isOfString(input.value, kidToothSigns)) {
                 isKid = true;
@@ -804,13 +887,16 @@ function setupToothInput(input) {
             toothNumTitle.innerHTML = "شماره دندان: " + toothNum;
         }
     }
+
+    instantReminder();
 }
 
 function addMsg(input, style = "") {
     var children = EMsg.children;
-    
-    EMsg.innerHTML = `<li style="${style}; --tag: '${children.length+1} ';">` + input + "</li>" + EMsg.innerHTML;
+    if ((children.length > 0 && children[0].innerHTML != input) || children.length == 0)
+        EMsg.innerHTML = `<li style="${style}; --tag: '${children.length+1} ';">` + input + "</li>" + EMsg.innerHTML;
 }
+
 
 function addEvalMsg(input, style = "", tag="", other ="") {
     var children = evaluateList.children;
@@ -850,37 +936,37 @@ function toPalmer(input) {
         return result;
     }
     if (input == 33) {
-        result[0] = "های";
+        result[0] = "";
         result[1] = "فک";
         result[2] = "پایین";
         return result;
     }
     if (input == 34) {
-        result[0] = "های";
+        result[0] = "";
         result[1] = "فک";
         result[2] = "بالا";
         return result;
     }
     if (input == 35) {
-        result[0] = "های";
+        result[0] = "";
         result[1] = "فک";
         result[2] = "بالا و پایین";
         return result;
     }
     if (input == 36) {
-        result[0] = "های";
+        result[0] = "";
         result[1] = "نیمه راست";
         result[2] = "فک";
         return result;
     }
     if (input == 37) {
-        result[0] = "های";
+        result[0] = "";
         result[1] = "نیمه میانی";
         result[2] = "فک";
         return result;
     }
     if (input == 38) {
-        result[0] = "های";
+        result[0] = "";
         result[1] = "نیمه چپ";
         result[2] = "فک";
         return result;
@@ -939,6 +1025,22 @@ function showDef(input) {
 
 
 
+
+function login() {
+    fetch('https://kalantari.info/dandaan/src/resources/database/dataset.json')
+    .then((requirements) => requirements.json())
+    .then((json) => {
+        for (var i = 0; i < json.length; i++) {
+            if (json["0"] == document.getElementById("username").value &&
+                json["1"] == document.getElementById("password").value) {
+                    document.getElementById("loginpage").remove();
+                } else {
+                    document.getElementById("username").value = "دوباره تلاش کنید";
+                    document.getElementById("username").value = null;
+                }
+        }
+    });
+}
 
 
 

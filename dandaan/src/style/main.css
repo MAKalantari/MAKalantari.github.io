@@ -13,9 +13,19 @@
     direction: rtl;
 }
 
+html, body {
+    height: calc(100% - 10px);
+    box-sizing: border-box;
+} 
+
 body {
     background-color: var(--main-bg);
-    padding: 10px 10px calc(var(--font-medium) * 4 + 42px) 10px;
+    background-image: var(--main-bg-img, none);
+    box-sizing: border-box;
+}
+
+.main-container {
+    padding: 10px 10px calc(var(--font-medium) * 5 + 10px) 10px;
     margin: 0;
     display: flex;
     gap: 10px;
@@ -26,6 +36,12 @@ body {
     margin-right: auto;
 }
 
+button {
+    border-top: var(--button-full-border-width, 0) solid var(--button-border) !important;
+    border-right: var(--button-full-border-width, 0) solid var(--button-border) !important;
+    border-left: var(--button-full-border-width, 0) solid var(--button-border) !important;
+}
+
 section {
     display: flex;
     flex-direction: column;
@@ -33,6 +49,7 @@ section {
     margin: 0;
     padding: 0;
     width: 100%;
+    backdrop-filter: blur(calc(var(--blur-intensity) * 3));
 }
 
 section > h1 {
@@ -198,9 +215,9 @@ hr {
     position: fixed;
     bottom: 0;
     left: 0;
-    height: calc(var(--font-medium) * 4 + 32px);
+    height: calc(var(--font-medium) * 5);
     background-color: var(--sec-border);
-    padding: 10px 10px 32px 10px;
+    padding: 10px;
     gap: 10px;
     box-sizing: border-box;
     z-index: 9;
@@ -285,9 +302,9 @@ option::after {
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(var(--blur-intensity));
     z-index: 11;
-    padding: 10px 10px 22px 10px;
+    padding: 10px;
     box-sizing: border-box;
     display: none;
     align-items: stretch;
@@ -306,9 +323,9 @@ option::after {
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(var(--blur-intensity));
     z-index: 11;
-    padding: 10px 10px 22px 10px;
+    padding: 10px;
     box-sizing: border-box;
     display: none;
     align-items: stretch;
@@ -376,7 +393,7 @@ a {
     background-color: var(--sec-border);
     padding: 5px;
     box-sizing: border-box;
-    color: var(--sec-text);
+    color: var(--main-text);
     height: auto;
     display: flex;
     flex-direction: row-reverse;
@@ -392,7 +409,7 @@ a {
     border-radius: 5px;
     text-decoration: none;
     transition-duration: 0.2s;
-    color: var(--button-text);
+    color: var(--main-text);
 }
 
 .head > a:hover{
@@ -408,7 +425,7 @@ a {
     text-decoration: none;
     text-align: right;
     user-select: none;
-    color: var(--button-text);
+    color: var(--main-text);
 }
 
 
@@ -420,9 +437,9 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(var(--blur-intensity));
     z-index: 11;
-    padding: 10px 10px 22px 10px;
+    padding: 10px 10px 10px 10px;
     box-sizing: border-box;
     display: none;
     align-items: stretch;
@@ -488,4 +505,73 @@ a {
     opacity: 50%;
     color: var(--button-text);
     padding: 5px;
+}
+
+.tooltip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    max-width: 180px;
+    height: auto;
+    padding: 2px 8px;
+    border-radius: 5px;
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-border);
+    display: none;
+    color: var(--button-text);
+    z-index: 20;
+    opacity: 90%;
+    pointer-events: none;
+    font-size: var(--font-small);
+}
+
+.loginpage {
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 50 !important;
+    background-color: var(--main-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    padding: none;
+    margin: none;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    gap: 10px;
+}
+
+.loginpage > form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: none;
+    margin: none;
+    box-sizing: border-box;
+}
+
+.loginpage > form > input {
+    min-width: 100%;
+    flex: 1 1;
+}
+
+.loginpage > form > button{
+    flex: 1 1;
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-border);
+    border-radius: 5px;
+    color: var(--button-text);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.loginpage > span{
+    flex: 0;
+    color: var(--main-text);
+    opacity: 50%;
+    font-size: var(--font-small);
+
 }
