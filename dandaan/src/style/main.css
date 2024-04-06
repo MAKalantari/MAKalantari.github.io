@@ -536,7 +536,7 @@ a {
     justify-content: center;
     flex-direction: column;
     position: fixed;
-    padding: none;
+    padding: 10px;
     margin: none;
     box-sizing: border-box;
     left: 0;
@@ -551,6 +551,11 @@ a {
     padding: none;
     margin: none;
     box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--sec-border);
+    border-bottom-width: 3px;
+    background-color: var(--sec-bg);
 }
 
 .loginpage > div > input {
