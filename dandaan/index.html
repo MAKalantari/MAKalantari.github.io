@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-mint font-medium">
+<html lang="fa" class="theme-light font-medium">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,11 @@
         <h1 id="loginMsg" style="color:var(--main-text); text-align: center; width: 100%; margin: 0;">مشخصات حساب خود را در زیر وارد کنید:</h1>
         <input type="text" autocomplete="username" placeholder="نام کاربری" id="username"/>
         <input type="password" autocomplete="current-password" placeholder="رمز عبور" id="password"/>
+
+        <div style="width: 100%; display: flex !important; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; gap: 10px;">
+            <label for="loginCheck">من را به خاطر بسپار</label>
+            <input id="loginCheck" onchange="setLoginMemory()" style=" max-width: 14px; height: 14px;" type="checkbox" id="autoLogin"/>
+        </div>
         <button onclick="login()">وارد شو</button>
         <button onclick="">تماس</button>
     </div>
@@ -130,6 +135,8 @@
                         <option value="theme-contrast-dark">واضح متعادل</option>
                         <option value="theme-piss">آفتاب</option>
                     </select>
+                    <h2>حساب کاربری</h2>
+                    <button onclick="logout()" class="main-btn">خروج از حساب کاربری</button>
                 </div>
                 <button class="main-btn" style="height: calc(var(--font-medium) * 3); align-self: flex-end;" id="moreClose">بستن</button>
             </cite>

@@ -1023,11 +1023,20 @@ function showDef(input) {
     reqInfoContent.innerHTML += `<li style="--tag:'توضیحات:';">${infoElement["etc"]}</li>`;
 }
 
-
 document.getElementById("loginpage").onkeydown = (e) => {
     if (e.key == "Enter") {
         login();
     }
+}
+
+if (localStorage["autoLogin"] == "true") {
+    document.getElementById("username").value = localStorage["usr"];
+    document.getElementById("password").value = localStorage["psw"];
+    if (!login()) {
+        document.getElementById("loginpage").style.display = "flex";
+    }
+} else {
+    document.getElementById("loginpage").style.display = "flex";
 }
 
 function login() {
@@ -1037,17 +1046,37 @@ function login() {
         for (var i = 0; i < json.length; i++) {
             if (json[i]["0"] == document.getElementById("username").value &&
                 json[i]["1"] == document.getElementById("password").value) {
+
+                    addMsg(json[i]["3"] + "، خوش آمدید.");
+                    if (document.getElementById("loginCheck").checked) {
+                        localStorage["usr"] = json[i]["0"];
+                        localStorage["psw"] = json[i]["1"];
+                        localStorage["autoLogin"] = "true";
+                        
+                    }
+                    else {
+                        localStorage.removeItem("usr");
+                        localStorage.removeItem("psw");
+                        localStorage["autoLogin"] = "false";
+                    }
                     document.getElementById("loginpage").remove();
-                    break;
+                    return true;
                 }
-                if (i == json.length - 1)
+                if (i == json.length - 1) {
                     document.getElementById("loginMsg").innerHTML = "نام کاربری یا رمز عبور اشتباه است"; 
+                }
         }
     });
+    return false;
 }
 
 
-
+function logout() {
+    localStorage.removeItem("usr");
+    localStorage.removeItem("psw");
+    localStorage["autoLogin"] = "false";
+    location.reload();
+}
 
 
 
