@@ -15,7 +15,7 @@
         <input type="password" autocomplete="current-password" placeholder="رمز عبور" id="password"/>
 
         <div style="width: 100%; display: flex !important; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; gap: 10px;">
-            <label for="loginCheck">من را به خاطر بسپار</label>
+            <label style="color:var(--main-text);" for="loginCheck">من را به خاطر بسپار</label>
             <input id="loginCheck" onchange="setLoginMemory()" style=" max-width: 14px; height: 14px;" type="checkbox" id="autoLogin"/>
         </div>
         <button onclick="login()">وارد شو</button>
@@ -75,7 +75,8 @@
             </div>
             <div class="inline">
             <button id="maxPayBtn" tip="تعرفه × ضریب" disabled>حداکثر</button>
-            <input type="text" dir="ltr" style="direction: ltr !important;" min="1" id="costInput" placeholder="مبلغ هزینه به ریال" id="costInput"/>
+            <input type="text" dir="ltr" style="direction: ltr !important;" min="1" id="costInput" placeholder="مبلغ هزینه به ریال"/>
+            <input type="text" dir="ltr" style="display: none; max-width: 25%; direction: ltr !important;" min="1" id="labInput" placeholder="اپراتور"/>
             <button id="payBtn" tip="حداقل تعرفه مصوب" disabled>تعرفه</button>
             </div>
         </cite>

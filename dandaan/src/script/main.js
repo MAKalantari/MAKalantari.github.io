@@ -47,6 +47,7 @@ const EDocMatch = document.getElementById("matchingDocBtn");
 const EDocGeneral = document.getElementById("generalDocBtn");
 const EDocList = document.getElementById("doctors");
 const ECst = document.getElementById("costInput");
+const ELab = document.getElementById("labInput");
 const EMaxPay = document.getElementById("maxPayBtn");
 const EMainPay = document.getElementById("payBtn");
 
@@ -388,6 +389,7 @@ EClr.onclick = (e) => {
     EDocMatch.disabled = true;
     EMainPay.disabled = true;
     EMaxPay.disabled = true;
+    ELab.style.display = "none";
 }
 
 EMor.onclick = (e) => {
@@ -667,7 +669,17 @@ function setECstOptions(_factor = 1) {
         EMainPay.disabled = false;
         EMaxPay.disabled = false;
     }
-    
+
+    // lab
+    if (globalDefElement != null) {
+        if(globalDefElement["lab"] != "") {
+            ELab.style.display = "block";
+            ELab.setAttribute("placeholder", `Lab: ${splitNum(globalDefElement["lab"])}`)
+        } else {
+            ELab.style.display = "none";
+        }
+    } else
+        ELab.style.display = "none";
 }
 
 function defGeneralChange(){
@@ -1030,6 +1042,7 @@ document.getElementById("loginpage").onkeydown = (e) => {
 }
 
 if (localStorage["autoLogin"] == "true") {
+    document.getElementById("loginCheck").checked = true;
     document.getElementById("username").value = localStorage["usr"];
     document.getElementById("password").value = localStorage["psw"];
     if (!login()) {
