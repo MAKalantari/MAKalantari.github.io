@@ -6,10 +6,10 @@
 }
 
 * {
-    font-family: yekan, inter;
+    font-family: var(--main-font), inter;
     font-size: var(--font-medium);
+    font-weight: 600;
     font-style: normal;
-    font-weight: 100;
     direction: rtl;
 }
 
@@ -54,6 +54,7 @@ section {
 
 section > h1 {
     background-color: var(--sec-border);
+    background: repeating-linear-gradient( 45deg, var(--sec-border-strips, var(--sec-border)), var(--sec-border-strips, var(--sec-border)) 5px, var(--sec-border) 5px, var(--sec-border) 15px );
     border-color: var(--sec-border);
     border-radius: 10px 10px 0 0;
     color: var(--sec-diff-text);
@@ -63,13 +64,17 @@ section > h1 {
     padding: calc(var(--font-small)/2) var(--font-small);
     text-align: center;
     user-select: none;
+    text-shadow: 0 0 4px var(--sec-border), 0 0 8px var(--sec-border), 0 0 8px var(--sec-border), 0 0 16px var(--sec-border), 0 0 24px var(--sec-border);
+    font-weight: 800;
 }
 
 section > cite {
     border-radius: 0 0 10px 10px;
     border: 1px solid var(--sec-border);
+    border-bottom-width: 5px;
     background-color: var(--sec-bg);
     border-color: var(--sec-border);
+
     box-sizing: border-box;
     display: flex;
     flex-flow: row-reverse;
@@ -94,21 +99,21 @@ section > cite {
     flex: 1 0;
     background-color: var(--button-bg);
     outline: none;
-    border: none;
-    padding: calc(var(--font-small)/2) var(--font-small);
+    border: var(--button-full-border-width, 0) solid var(--button-border);
+    padding: calc(var(--font-large)/2) var(--font-small);
     color: var(--button-text);
     border-radius: 5px;
 }
 
 .main-btn:hover {
     color: var(--button-text-highlight);
-    padding: calc(var(--font-small) / 2 - (var(--font-small) / 3)) calc(var(--font-small)) calc(var(--font-small) / 2 + (var(--font-small) / 3)) calc(var(--font-small));
+    padding: calc(var(--font-large) / 2 - (var(--font-small) / 3)) calc(var(--font-small)) calc(var(--font-large) / 2 + (var(--font-small) / 3)) calc(var(--font-small));
     cursor: pointer;
 
 }
 
 .main-btn:active {
-    padding: calc(var(--font-small)/2) var(--font-small);
+    padding: calc(var(--font-large)/2) var(--font-small);
     opacity: 85%;
 }
 
@@ -119,11 +124,14 @@ select {
     background-color: var(--button-bg);
     outline: none;
     border: 1px solid transparent;
-    border-bottom: 3px solid var(--button-shadow);
+    border-bottom: var(--button-full-border-width, 1px) solid var(--button-shadow);
     padding: calc(var(--font-small)/2) var(--font-small);
     color: var(--button-text);
     border-radius: 5px;
     text-align: center;
+    border-top: var(--button-full-border-width, 0) solid var(--button-border) !important;
+    border-right: var(--button-full-border-width, 0) solid var(--button-border) !important;
+    border-left: var(--button-full-border-width, 0) solid var(--button-border) !important;
 }
 
 input {
@@ -132,12 +140,15 @@ input {
     flex: 1 1;
     background-color: var(--button-bg);
     outline: none;
-    border: 1px solid var(--button-shadow);
+    border: var(--button-full-border-width, 1px) solid var(--button-shadow);
     border-radius: 5px;
     padding: calc(var(--font-small)/2) var(--font-small);
     color: var(--button-text);
     box-sizing: border-box;
     text-align: center;
+    border-top: var(--button-full-border-width, 0) solid var(--button-border) !important;
+    border-right: var(--button-full-border-width, 0) solid var(--button-border) !important;
+    border-left: var(--button-full-border-width, 0) solid var(--button-border) !important;
 }
 
 input:focus {
@@ -204,7 +215,7 @@ input:focus {
 }
 
 hr {
-    border-color: var(--button-shadow);
+    border-color: var(--button-border);
     width: 100%;
     margin: 0;
 }
@@ -215,14 +226,43 @@ hr {
     position: fixed;
     bottom: 0;
     left: 0;
+    padding: 0;
     height: calc(var(--font-medium) * 5);
     background-color: var(--sec-border);
-    padding: 10px;
-    gap: 10px;
     box-sizing: border-box;
     z-index: 9;
     border-radius: 10px 10px 0 0;
-    
+    align-items: stretch;
+    justify-content: center;
+}
+
+.bottom > .bottom-inner {
+    max-width: var(--max-width);
+    height: 100%;
+    width: 100%;
+    align-self: center;
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    box-sizing: border-box;
+    transition-duration: 0.15s;
+}
+
+.hide-btn {
+    border: none;
+    outline: none;
+    position: absolute;
+    left: 5px;
+    background: none;
+    font-size: var(--font-small);
+    color: var(--sec-diff-text);
+    cursor: pointer;
+    opacity: 66%;
+}
+
+.hide-btn:active,
+.hide-btn:hover {
+    opacity: 100%;
 }
 
 .redBorder {
@@ -278,7 +318,7 @@ li > button {
     border: none;
     background: none;
     background-color: var(--button-bg);
-    border-bottom: 2px solid var(--button-shadow);
+    border-bottom: var(--button-full-border-width, 2px) solid var(--button-shadow);
     color: var(--button-text);
     padding: calc(var(--font-medium) / 4) calc(var(--font-medium) / 2);
     box-sizing: border-box;
@@ -473,7 +513,7 @@ a {
 .inline > button {
     width: auto;
     min-width: 64px;
-    border: 1px solid var(--button-border);
+    border: var(--button-full-border-width, 1px) solid var(--button-border);
     border-radius: 5px;
     background-color: var(--button-bg);
     color: var(--button-text);

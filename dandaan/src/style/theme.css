@@ -1,8 +1,10 @@
 .theme-light {
     --main-bg: #f5f5f5;
+    --main-bg-img: repeating-linear-gradient( 45deg, #fafafa, #fafafa 5px, #fcfcfc 5px, #fcfcfc 15px);
     --main-text: #646464;
     --sec-bg: #fff;
     --sec-border: #595959;
+    --sec-border-strips: #626262;
     --sec-border-faded: #363636;
     --sec-text: #404040;
     --sec-diff-text: #fff;
@@ -17,6 +19,28 @@
     --warning-color: rgb(143, 79, 0);
     --reminder-color: rgb(43, 128, 255);
     --blur-intensity: 5px;
+}
+
+.theme-simple {
+    --main-bg: #f2f2f2;
+    --main-text: #484848;
+    --sec-bg: #fbfbfb;
+    --sec-border: #fbfbfb;
+    --sec-border-faded: #646464;
+    --sec-text: #404040;
+    --sec-diff-text: #646464;
+    --button-bg: #fbfbfb;
+    --button-border: #b4b4b4;
+    --button-text: #646464;
+    --button-text-highlight: #242424;
+    --button-shadow: #969696;
+    --button-accent1: #eee;
+    --button-accent2: #f6f6f6;
+    --button-accent3: #f6f6f6;
+    --warning-color: rgb(143, 79, 0);
+    --reminder-color: rgb(43, 128, 255);
+    --blur-intensity: 5px;
+    --button-full-border-width: 1px;
 }
 
 .theme-dark {
@@ -54,7 +78,7 @@
     --button-text: #000;
     --button-text-highlight: #fefefe;
     --button-shadow: #d9d9d9;
-    --button-accent1: rgb(171, 207, 239, 0.75);
+    --button-accent1: rgba(78, 255, 211, 0.75);
     --button-accent2: rgb(173, 221, 166, 0.75);
     --button-accent3: #a5a5a5;
     --warning-color: rgb(255, 188, 65);
@@ -81,7 +105,7 @@
     --warning-color: #ff0000;
     --reminder-color: #000;
     --blur-intensity: 100px;
-    --button-full-border-width: 1px;
+    --button-full-border-width: 2px;
 }
 
 .theme-contrast-dark {
@@ -128,23 +152,3 @@
     --button-full-border-width: 1px;
 }
 
-.font-small {
-    --font-small: 10px;
-    --font-medium: 12px;
-    --font-large: 14px;
-    --font-huge: 16px;
-}
-
-.font-medium {
-    --font-small: 12px;
-    --font-medium: 14px;
-    --font-large: 16px;
-    --font-huge: 18px;
-}
-
-.font-large {
-    --font-small: 14px;
-    --font-medium: 16px;
-    --font-large: 18px;
-    --font-huge: 20px;
-}

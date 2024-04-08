@@ -8,13 +8,57 @@
 @font-face {
   font-family: yekan;
   font-style: normal;
-  font-weight: 100;
+  font-weight: 300;
   src: url("../resources/fonts/BYekan.ttf");
 }
 
 @font-face {
   font-family: irsans;
   font-style: normal;
-  font-weight: 100;
+  font-weight: 300;
   src: url("../resources/fonts/IrSans.ttf");
+}
+
+@font-face {
+  font-family: nazanin;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../resources/fonts/BNazanin.ttf");
+}
+
+.font-small {
+  --font-small: 10px;
+  --font-medium: 12px;
+  --font-large: 14px;
+  --font-huge: 16px;
+}
+
+.font-medium {
+  --font-small: 12px;
+  --font-medium: 14px;
+  --font-large: 16px;
+  --font-huge: 18px;
+}
+
+.font-large {
+  --font-small: 14px;
+  --font-medium: 16px;
+  --font-large: 18px;
+  --font-huge: 20px;
+}
+
+.font-irsans {
+  --main-font: irsans;
+}
+
+.font-yekan {
+  --main-font: yekan;
+}
+
+.font-nazanin {
+  --main-font: nazanin;
+}
+
+.font-taoma {
+  --main-font: Tahoma;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" class="theme-light font-medium">
+<html lang="fa" class="theme-light font-medium font-tahoma">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,9 +29,10 @@
         <a href="https://www.kalantari.info" target="_blank">kalantari.info</a>
         <h1>نرم‌افزار راهنمای ارزیابی هزینه‌های دندانپزشکی (محمدعلی کلانتری، فروردین 1403)</h1>
     </div -->
-
     <section>
-        <h1 id="toothNumTitle">شماره دندان</h1>
+        <h1 id="toothNumTitle">شماره دندان
+            <button class="hide-btn" onclick="hideCite(this)">پنهان</button>
+        </h1>
         <cite>
             <form class="teeth" id="teethForm">
                 <input type="text" id="teethInput_UR" tag="بالا چپ" formula='n+m'/>
@@ -42,7 +43,7 @@
                 <hr>
                 <input type="text" id="teethInput_DL" tag="پایین راست" formula='n+(m*3)'/>
             </form>
-            <div class="vertical"">
+            <div class="vertical">
                 <select id="jawList">
                     <option value="0">. . .</option>
                     <option value="33">فک بالا</option>
@@ -58,7 +59,9 @@
         </cite>
     </section>
     <section>
-        <h1>هزینه</h1>
+        <h1>هزینه
+            <button class="hide-btn" onclick="hideCite(this)">پنهان</button>
+        </h1>
         <cite style="flex-direction: column;">
             <div class="inline">
                 <button tip="عنوان مشابه بعدی" id="altUpBtn" disabled>▲</button>
@@ -83,15 +86,20 @@
     </section>
 
     <section>
-        <h1>پیغام‌ها</h1>
+        <h1>پیغام‌ها
+            <button class="hide-btn" onclick="hideCite(this)">پنهان</button>
+        </h1>
         <cite id="msgContainer" style="flex-direction: column;">
             <ul id="msgBox"></ul>
         </cite>
     </section>
     <div class="bottom">
-        <button class="main-btn" style="max-width: 15%; background-color: var(--button-accent3); color:#242424;" id="moreButton">⚙</button>
-        <button class="main-btn" style="max-width: 30%; background-color: var(--button-accent3); color:#242424;" id="clearButton">پاک</button>
-        <button class="main-btn" style="background-color: var(--button-accent1); color:#242424;" id="evaluateButton">ارزیابی</button>
+        <div class="bottom-inner" id="bottomInner">
+            <button class="main-btn" style="max-width: 15%; background-color: var(--button-accent3); color:#242424;" id="moreButton">⚙</button>
+            <button class="main-btn" style="max-width: 30%; background-color: var(--button-accent3); color:#242424;" id="clearButton">پاک</button>
+            <button class="main-btn" style="background-color: var(--button-accent1); color:#242424;" id="evaluateButton">ارزیابی</button>
+        </div>
+        <button value="small" id="bottomStateBtn" class="main-btn" style="border: 1px solid black; transition-duration: 0.3s; height: calc(100% - 20px); position: absolute; left: 10px; bottom: 10px; align-self: center;">+</button>
     </div>
 
     <div class="evaluation" id="evaluation">
@@ -121,20 +129,28 @@
                     <input style="width: max-content;" type="checkbox" id="autoAgeInput" value="false"/>
 
                     <h2>تنظیمات نمایش</h2>
+                    <label>نمایش:</label>
+                    <select id="themeList">
+                        <option value="theme-light">روشن</option>
+                        <option value="theme-dark"">تاریک</option>
+                        <option value="theme-simple">ساده</option>
+                        <option value="theme-mint">آدامس</option>
+                        <option value="theme-contrast">واضح</option>
+                        <option value="theme-contrast-dark">واضح متعادل</option>
+                        <option value="theme-piss">آفتاب</option>
+                    </select>
+                    <label>فونت:</label>
+                    <select id="fontfaceList">
+                        <option value="font-irsans">ایران سنس</option>
+                        <option value="font-yekan"">یکان</option>
+                        <option value="font-nazanin">نازنین</option>
+                        <option value="font-tahoma">تاهما</option>
+                    </select>
                     <label>اندازه متن:</label>
                     <select id="fontList">
                         <option value="font-small">کوچک</option>
                         <option value="font-medium">متوسط</option>
                         <option value="font-large">بزرگ</option>
-                    </select>
-                    <label>نمایش:</label>
-                    <select id="themeList">
-                        <option value="theme-light">روشن</option>
-                        <option value="theme-dark"">تاریک</option>
-                        <option value="theme-mint">آدامس</option>
-                        <option value="theme-contrast">واضح</option>
-                        <option value="theme-contrast-dark">واضح متعادل</option>
-                        <option value="theme-piss">آفتاب</option>
                     </select>
                     <h2>حساب کاربری</h2>
                     <button onclick="logout()" class="main-btn">خروج از حساب کاربری</button>

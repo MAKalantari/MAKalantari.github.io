@@ -1,3 +1,10 @@
+//// ##############################
+//// Muhammad ali kalantari
+//// @2024
+//// All Rights Reserved
+/**/ const version = "0.5.1 Alpha";
+//// ##############################
+
 let titles = "";
 let doctors = "";
 let requirements = "";
@@ -53,6 +60,7 @@ const EMainPay = document.getElementById("payBtn");
 
 const EMsg = document.getElementById("msgBox");
 
+const EBtm = document.getElementById("bottomStateBtn");
 const EEvl = document.getElementById("evaluateButton");
 const EClr = document.getElementById("clearButton");
 const EMor = document.getElementById("moreButton");
@@ -66,6 +74,7 @@ const moreScreen = document.getElementById("more");
 const moreClose = document.getElementById("moreClose");   
 const themeList = document.getElementById("themeList");
 const fontList = document.getElementById("fontList");
+const fontfaceList = document.getElementById("fontfaceList");
 const franchiseInput = document.getElementById("franchiseInput");
 const factorInput = document.getElementById("factorInput");
 const autoAgeInput = document.getElementById("autoAgeInput");
@@ -102,6 +111,11 @@ if (localStorage.getItem('document_style_1') != undefined)
 else
     localStorage.setItem('document_style_1', "font-medium");
 
+    if (localStorage.getItem('document_style_2') != undefined)
+    setDocumentStyling(2, localStorage.getItem('document_style_2'));
+else
+    localStorage.setItem('document_style_2', "font-tahoma");
+
 if (localStorage.getItem('franchise') != undefined) {
     franchise = localStorage["franchise"];
     franchiseInput.value = franchise;
@@ -134,12 +148,14 @@ if (localStorage["playSound"] == "true") {
      
 themeList.value = localStorage['document_style_0'];
 fontList.value = localStorage['document_style_1'];
+fontfaceList.value = localStorage['document_style_2'];
 
  document.body.addEventListener("click", (e) => {
     var audio = document.getElementById("audio");
     if(playSound && e.target.nodeName == "BUTTON")
         audio.play();
  });
+
 
  document.body.addEventListener("mouseover", (e) => {
     if(e.target.nodeName == "BUTTON") {
@@ -178,7 +194,7 @@ EJaw.oninput = (e) => {
         toothNum = e.target.value;
         toothNumTitle.innerHTML = EJaw.options[EJaw.selectedIndex].text;
     } else if (e.target.value == 0) {
-        toothNumTitle.innerHTML = "شماره دندان";
+        toothNumTitle.innerHTML = `<button class="hide-btn" onclick="hideCite(this)">پنهان</button> شماره دندان`;
         toothNum = null;
     }
     
@@ -378,7 +394,7 @@ EClr.onclick = (e) => {
     EDoc.value = null;
     ECst.value = null;
     ECst.setAttribute("placeholder", "مبلغ هزینه به ریال");
-    toothNumTitle.innerHTML = "شماره دندان";
+    toothNumTitle.innerHTML = 'شماره دندان<button class="hide-btn" onclick="hideCite(this)">پنهان</button>';
     EMsg.innerHTML = "";
     toothNum = null;
     globalDefElement = null;
@@ -411,6 +427,11 @@ themeList.onchange = (e) => {
 fontList.onchange = (e) => {
     setDocumentStyling(1, e.target.value);
 }
+
+fontfaceList.onchange = (e) => {
+    setDocumentStyling(2, e.target.value);
+}
+
 
 autoAgeInput.onchange = (e) => {
     if(autoAgeInput.checked) {
@@ -625,8 +646,19 @@ function instantReminder() {
 
     // with def
     if (globalDefElement != null){
+
+        //setecting decoy titles, replacing it with actual alternative ones.
+        if (globalDefElement["key"][0] == '0') {
+            const altTitle = getElementByKey(titles, globalDefElement["altDown"]);
+            EDef.value = altTitle["def"] + " [" + altTitle["key"] + ']';
+            addMsg(globalDefElement["etc"][0], "color: var(--warning-color)");
+            defGeneralChange();
+            return;
+        }
+
         if (isOneOf(globalDefElement["key"], ["3310/3"]) && isOneOf(toothNum, [3, 14, 19, 30]))
             addMsg("دندان 6 معمولا دارای سه کانال است. جهت تایید کانال اضافه (چهار کاناله بودن)، گرافی به دقت بررسی شود.", "color: var(--reminder-color)");
+
     }
 
     // with doc
@@ -893,10 +925,10 @@ function setupToothInput(input) {
 
         if (isOfString(input.value, kidToothSigns)) {
             toothNum = eval(input.getAttribute("formula").replace('m', '5').replace('n', letterToNum(input.value)));
-            toothNumTitle.innerHTML = "شماره دندان: " + toothNum + " کودک ";
+            toothNumTitle.innerHTML = `<button class="hide-btn" onclick="hideCite(this)">پنهان</button>شماره دندان: ` + toothNum + " کودک ";
         } else {
             toothNum = eval(input.getAttribute("formula").replace('m', '8').replace('n', input.value));
-            toothNumTitle.innerHTML = "شماره دندان: " + toothNum;
+            toothNumTitle.innerHTML = `<button class="hide-btn" onclick="hideCite(this)">پنهان</button>شماره دندان: ` + toothNum;
         }
     }
 
@@ -916,6 +948,27 @@ function addEvalMsg(input, style = "", tag="", other ="") {
     evaluateList.innerHTML = `<li ${other} style="${style} --tag: '${tag} ';">` + input + "</li>" + evaluateList.innerHTML;
 }
 
+function hideCite(input) {
+    const sectionChildren = input.parentElement.parentElement.children;
+    var index = 0
+    for (var i = 0; i < sectionChildren.length; i++) {
+        if (sectionChildren[i].nodeName == "CITE") {
+            index = i;
+            break;
+        }
+    }
+    if (sectionChildren[index] != undefined) {
+        if(sectionChildren[index].style.display != "none") {
+            input.innerHTML = "نمایش";
+            sectionChildren[index].style.display = "none";
+            sectionChildren[0].style.borderRadius = "10px";
+        } else {
+            sectionChildren[index].style.display = "flex";
+            sectionChildren[0].style.borderRadius = "10px 10px 0 0";
+            input.innerHTML = "پنهان";
+        }
+    }
+}
 
 
 function toPalmer(input) {
@@ -1053,6 +1106,7 @@ if (localStorage["autoLogin"] == "true") {
 }
 
 function login() {
+    document.getElementById("loginMsg").innerHTML = "درحال دریافت اطلاعات از سرور...";
     fetch('https://kalantari.info/dandaan/src/resources/database/dataset.json')
     .then((response) => response.json())
     .then((json) => {
@@ -1093,7 +1147,18 @@ function logout() {
 
 
 
-
+EBtm.onclick = (e) => {
+    if (document.getElementById("bottomInner").style.maxWidth != "100%") {
+        document.getElementById("bottomInner").style.maxWidth = "100%";
+        EBtm.style.opacity = "50%";
+        EBtm.style.bottom = "calc(var(--font-medium) * 5 + 10px)";
+    }
+    else { 
+        document.getElementById("bottomInner").style.maxWidth = "var(--max-width)";
+        EBtm.style.opacity = "100%";
+        EBtm.style.bottom = "10px";
+    }
+}
 
 
 
