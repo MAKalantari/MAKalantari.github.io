@@ -1114,7 +1114,7 @@ function login() {
             if (json[i]["0"] == document.getElementById("username").value &&
                 json[i]["1"] == document.getElementById("password").value) {
 
-                    addMsg(json[i]["3"] + "، خوش آمدید.");
+                    addMsg(json[i]["2"] + "، خوش آمدید.");
                     if (document.getElementById("loginCheck").checked) {
                         localStorage["usr"] = json[i]["0"];
                         localStorage["psw"] = json[i]["1"];
@@ -1159,6 +1159,24 @@ EBtm.onclick = (e) => {
         EBtm.style.bottom = "10px";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
