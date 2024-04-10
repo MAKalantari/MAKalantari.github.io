@@ -1,5 +1,6 @@
 @import "font.css";
 @import "theme.css";
+@import "scaling.css";
 
 :root {
     --max-width: 640px;
@@ -117,6 +118,15 @@ section > cite {
     opacity: 85%;
 }
 
+.bottom-state-btn {
+    display: block;
+    border: 1px solid black;
+    transition-duration: 0.3s;
+    height: calc(100% - 20px);
+    position: absolute; left: 10px;
+    bottom: 10px;
+    align-self: center;
+}
 select {
     width: 100%;
     height: var(--global-height, auto);
@@ -620,3 +630,8 @@ a {
     font-size: var(--font-small);
 
 }
+
+
+
+
+
