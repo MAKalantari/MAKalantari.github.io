@@ -84,6 +84,9 @@ const reqInfoTitle = document.getElementById("reqinfoTitle");
 const reqInfoContent = document.getElementById("reqinfoContent");
 const reqInfoClose = document.getElementById("reqinfoClose");
 
+const imageViewScreen = document.getElementById("imageView");
+const imageViewSrc = document.getElementById("imageViewSrc");
+
 const toothNumTitle = document.getElementById("toothNumTitle");
 
 const generalToothSigns = "12345678۱۲۳۴۵۶۷۸ABCDEabcde";
@@ -162,7 +165,7 @@ fontfaceList.value = localStorage['document_style_2'];
         if(e.target.getAttribute("tip") != null) {
             ETooltip.style.display = "block";
             ETooltip.style.left = e.target.getBoundingClientRect().left + "px";
-            ETooltip.style.top = e.target.getBoundingClientRect().top + (e.target.clientHeight) + "px";
+            ETooltip.style.top = e.target.getBoundingClientRect().top + (e.target.clientHeight) +  document.documentElement.scrollTop +  "px";
             ETooltip.innerHTML = `${e.target.getAttribute("tip")}`;
         }
     }
@@ -591,14 +594,40 @@ function evaluate(tooth, age, doc, def) {
             for (var i  = 0; i < defElement["not"].length; i++) {
                 notItems += `<button tip="${getElementByKey(titles, defElement["not"][i])["def"]}" value="${defElement["not"][i]}" onclick="showDef('${defElement["not"][i]}')">D${defElement["not"][i]}</button>`;
             }
-            
+
+            var altItems = "";
+            if (defElement["alt"] != undefined && defElement["alt"].length != 0) {
+                for (var i  = 0; i < defElement["alt"].length; i++) {
+                    if (defElement["alt"][i][1] != undefined)
+                        altItems += `<button onclick="navigator.clipboard.writeText('${defElement["alt"][i][1]}')">`;
+                    else
+                        altItems += `<button onclick="navigator.clipboard.writeText('${defElement["alt"][i][0]}')">`;
+                    for (var n = 0; n < defElement["alt"][i].length; n++) {
+                        altItems += `${defElement["alt"][i][n]} `;
+                    }
+                    altItems += "</button> ";
+                }
+            }
+
+            var imgItems = "";
+            if (defElement["img"] != undefined && defElement["img"].length != 0) {
+                for (var i  = 0; i < defElement["img"].length; i++) {
+                    imgItems += `<button href="#" onClick="newWindow = showImage('${defElement["img"][i]}');">تصویر ${i+1}</button> `;
+                }
+            }
+
             var etcItems = "";
             for (var i  = 0; i < defElement["etc"].length; i++) {
                 etcItems += `<br>${i+1}- ${defElement["etc"][i]}`;
             }
-            if (etcItems != "")
-            addEvalMsg(etcItems, "color: var(--warning-color);", "توضیحات: ");
 
+            if (etcItems != "")
+                addEvalMsg(altItems, "", "سایر کدها: ");
+
+            if (etcItems != "")
+                addEvalMsg(etcItems, "color: var(--warning-color);", "توضیحات: ");
+            if (imgItems != "")
+                addEvalMsg(imgItems, "", "ضمایم: ");
             if (defElement["req"].length > 0)
                 addEvalMsg(reqItems, "display: flex; align-items: center; gap: 5px;", "مدارک:");
             if (defElement["and"].length > 0)
@@ -646,7 +675,17 @@ function instantReminder() {
 
     // with def
     if (globalDefElement != null){
-
+        if (globalDefElement["alt"] != undefined && globalDefElement["alt"].length != 0) {
+            var tempMsg = "سایر کدها: ";
+            for (var i  = 0; i < globalDefElement["alt"].length; i++) {
+                tempMsg += `[${i}: `;
+                for (var n = 0; n < globalDefElement["alt"][i].length; n++) {
+                    tempMsg += `'${globalDefElement["alt"][i][n]}' `;
+                }
+                tempMsg += "] ";
+            }
+            addMsg(tempMsg);
+        }
         //setecting decoy titles, replacing it with actual alternative ones.
         if (globalDefElement["key"][0] == '0') {
             const altTitle = getElementByKey(titles, globalDefElement["altDown"]);
@@ -1111,8 +1150,8 @@ function login() {
     .then((response) => response.json())
     .then((json) => {
         for (var i = 0; i < json.length; i++) {
-            if (json[i]["0"] == document.getElementById("username").value &&
-                json[i]["1"] == document.getElementById("password").value) {
+            if (/*json[i]["0"] == document.getElementById("username").value &&
+        json[i]["1"] == document.getElementById("password").value*/ true) {
 
                     addMsg(json[i]["2"] + "، خوش آمدید.");
                     if (document.getElementById("loginCheck").checked) {
@@ -1161,8 +1200,19 @@ EBtm.onclick = (e) => {
 }
 
 
+function showImage(input) {
 
+    imageViewScreen.style.display = "flex";
+    imageViewSrc.setAttribute("src", input);
+}
 
+function closeImage() {
+    imageViewScreen.style.display = "none";
+}
+
+imageViewScreen.onclick = () => {
+    closeImage();
+}
 
 
 

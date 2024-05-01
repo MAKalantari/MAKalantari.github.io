@@ -32,9 +32,8 @@ body {
     gap: 10px;
     box-sizing: border-box;
     flex-direction: column;
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
+    justify-content: stretch;
 }
 
 button {
@@ -49,8 +48,9 @@ section {
     gap: 0;
     margin: 0;
     padding: 0;
-    width: 100%;
     backdrop-filter: blur(calc(var(--blur-intensity) * 3));
+    width: 100%;
+    max-width: var(--max-width);
 }
 
 section > h1 {
@@ -104,6 +104,7 @@ section > cite {
     padding: calc(var(--font-large)/2) var(--font-small);
     color: var(--button-text);
     border-radius: 5px;
+    border-bottom: var(--button-full-border-width, 1px) solid var(--button-border);
 }
 
 .main-btn:hover {
@@ -127,6 +128,7 @@ section > cite {
     bottom: 10px;
     align-self: center;
 }
+
 select {
     width: 100%;
     height: var(--global-height, auto);
@@ -169,62 +171,58 @@ input:focus {
 }
 
 .teeth {
+    --teeth-form-inner-border-width: 1px;
+    --teeth-form-gap: 5px;
+
     display: flex;
     flex-wrap: wrap;
-    gap: 0;
     padding: 0;
     margin: 0;
-
-    height: calc(var(--font-huge) * 5);
-    width: calc(var(--font-huge) * 5);
+    width: calc(var(--font-huge) * var(--scale, 3));
+    height: calc(var(--font-huge) * var(--scale, 3));
+    box-sizing: border-box;
+    align-content: space-between;
+    justify-content: space-between;
+    gap: 0px;
 }
 
 .teeth > input{
-    width: 45%;
-    height: 45%;
     box-sizing: border-box !important;
-    font-size: var(--font-huge);
-    font-family: inter, Tahoma, Arial, Verdana, sans-serif;
-}
-
-.teeth > input:nth-of-type(1),
-.teeth > input:nth-of-type(2) {
-    align-self: flex-start;
-}
-
-.teeth > input:nth-of-type(3),
-.teeth > input:nth-of-type(4) {
-    align-self: flex-end;
+    font-size: calc(3.5px * var(--scale, 2));
+    font-family: sans-serif, Tahoma;
+    padding: 0 !important;
+    box-sizing: border-box;
+    flex: 1 1;
+    min-width: calc(50% - (var(--teeth-form-inner-border-width) / 2) - (var(--teeth-form-gap)));
+    min-height: calc(50% - (var(--teeth-form-inner-border-width) / 2) - (var(--teeth-form-gap)));
+    max-width: calc(50% - (var(--teeth-form-inner-border-width) / 2) - (var(--teeth-form-gap)));
+    max-height: calc(50% - (var(--teeth-form-inner-border-width) / 2) - (var(--teeth-form-gap)));
 }
 
 
-
- .teeth > hr:nth-of-type(1){
-    width: 1%;
-    height: 49%;
-    margin: 0 2% 0 2%;
-    padding: 0;
-    border: none;
+.teeth > hr{
+    padding: 0px !important;
+    margin: 0px !important;
     background-color: var(--button-border);
+    border: none;
+    box-sizing: border-box;
 }
 
- .teeth > hr:nth-of-type(2){
+.teeth > hr:nth-of-type(1){
+    width: var(--teeth-form-inner-border-width);
+}
+
+.teeth > hr:nth-of-type(2){
     width: 100%;
-    height: 1%;
-    margin: 0;
-    border: none;
-    background-color: var(--button-border);
+    height: var(--teeth-form-inner-border-width);
+    
 }
 
- .teeth > hr:nth-of-type(3){
-    width: 1%;
-    height: 49%;
-    margin: 0 2% 0 2%;
-    border: none;
-    background-color: var(--button-border);
+.teeth > hr:nth-of-type(3){
+    width: var(--teeth-form-inner-border-width);
 }
 
-hr {
+.wide-hr {
     border-color: var(--button-border);
     width: 100%;
     margin: 0;
@@ -513,11 +511,13 @@ a {
 
 .inline {
     width: 100%;
+    flex: 1 1;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 5px;
     box-sizing: border-box;
+    align-items: stretch;
 }
 
 .inline > button {
@@ -631,7 +631,176 @@ a {
 
 }
 
+.image-view {
+    background-color: rgba(0, 0, 0, 0.75);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 45 !important;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    padding: 10px;
+    margin: none;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+}
+
+.image-view > img {
+    max-width: calc(100% - 20px);
+    max-height: calc(100vh - 20px);
+}
+
+.title {
+    width: auto;
+    height: var(--global-height, auto);
+    flex: 1 0;
+    background-color: var(--button-bg);
+    outline: none;
+    border: var(--button-full-border-width, 0) solid var(--button-border);
+    padding: calc(var(--font-large)/2) var(--font-small);
+    color: var(--button-text);
+    border-radius: 5px;
+    border-right: 3px solid var(--accent, var(--button-shadow));
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    background-color: var(--sec-bg);
+    overflow-x: auto;
+    border-radius: 5px;
+    border: calc(2 * var(--button-full-border-width, 1px)) solid var(--accent, var(--sec-border));
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.item > h1 {
+    display: flex;
+    background-color: var(--accent, var(--sec-border));
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-size: var(--font-medium);
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.item > h1 > label {
+    background-color: var(--sec-bg);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--sec-text);
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-medium);
+}
+
+.item > h1 > button {
+    background-color: var(--sec-bg);
+    color: var(--sec-text);
+    max-height: calc(var(--font-medium) * 2 + 10px);
+}
+
+.item > section {
+    flex: 1 0;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+}
+
+.item > section > div:nth-of-type(1) {
+    flex-direction: 1 0;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    align-items: stretch;
+    border-radius: 5px;
+}
+
+.item > section > div:nth-of-type(1) > section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-wrap: nowrap;
+}
+
+.item > section > div:nth-of-type(1) > section > input,
+.item > section > div:nth-of-type(1) > section > button,
+.item > section > div:nth-of-type(1) > section > .title {
+    padding: 5px !important;
+}
 
 
+.item > section > div:nth-of-type(1) > section:nth-of-type(2) {
+    max-width: fit-content;
+}
+
+.item > section > div:nth-of-type(1) > section:nth-of-type(4) {
+    max-width: fit-content;
+}
+
+.item > section > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: wrap;
+    width: 100%;
+    color: var(--sec-text);
+    box-sizing: border-box;
+    align-items: stretch;
+    padding: 5px;
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-border);
+    border-radius: 4px;
+    opacity: 66%;
+}
+
+.item > section > div:nth-of-type(2):hover {
+    opacity: 100%;
+}
+
+.item > section > div:nth-of-type(2) > * {
+    width: auto;
+    white-space: nowrap;
+    flex: 0;
+}
 
 
+.item > section > div:nth-of-type(2) > button {
+    background-color: var(--sec-bg);
+    padding: 5px;
+    font-size: var(--font-small);
+}
+
+.item > section >  div:nth-of-type(2)::before {
+    content: "کدها:";
+    font-size: var(--font-small);
+    align-self: center;
+}
+
+.inline-simple {
+    width: 100%;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px;
+    
+}

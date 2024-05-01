@@ -29,12 +29,12 @@
         <a href="https://www.kalantari.info" target="_blank">kalantari.info</a>
         <h1>نرم‌افزار راهنمای ارزیابی هزینه‌های دندانپزشکی (محمدعلی کلانتری، فروردین 1403)</h1>
     </div -->
-    <section>
+    <section id="sectionToothNum">
         <h1 id="toothNumTitle">شماره دندان
             <button class="hide-btn" onclick="hideCite(this)">پنهان</button>
         </h1>
         <cite>
-            <form class="teeth" id="teethForm">
+            <form class="teeth" id="teethForm" style="--scale: 5;">
                 <input type="text" id="teethInput_UR" tag="بالا چپ" formula='n+m'/>
                 <hr>
                 <input type="text" id="teethInput_UL" tag="بالا راست" formula='m-(n-1)'/>
@@ -53,12 +53,13 @@
                     <option value="37">نیم فک میانی</option>
                     <option value="38">نیم فک چپ</option>
                 </select>
-                <hr>
+                <hr class="wide-hr"/>
                 <input class="" placeholder="سن" id="ageInput"/>
             </div>
         </cite>
     </section>
-    <section>
+
+    <section id="sectionCost">
         <h1>هزینه
             <button class="hide-btn" onclick="hideCite(this)">پنهان</button>
         </h1>
@@ -85,7 +86,73 @@
         </cite>
     </section>
 
-    <section>
+    <section id="sectionTotal">
+        <h1 style="border-radius: 10px;">
+            (غیرفعال) تقسیم هزینه
+            <button class="hide-btn"  onclick="hideCite(this)">نمایش</button>
+        </h1>
+        <cite style="display: none; flex-direction: column; " >
+
+            <!-- <section class="item">
+                <section>
+                    <div style="color: var(--sec-text);" class="inline">
+                        <input type="text" dir="ltr" style="direction: ltr !important;" min="1" placeholder="مبلغ کل فاکتور"/>
+                        <select>
+                            <option>تقسیم به نسبت تعرفه</option>
+                            <option>تقسیم مساوی</option>
+                            <option>به تعرفه به استثنای آخرین مبلغ</option>
+                            <option>به تعرفه به استثنای آخرین مبلغ</option>
+                        </select>
+                        <button tip="افزودن هزینه کنونی به لیست">+</button>
+                    </div>
+                </section>
+            </section> -->
+
+            <div class="item">
+                <h1>
+                    <button class="main-btn">▲</button>
+                    <label>0</label>
+                    <button class="main-btn">▼</button>
+                </h1>
+                <section>
+                    <div>
+                        <section>
+                            <div class="title">عنوان</div>
+                            <div class="title">پزشک</div>
+                        </section>
+                        <section>
+                            <form class="teeth" id="teethForm" style="--scale: 5;">
+                                <input disabled value="3"/>
+                                <hr>
+                                <input disabled/>
+                                <hr>
+                                <input disabled/>
+                                <hr>
+                                <input disabled/>
+                            </form>
+                        </section>
+                        <section>
+                            <input style="flex-basis: 50%;"  disabled/>
+                                <button style="flex-basis: 50%;" class="main-btn" tip="بر اساس نوع تقسیم انتخاب شده">کپی</button>
+                        </section>
+                        <section>
+                            <button class="main-btn" tip="افزودن هزینه کنونی به لیست">حذف</button>
+                            <button class="main-btn"  tip="افزودن هزینه کنونی به لیست">نمایش</button>
+                        </section>
+                    </div>
+
+                    <div>
+                        <button class="main-btn">اصلی: 0000</button>
+                        <button class="main-btn">فرعی 1: 1111</button>
+                        <button class="main-btn">فرعی 2: 2222</button>
+                    </div>
+                </section>
+            </div>
+
+        </cite>
+    </section>
+
+    <section id="sectionMessages">
         <h1>پیغام‌ها
             <button class="hide-btn" onclick="hideCite(this)">پنهان</button>
         </h1>
@@ -171,6 +238,11 @@
             </cite>
         </section>
     </div>
+
+    <div class="image-view" id="imageView">
+        <img id="imageViewSrc" src=""/>
+    </div>
+
     <audio id="audio" src="src/resources/sounds/click.mp3"></audio>
     <div class="tooltip" id="tooltip"></div>
     </div>
