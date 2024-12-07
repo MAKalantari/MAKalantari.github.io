@@ -1146,7 +1146,7 @@ if (localStorage["autoLogin"] == "true") {
 
 function login() {
     document.getElementById("loginMsg").innerHTML = "درحال دریافت اطلاعات از سرور...";
-    fetch('https://kalantari.info/dandaan/src/resources/database/dataset.json')
+    fetch('https://makalantari.github.io/dandaan/src/resources/database/dataset.json')
     .then((response) => response.json())
     .then((json) => {
         for (var i = 0; i < json.length; i++) {
