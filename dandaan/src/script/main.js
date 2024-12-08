@@ -1075,6 +1075,18 @@ function toPalmer(input) {
         result[2] = "فک";
         return result;
     }
+    if (input == 39) {
+        result[0] = "";
+        result[1] = "لب";
+        result[2] = "گوشت";
+        return result;
+    }
+    if (input == 40) {
+        result[0] = "";
+        result[1] = "لثه";
+        result[2] = "گوشت";
+        return result;
+    }
     
     return null;
 }
