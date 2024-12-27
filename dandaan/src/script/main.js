@@ -8,7 +8,7 @@
 let titles = "";
 let doctors = "";
 let requirements = "";
-
+let yearIndex = 0;
 fetch('src/resources/database/titles.json')
     .then((response) => response.json())
     .then((json) => {
@@ -99,7 +99,7 @@ var toothNum;
 var globalDocElement = null;
 var globalDefElement = null;
 var franchise;
-var playSound = true;
+var playSound = false;
 
 
 
@@ -189,7 +189,7 @@ ETur.oninput = (e) => { setupToothInput(e.target); }
 ETdl.oninput = (e) => { setupToothInput(e.target); }
 ETdr.oninput = (e) => { setupToothInput(e.target); }
 EJaw.oninput = (e) => {
-    if (e.target.value >= 33 && e.target.value <=38 ) {
+    if (e.target.value >= 33 && e.target.value <=40 ) {
         ETul.value = null;
         ETur.value = null;
         ETdl.value = null;
@@ -452,14 +452,14 @@ autoAgeInput.onchange = (e) => {
 function getCostMatch(doc, def) {
     if (doc != "" && def != "") {
         if (doc == '0') {
-            return Number(getElementByKey(titles, def)["prc"][0]);
+            return Number(getElementByKey(titles, def)["prc"][yearIndex][0]);
         } else {
             var acceptedDoctors = getElementByKey(titles, def)["doc"];
             for (var i = 0; i < acceptedDoctors.length; i++) {
                 if(acceptedDoctors[i] == doc)
-                    return Number(getElementByKey(titles, def)["prc"][1]);
+                    return Number(getElementByKey(titles, def)["prc"][yearIndex][1]);
             }
-            return Number(getElementByKey(titles, def)["prc"][0]);
+            return Number(getElementByKey(titles, def)["prc"][yearIndex][0]);
         }
     }
     return 0;
@@ -553,7 +553,7 @@ function evaluate(tooth, age, doc, def) {
                     for (var i = 0; i < acceptedDoctors.length; i++) {
                         if(acceptedDoctors[i] == doc) {
                             
-                            price =  getElementByKey(titles, def)["prc"][1];
+                            price =  getElementByKey(titles, def)["prc"][yearIndex][1];
                             docElement = getElementByKey(doctors, doc);
                             break;
                         }
@@ -565,7 +565,7 @@ function evaluate(tooth, age, doc, def) {
                 }
 
                 if (price == 0) {
-                    price = getElementByKey(titles, def)["prc"][0];
+                    price = getElementByKey(titles, def)["prc"][yearIndex][0];
                     docElement = getElementByKey(doctors, '1', "key");
                 }
                 
@@ -727,7 +727,7 @@ evaluateClose.onclick = () => {
 
 function setECstOptions(_factor = 1) {
     if (globalDefElement != null && globalDocElement == null) {
-        ECst.setAttribute("placeholder", splitNum(Number(globalDefElement["prc"][0]) * _factor, 3));
+        ECst.setAttribute("placeholder", splitNum(Number(globalDefElement["prc"][yearIndex][0]) * _factor, 3));
         EMainPay.disabled = false;
         EMaxPay.disabled = false;
     }
@@ -1077,14 +1077,14 @@ function toPalmer(input) {
     }
     if (input == 39) {
         result[0] = "";
-        result[1] = "لب";
-        result[2] = "گوشت";
+        result[1] = "گوشت";
+        result[2] = "لب";
         return result;
     }
     if (input == 40) {
         result[0] = "";
-        result[1] = "لثه";
-        result[2] = "گوشت";
+        result[1] = "گوشت";
+        result[2] = "زبان";
         return result;
     }
     
