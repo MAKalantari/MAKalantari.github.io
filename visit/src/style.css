@@ -1,0 +1,321 @@
+@import "./font.css";
+
+* {
+    font-family: yekan;
+}
+
+:root {
+    --accent1: rgb(0, 183, 219);
+    --accent2: rgb(3, 171, 132);
+    --accent3: rgb(0, 146, 168);
+    --accent4: rgb(206, 222, 218);
+    --stampdeg: -25deg;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+body {
+    padding: 16px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #e2e2e2;
+    --dot-bg: #e2e2e2;
+  --dot-color: #686868;
+  --dot-size: 1px;
+  --dot-space: 24px;
+	background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
+}
+
+body > section { 
+    min-width: 240px;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    max-height: 566px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid var(--accent4);
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow:
+    rgba(0, 0, 0, 0.25) 12px 12px 32px,
+    rgba(255, 255, 255, 1) -16px -16px 32px,
+    rgba(255, 255, 255, 0.5) -4px -4px 16px;
+}
+
+
+body > section > .top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 93%;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+body > section > .top > .left {
+    background: linear-gradient(var(--accent1), var(--accent2));
+    width: 28%;
+    height: 100%;
+    border-bottom-right-radius: 64px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 16px 16px 32px 16px;
+    box-sizing: border-box;
+    direction: rtl;
+    gap: 16px;
+    user-select: none;
+}
+
+body > section > .top > .left > img{
+    border-radius: 50%;
+    background: linear-gradient(-70deg, var(--accent3) 45%, transparent 55%);
+    width: 75%;
+    aspect-ratio: 1;
+    box-shadow:rgba(255, 255, 255, 0.5) -1px -1px 1px 2px,
+    rgba(0, 0, 0, 0.25) 8px 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10%;
+    box-sizing: border-box;
+    margin-bottom: 10%;
+}
+
+body > section > .top > .left > .upper {
+    background-color: var(--accent3);
+    color: var(--accent4);
+    border-radius: 6px;
+    padding: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+}
+
+body > section > .top > .left > .upper > span {
+    width: auto;
+    font-size: small;
+    user-select: none;
+    white-space: nowrap;
+}
+
+body > section > .top > .left > .upper > input,
+body > section > .top > .left > .upper > select {
+    font-size: medium;
+    outline: none;
+    border: none;
+    cursor: text;
+    background-color: transparent;
+    text-align: center;
+    color: var(--accent4);
+    flex: 1 1;
+    width: 0;
+    border-bottom: 1px solid transparent;
+    justify-content: center;
+}
+
+body > section > .top > .left > .upper > input {
+    width: auto;
+    flex: 0;
+    cursor: pointer;
+}
+
+body > section > .top > .left > .upper > label {
+    cursor: pointer;
+}
+
+body > section > .top > .left > .upper > input:focus {
+    border-bottom: 1px solid var(--accent4);
+}
+
+
+body > section > .top > .left > .lower {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    box-sizing: border-box;
+    width: 65%;
+    flex-direction: column;
+    box-sizing: border-box;
+    opacity: .94;
+    align-self: center;
+}
+
+body > section > .top > .left > .fill {
+    flex: 1 1;
+}
+
+body > section > .top > .left > .lower > span {
+    color: white;
+    font-size: small;
+    text-align: center;
+}
+
+body > section > .top > .left > .lower > input,
+body > section > .top > .left > .lower > select {
+    min-height: 30px;
+    width: 100%;
+    max-width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    padding: 6px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+
+body > section > .top > .right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1 1;
+    padding: 16px;
+    box-sizing: border-box;
+    color: rgba(0,0,0, 0.85);
+}
+
+body > section > .top > .right > h1 {
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}
+
+body > section > .top > .right > h2 {
+    text-align: center;
+    font-size: small;
+    font-weight: lighter;
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    user-select: none;
+    margin-bottom: 10%;
+}
+
+body > section > .top > .right > section {
+    direction: rtl;
+    font-size: medium;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-family: khodkar !important;
+}
+
+body > section > .top > .right > section > *{
+    font-family: khodkar !important;
+    font-size: large;
+}
+
+body > section > .top > .right > section > input,
+body > section > .top > .right > section > select{
+    direction: rtl;
+    font-size: medium;
+    border: none;
+    border-bottom: 1px solid var(--accent4);
+    background-color: transparent;
+    flex: 1 1;
+    outline: none;
+    cursor: text;
+    text-align: center;
+}
+
+body > section > .top > .right > section > input:focus,
+body > section > .top > .right > section > select:focus{
+    outline: none;
+}
+
+body > section > .bottom {
+    background: var(--accent4);
+    margin-left: 25%;
+    border-top-left-radius: 16px;
+    padding: 8px 8px 4px 8px;
+    box-sizing: border-box;
+    flex: 1 1;
+    padding-top: 4px;
+    direction: rtl;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 16px;
+}
+
+body > section > .bottom > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .66;
+    user-select: none;
+}
+
+body > section > .bottom > span:hover {
+    opacity: 1;
+}
+
+.stamp {
+    border-radius: 12px;
+    border: 7px double blue;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blue;
+    background-color: transparent;
+    opacity: .75;
+    width: 20%;
+    aspect-ratio: 3 / 1 !important;
+    rotate: var(--stampdeg);
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    align-self: center;
+    user-select: none;
+}
+
+.stamp > h1 {
+    font-size: large;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.stamp > h2{
+    font-size: small;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.stamp > h3{
+    font-size: smaller;
+    margin: 0;
+    white-space: nowrap;
+}

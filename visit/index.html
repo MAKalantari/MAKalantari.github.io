@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارزیاب ویزیت</title>
+    <link rel="stylesheet" href="src/style.css">
+    <script type="text/javascript" src="src/script.js" defer></script>
+</head>
+<body>
+    <section>
+        <div class="top">
+            <div class="left">
+                <img src="/src/images/1845319.png"/>
+                <div class="upper">
+                    <span>پزشک:</span>
+                    <select name="doctorlist" id="doctorsleft">
+                        <option key="970000" selected>عمومی</option>
+                        <option key="970001">عمومی با سابقه 15 سال</option>
+                        <option key="970015">متخصص</option>
+                        <option key="970030">فوق تخصص</option>
+                        <option key="970066">متخصص کودکان</option>
+                        <option key="970076">فوق تخصص کودکان</option>
+                        <option key="970055">کارشناس</option>
+                        <option key="970050">کارشناس ارشد</option>
+                        <option key="970055">کارشناس مامایی</option>
+                        <option key="970050">کارشناس ارشد مامایی</option>
+                        <option key="970055">اپتومتریست</option>
+                    </select>
+                </div>
+                <div class="upper">
+                    <span>سهم بیمه پایه: </span>
+                    <select id="firstins">
+                        <option selected>نامشخص</option>
+                        <option>ندارد</option>
+                        <option>دارد</option>
+                    </select>
+                </div>
+
+                <div class="fill"></div>
+
+                <div class="lower">
+                    <span>فرانشیز:</span>
+                    <input type="number" id="franchise" placeholder="درصد"/>
+                </div>
+
+                <div class="lower">
+                    <span>سن بیمار:</span>
+                    <input type="number" id="age" value="18"/>
+                </div>
+            </div>
+
+            
+            <div class="right">
+                <h1>هُو الشّافی</h1>
+                <h2> امام صادق (ع): كسى كه به اوضاع زمان خود آگاه باشد، گرفتار هجوم اشتباهات نمى ‏شود.</h2>
+                <section>
+                    <span>بیمار محترم در تاریخ</span>
+                    <select id="yearsright">
+                        <option>1400</option>
+                        <option>1401</option>
+                        <option>1402</option>
+                        <option selected>1403</option>
+                    </select>
+                    <span>توسط پزشک</span>
+                    <select name="doctorlist" id="doctorsright">
+                        <option key="970000" selected>عمومی</option>
+                        <option key="970001">عمومی با سابقه 15 سال</option>
+                        <option key="970015">متخصص</option>
+                        <option key="970030">فوق تخصص</option>
+                        <option key="970066">متخصص کودکان</option>
+                        <option key="970076">فوق تخصص کودکان</option>
+                        <option key="970055">کارشناس</option>
+                        <option key="970050">کارشناس ارشد</option>
+                        <option key="970055">کارشناس مامایی</option>
+                        <option key="970050">کارشناس ارشد مامایی</option>
+                        <option key="970055">اپتومتریست</option>
+                    </select>
+                    <span>ویزیت شد و مبلغ </span>
+                    <input type="number" id="cost"/>
+                    <span>ریال</span>
+                    <span>به حروف</span>
+                    <span style="text-decoration: underline; color: blue;" id="farsicost"></span>
+                    <span>پرداخت نمود.</span>
+                </section>
+                <div class="stamp">
+                    <h1>ویزیت شد</h1>
+                    <h2 id="stamptitle">پزشک عمومی</h2>
+                </div>
+                <span id="payment"></span>
+            </div>
+        </div>
+        <div class="bottom">
+            <span>توسعه دهنده: محمدعلی کلانتری</span>
+            <span>نشانی: <a href="https://kalantari.info/" target="_blank">kalantari.info</a></span>
+            <span>@2025</a></span>
+        </div>
+    </section>
+</body>
+</html>

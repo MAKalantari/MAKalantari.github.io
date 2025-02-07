@@ -1,0 +1,13 @@
+@font-face {
+    font-family: yekan;
+    font-style: normal;
+    font-weight: normal;
+    src: url("./fonts/BYekan.ttf");
+  }
+
+  @font-face {
+    font-family: khodkar;
+    font-style: normal;
+    font-weight: normal;
+    src: url("./fonts/khodkar.ttf");
+  }
