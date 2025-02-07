@@ -8,6 +8,7 @@ const EFarsicost = document.getElementById("farsicost");
 const EFirstins = document.getElementById("firstins");
 const EFranchise = document.getElementById("franchise");
 const EPayment = document.getElementById("payment");
+const EAge = document.getElementById("age");;
 
 var hasFrstIns = undefined;
 var age = 18;
@@ -24,6 +25,12 @@ function reEvaluate() {
     payment = evaluate(doc);
     EPayment.innerText = payment;
 }
+
+EAge.addEventListener("input", (e) => {
+    age = e.target.value;
+    reEvaluate();
+});
+
 
 EFranchise.addEventListener("input", (e) => {
     franchise = e.target.value / 100;
@@ -134,11 +141,12 @@ const dataStr = `
 const data = JSON.parse(dataStr);
 
 function evaluate(key) {
+
     for (var i = 0; i < data.length; i++) {
         const e = data[i];
         if (e["key"] == key) {
 
-            if (age >= e["age"][0] || age <= e["age"][1]) {
+            if (age >= e["age"][0] && age <= e["age"][1]) {
                 // in case of undefined
                 if (hasFrstIns == true) {
                     console.log(Math.min(e["cst"][year][0], cost))
@@ -153,21 +161,27 @@ function evaluate(key) {
                         return Math.min(e["cst"][year][0], cost);
                     // doesnt have first insurance 
                     } else {
+
                         return Math.min(e["cst"][year][1], cost) - (Math.min(e["cst"][year][1], cost) * franchise);
                     }
                 }
             } else {
-                add("سن بیمار تحت پوشش نیست. گروه سنی عادی حساب شد.")
-                evaluate (cost, age, e["alt"], year, firstIns);
-                
+                err("سن بیمار مشمول تخصص نیست. هزینه تخصص یک پله پایینتر ارزیابی شد.");
+                setTimeout(()=>{
+                    err("");
+                }, 1000);
+                return evaluate(e["alt"]);
+
             }
         }
 
     };
-    return 0;
+    
 }
 
-
+function err(input) {
+    document.getElementById("err").innerText = input;
+}
 
 
 
